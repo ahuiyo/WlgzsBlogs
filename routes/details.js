@@ -18,15 +18,19 @@ router.get('/',function(req,res){
                     if(!err){
                         const result=JSON.parse(data.text).result;
                         const datas=JSON.parse(data.text).data;
-                        const label=datas.label.split(',');
+                        const label=datas.label.split('，');
                         const other=JSON.parse(data.text).database.other;
                         const before=JSON.parse(data.text).database.before;
                         const after=JSON.parse(data.text).database.after;
                         const comment=JSON.parse(data.text).datacomments;
                         const data3=JSON.parse(ress.text).data;
+                        const users=JSON.parse(data.text).user;
+                        console.log(users.user.id);
+                        console.log(datas.userId);
                         res.render('details',{
                             data3,
                             aid,
+                            users,
                             result:result,
                             datas:datas,
                             label:label,

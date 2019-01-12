@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/details.css">
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/details.js"></script>
+
 </head>
 <body>
 
@@ -36,10 +36,12 @@
                 <li><img src="images/detailtime.png"> <span><%=datas.createTime%></span></li>
                 <li><img src="images/detailsee.png"><span>浏览 <%=datas.pageviews%></span></li>
                 <li><img src="images/detailspeak.png"><span>评论 <%=datas.comments%></span></li>
+                <% if(datas.userId == users.user.id){ %>
                 <li class="right">
                     <a href="javascript:;">编辑</a>
                     <a href="javascript:;">删除</a>
                 </li>
+                <%}%>
             </ul>
             <ul class="contentType">
                 <% for(let i in label){%>
@@ -50,18 +52,18 @@
                 <b>摘要 ： </b><span><%= datas.blSummary %></span>
             </div>
             <div class="contenttext">
-                <%=datas.blContent%>
+                <%=datas.htmlContent%>
             </div>
             <div class="contentOper">
                 <a href="javascript:;" class="Operspeak">
                     <i class="fa fa-commenting-o" ></i>
-                    <span>评论 (<i>3</i>)</span></a>
+                    <span>评论 (<i><%= datas.comments %></i>)</span></a>
                 <a href="javascript:;" class="Operclick">
                     <i class="fa fa-thumbs-o-up" ></i>
-                    <span>点赞 (<i>3</i>)</span></a>
+                    <span>点赞 (<i><%= datas.blLikes %></i>)</span></a>
                 <a href="javascript:;" class="Opergather">
                     <i class="fa fa-heart-o"></i>
-                    <span>收藏 (<i>3</i>)</span>
+                    <span>收藏 (<i><%= datas.collects %></i>)</span>
                 </a>
             </div>
             <div class="updown">
@@ -85,24 +87,27 @@
                         </div>
                         <div class="allcommentRight">
                             <div class="comment-autor">
-                                <a href="javascript:;" class="autor-l"><%=comment[key][0].userName%></a>
+                                <a href="javascript:;" class="autor-l"><%=comment[key][0].name%></a>
                                 <a class="autor-r"><%=comment[key][0].createTime%></a>
                             </div>
                             <div class="commenttext">
                                 <p><%=comment[key][0].content%></p>
                             </div>
                             <ul class="twicetext">
-                                <li>
+                                <li class="twicetextbut">
                                     <i class="fa fa-commenting-o"></i><span>123</span>
                                 </li>
+                                <% if(comment[key][0].userId==users.user.id){%>
                                 <li class="deleteli">
                                     <a href="javascript:;">删除</a>
                                     <a href="javascript;;">编辑</a>
                                 </li>
+                                <%}%>
                             </ul>
                             <div class="inputbox" >
                                 <%for(var j=1;j<comment[key].length;j++){%>
                                 <div class="box-chat">
+
                                     <div class="chat">
                                         <div class="chat-comment-autor">
                                             <a href="javascript:;" class="chat-autor-l"><%=comment[key][j].userName%></a>
@@ -115,10 +120,12 @@
                                             <li class="essayblock">
                                                 <i class="fa fa-commenting-o"></i><span>123</span>
                                             </li>
+                                            <% if(comment[key][j].userId==users.user.id){%>
                                             <li class="chat-deleteli">
                                                 <a href="javascript:;">删除</a>
                                                 <a href="javascript;;">编辑</a>
                                             </li>
+                                            <%}%>
                                         </ul>
                                     </div>
                                     <div class="chat-essay" style=" display: none;">
@@ -138,9 +145,11 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-                    <%}}%>
+                    <%}%>
+                    <%}%>
                 </div>
             </div>
             <div class="speak">
@@ -175,7 +184,7 @@
                                 </div>
                                 <div class="box-like">
                                     <a href="javascript:;">
-                                        <i class="fa fa-heart"></i>
+                                        <i class="fa fa-thumbs-o-up"></i>
                                         <span>12</span>
                                     </a>
                                     <a href="javascript:;">
@@ -207,7 +216,7 @@
                                 </div>
                                 <div class="box-like">
                                     <a href="javascript:;">
-                                        <i class="fa fa-heart"></i>
+                                        <i class="fa fa-thumbs-o-up"></i>
                                         <span>12</span>
                                     </a>
                                     <a href="javascript:;">
@@ -271,6 +280,8 @@
 <%-include ./public/mask.ejs%>
 
 </body>
+
+<script type="text/javascript" src="javascripts/details.js"></script>
 <script>
         //搜索
         function OnChange() {
