@@ -1,0 +1,46 @@
+<div id="tab8" class="tabm">
+    <a href=""><img src="images/tou1.png" alt="" class="i_pic_l"/></a>
+    <div class="i_zl" id="w8">
+            <ul class='i_info'>
+                <li>
+                    <span>用户昵称：</span>
+                    <span><%=list.username%></span>
+                </li>
+                <li>
+                    <span>个人简介：</span>
+                    <span><%=list.introduce%></span>
+                </li>
+                <li>
+                    <span class="i_mine">我的标签：</span>
+                    <span>
+                        <div class='demo'>
+                            <ul class='select'>
+                                <li class="i_has">
+                                    <span style="display:inline-block;height:auto">
+                                        <!--选中后的li标签-->
+                                        <ul class='select-result s_pub' id='listdemo'>
+                                            <%for(var i = 0;i < lable.length;i++){%>
+                                                <li><%=lable[i].caName%></li>
+                                            <%}%>
+                                        </ul>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="i_mine" style="margin-left: -17px">全部标签：</span>
+                                    <span class='select-list s_pub'>
+                                        <!--全部的li标签-->
+                                        <ul id='select1' onclick='add(event)'>
+                                            <%for(var j=0;j < cotegory.length;j++){%>
+                                                <li><%=cotegory[j].caName%></li>
+                                            <%}%>
+                                        </ul>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </span> 
+                </li>
+            </ul>
+            <button class='i_btn'>保存</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+<div id="tab2" class="tabm">
+    <p class="g_font">我的点赞</p>
+    <div class="g_wrap" id="w2">
+        <%for(let i=0;i<list.length;i++){%>
+        <div class='g_list'>
+            <div class='s-content'>
+                <div class='s-desc'>
+                    <span><%=list[i].createTime%></span>，赞了该文章
+                </div>
+                <div class='g_box'>
+                    <span class='arrow'></span>
+                    <a href='/details?id=<%=list[i].id%>' class='s-title'><%=list[i].blTitle%></a>
+                    <div>
+                        <div class='s-desc'>
+                            <%=list[i].blSummary%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%}%>
+    </div>
+</div>

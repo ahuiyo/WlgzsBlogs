@@ -1,0 +1,20 @@
+<div id="tab4" class="tabm">
+    <p class="g_font">我的评论</p>
+    <div class="g_wrap" id="w4">
+        <%for (let i=0;i<list.length;i++){%>
+            <div class='subject-item'>
+                <div class="s-content" style="margin:30px 100px 30px 30px">
+                    <h3 class="s-title">
+                        <a href="/details?id=<%=list[i].id%>" class="s-h3"><%=list[i].title%></a>
+                    </h3>
+                    <p class="s-desc">
+                        <span style="font-weight: bold"> 我的评论：</span>
+                        <span><%=list[i].content%></span></p>
+                    <p class="s-info">
+                        <span>评论时间：<%=list[i].createTime%></span>
+                    </p>
+                </div>
+            </div>
+        <%}%>
+    </div>
+</div>

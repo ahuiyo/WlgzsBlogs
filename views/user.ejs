@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>未来工作室-个人主页</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="stylesheets/public/header.css">
+    <link rel="stylesheet" href="stylesheets/public/mask.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/user.css">
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+</head>
+<body>
+
+<%-include ./public/header.ejs%>
+
+<section class="top">
+    <div class="topimg">
+        <div class="top-con">
+            <img src="images/a3.jpg">
+            <div class="con-infor">
+                <h3>
+                    <span><%=personInformation.userName%></span>
+                    <a href="javascrippt:;">+&nbsp;关注</a>
+                    <a href="javascrippt:;">已关注</a>
+                </h3>
+                <p>
+                    <span>关注&nbsp;<i>1</i></span>
+                    <span>粉丝&nbsp;<i>1</i></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="headers">
+    <ul>
+        <li class="liactive"><a href="">首页</a> </li>
+        <li><a href="">草稿</a> </li>
+    </ul>
+</section>
+<section class="table">
+    <ul class="table-queer">
+        <% for(let i in datas){ %>
+        <!--此li为有图片的li-->
+        <li class="queer-time">
+            <div class="delorwrite">
+                <a href="">编辑</a>
+                <a href="">删除</a>
+            </div>
+            <a href="javascript:;">
+                <div class="time-icon"></div>
+                <div class="time-content">
+                    <p class="content-time"><%=datas[i].cteateTime%></p>
+                    <h3>
+                        <span><%=datas[i].blTitle%></span>
+                    </h3>
+                    <div class="img-info">
+                        <img src="images/b1.jpg">
+                    </div>
+                    <div class="other-info">
+                        <p class="infonum">
+                            <span>浏览&nbsp;<i><%=datas[i].pageviews%></i></span>
+                            <span>回帖&nbsp;<i><%=datas[i].comments%></i></span>
+                        </p>
+                        <p class="infocon">
+                            <%=datas[i].blContent%>
+                        </p>
+                        <ul class="infotype">
+                            <%for(let j in datas[i].label){%>
+                            <li><%=datas[i].label[j]%></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <%}%>
+    </ul>
+    <div class="table-side">
+        <div class="side-above">
+            <div class="above-title">
+                <span>关注的人</span>&nbsp;<span style="color: #999">(9)</span>
+                <a href="javascript:;">更多&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a>
+            </div>
+            <div class="above-pro">
+                <%for(let i in dataother.attention){%>
+                <a href="" class="pro">
+                    <img src="images/a3.jpg">
+                    <span><%=dataother.attention[i].userName%></span>
+                </a>
+                <%}%>
+            </div>
+        </div>
+        <div class="side-bean">
+            <div class="above-title">
+                <span>粉丝</span>&nbsp;<span style="color: #999">(19)</span>
+                <a href="javascript:;">更多&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a>
+            </div>
+            <div class="above-pro">
+                <%for(let i in database.fan){%>
+                <a href="" class="pro">
+                    <img src="images/a3.jpg">
+                    <span><%=database.fan[i].userName%></span>
+                </a>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--搜索遮罩-->
+<%-include ./public/mask.ejs%>
+
+</body>
+<script>
+    $(function () {
+
+    })
+        //搜索
+        function OnChange() {
+            const val=$('.c_search').val();
+            const data={
+                key:val
+            }
+            $.ajax({
+                url:'/search',
+                type:'post',
+                data: data,
+                success:function (data) {
+                    let str="";
+                    if (data.length<=0){
+                        str="<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
+                    }
+                    //得到数据拼接字符串 并显示
+                    for (let i=0;i<data.length;i++){
+                        str+="<div class='c_list'><div class='main-info'><h3>标题</h3><p class='desc'>摘要</p></div>" +
+                            "<div class='less-info'><p class='source'><span class='author'>作者</span></p></div></div>"
+                    }
+                    $('#wrap').html(str);
+                }
+            })
+        }
+
+</script>
+</html>

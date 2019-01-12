@@ -1,0 +1,31 @@
+<div id="tab6" class="tabm">
+    <div class="g_font">
+        <span>我的粉丝</span>
+        <span class="g_spn">共有<span id="i_fans"><%=list.length%></span>个人在关注你</span>
+    </div>
+    <div class="g_wrap" id="w6">
+        <%for (let i=0;i<list.length;i++){ %>
+            <div class='eve_list'>
+                <div class='fans_pic'>
+                    <div class='f_pic box1'>
+                    </div>
+                    <div class='f_pic box2'></div>
+                    <div class='f_pic box3'>
+                        <img class='f-pic' src='images/tou1.png'>
+                    </div>
+                </div>
+                <div class='fans_font'>
+                    <h4><%=list[i].userName%></h4>
+                    <p><%=list[i].content%></p>
+                </div>
+                <button onclick="fans(this)" class='eve_btn F_btn'>取消关注</button>
+            </div>
+        <%}%>
+    </div>
+    <div class="split_page">
+        <span><</span>
+        <span class="active">1</span>
+        <span>2</span>
+        <span>></span>
+    </div>
+</div>

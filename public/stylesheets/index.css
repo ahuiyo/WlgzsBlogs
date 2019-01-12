@@ -1,0 +1,294 @@
+
+body{
+    width: 100vw;
+    background: url("../images/M-bg.png") center center repeat-x;
+    background-size: contain;
+}
+/*wrapper*/
+.wrapper{
+    width: 80%;
+    height: auto;
+    overflow: hidden;
+    margin: 15px auto;
+    position: relative;
+}
+.de_box{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: #fff;
+}
+/*轮播*/
+.LunBo{
+    width: 65%;
+    height: 225px;
+    overflow: hidden;
+    display: inline-block;
+}
+.content{
+    float: left;
+    width: 100%;
+    height: 225px;
+    transition: all 1s;
+}
+.content li{
+    display: block;
+    font-size: 0;
+}
+.content img{
+    width: 100%;
+    height: 225px;
+}
+/*右边*/
+.lun-right{
+    width: 34%;
+    height: 225px;
+    display: inline-block;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.lun-right li{
+    width: 100%;
+    height: 112px;
+    float: left;
+    overflow: hidden;
+}
+.lun-right li+li{
+    margin-top: 5px;
+}
+.lun-right img{
+    width: 100%;
+    height: 100%;
+}
+.l_mask{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background-color: rgba(0,0,0,.4);
+    color: #fff;
+    font-size: 10px;
+    line-height: 25px;
+    padding-left: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.l-box:nth-child(1){border-bottom: 2px solid #fff;height:50%}
+.clock{
+    width: 100%;
+    height: 225px;
+    background-color: #fff;
+    padding: 20px 0 0 20px
+}
+#zzsc{
+    width:100%;
+    height: 190px;
+    overflow: hidden;
+}
+/*左边侧边栏*/
+.w_left{
+    float: left;
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+.label{
+    width: 100%;
+    overflow: hidden;
+    padding:5px 25px;
+    background-color: #fff;
+    margin-bottom: 2px;
+}
+.show{
+    width: 75%;
+    float: left;
+    transition: 0.2s;
+    overflow: hidden;
+}
+.show li{
+    height: 40px;
+    line-height: 40px;
+    margin-right: 25px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 2px solid #fff;
+}
+.show li::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 100%;
+    border-bottom: 2px solid #36f;
+    transition: all .3s;
+}
+.show li:hover::before{width: 100%;left: 0;}
+.show li:hover ~ li::before{left: 0;}
+
+/*show li 字体颜色变化*/
+.show>li:hover{color:#3366ff}
+.c_color{color: #3366ff}
+.choice-icon{
+    width: 60px;
+    font-size: 14px;
+    color: #36f;
+    line-height: 24px;
+    display: inline-block;
+    margin: 7px 0 0 50px;
+    cursor: pointer;
+}
+.lineC{
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    text-align: center;
+}
+.Turn{
+    font-size: 16px;
+    transform: rotate(0deg);
+    transition: .3s;
+    transform-origin:center;
+}
+#contain{width: 100%;height: 100%}
+.c_box{
+    width: 100%;
+    padding: 30px 30px 30px 50px;
+    background: #fff;
+    margin-bottom: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.c_box:hover{background-color: #fcfcfc}
+.item-info{
+    width: 68%;
+    float: left;
+}
+.item-pic {
+    overflow: hidden;
+    width:27%;
+    height: 120px;
+    float: right;
+    margin: 5px 0;
+    position: relative;
+}
+.item-pic .type {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(0,0,0,.3);
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0 6px;
+    z-index: 2;
+}
+.item-pic img {
+    display: block;
+    width: 100%;
+    height: 120px;
+}
+.pic-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 1;
+    background-color: rgba(0,0,0,.1);
+}
+/*右边*/
+.w_right{
+    float: right;
+    width: 28%;
+    height:100%;
+    z-index: -1;
+}
+.pix{
+    width: 100%;
+    height: 500px;
+    background-color: white;
+    padding:8px 20px;
+}
+.newBlog{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    background: url("../images/M-bg.png") center center repeat-x;
+    background-size: contain;
+}
+.more{
+    color: #000;
+    font-size: 12px;
+    float: right;
+}
+.more:hover{
+    font-size: 14px;
+    color: #36f;
+}
+.ul4{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 0 0 15px 0;
+}
+.ul4 a{
+    display: block;
+    width: 100%;
+    color: #4d5356;
+}
+.dot {
+    width: 0;
+    height: 0;
+    border: 1px solid #585d60;
+    margin-right: 8px;
+    font-size: 0;
+    display: inline-block;
+    margin-top: -3px;
+    vertical-align: middle;
+}
+.item {
+      display: inline-block;
+      width: 90%;
+      margin-top: 10px;
+      line-height: 100%;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
+.item:hover{color: #36f}
+.conents{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    min-height: 615px;
+    background: #f4f5f5 url("../images/M-bg.png") center center repeat-x ;
+    background-size: contain;
+}
+.back-main{
+    float: right;
+    font-size: 13px;
+    color: #000;
+}
+.c_top{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,.4);
+}
+
+
+
+

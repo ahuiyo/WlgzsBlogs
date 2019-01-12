@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>未来工作室-阅读</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/header.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/details.css">
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/details.js"></script>
+</head>
+<body>
+
+<%-include ./public/header.ejs%>
+
+<section class="top">
+    <div class="topimg"></div>
+</section>
+<section class="fixedtext">
+    <h3><%=datas.blTitle%></h3>
+</section>
+<section class="headers">
+    <div class="point">
+        <span>未来工作室</span>
+        <span> <a class="color" href="javascript:;">首页</a></span>
+        <span><a class="color" href="javascript:;">博客</a></span>
+        <span>正文</span>
+    </div>
+    <div class="content">
+        <div class="contentLeft">
+            <h1 class="contentTitle"><%=datas.blTitle%></h1>
+            <ul class="contentTime">
+                <li><a href="javascript:;"><%=datas.penName%></a></li>
+                <li><img src="images/detailtime.png"> <span><%=datas.createTime%></span></li>
+                <li><img src="images/detailsee.png"><span>浏览 <%=datas.pageviews%></span></li>
+                <li><img src="images/detailspeak.png"><span>评论 <%=datas.comments%></span></li>
+                <li class="right">
+                    <a href="javascript:;">编辑</a>
+                    <a href="javascript:;">删除</a>
+                </li>
+            </ul>
+            <ul class="contentType">
+                <% for(let i in label){%>
+                <li><a href="javascript:;"><%=label[i]%></a></li>
+                <%}%>
+            </ul>
+            <div class="contentreq">
+                <b>摘要 ： </b><span><%= datas.blSummary %></span>
+            </div>
+            <div class="contenttext">
+                <%=datas.blContent%>
+            </div>
+            <div class="contentOper">
+                <a href="javascript:;" class="Operspeak">
+                    <i class="fa fa-commenting-o" ></i>
+                    <span>评论 (<i>3</i>)</span></a>
+                <a href="javascript:;" class="Operclick">
+                    <i class="fa fa-thumbs-o-up" ></i>
+                    <span>点赞 (<i>3</i>)</span></a>
+                <a href="javascript:;" class="Opergather">
+                    <i class="fa fa-heart-o"></i>
+                    <span>收藏 (<i>3</i>)</span>
+                </a>
+            </div>
+            <div class="updown">
+                <% if(before){%>
+                <a href="/details?id=<%=before.id %>">上一篇：<span><%=before.blTitle%></span></a>
+                <%}%>
+                <% if(after){%>
+                <a href="/details?id=<%=after.id%>">下一篇：<span><%after.blTitle%></span></a>
+                <%}%>
+            </div>
+            <div class="comment">
+                <h3>网友评论</h3>
+                <div class="comment">
+                    <%for(var key in comment){%>
+                    <%if(comment[key]!=''){%>
+                    <div class="allcomment">
+                        <div class="allcommentLeft">
+                            <a href="javascript:;">
+                                <img src="images/a3.jpg">
+                            </a>
+                        </div>
+                        <div class="allcommentRight">
+                            <div class="comment-autor">
+                                <a href="javascript:;" class="autor-l"><%=comment[key][0].userName%></a>
+                                <a class="autor-r"><%=comment[key][0].createTime%></a>
+                            </div>
+                            <div class="commenttext">
+                                <p><%=comment[key][0].content%></p>
+                            </div>
+                            <ul class="twicetext">
+                                <li>
+                                    <i class="fa fa-commenting-o"></i><span>123</span>
+                                </li>
+                                <li class="deleteli">
+                                    <a href="javascript:;">删除</a>
+                                    <a href="javascript;;">编辑</a>
+                                </li>
+                            </ul>
+                            <div class="inputbox" >
+                                <%for(var j=1;j<comment[key].length;j++){%>
+                                <div class="box-chat">
+                                    <div class="chat">
+                                        <div class="chat-comment-autor">
+                                            <a href="javascript:;" class="chat-autor-l"><%=comment[key][j].userName%></a>
+                                            <a class="chat-autor-r"><%=comment[key][j].createTime%></a>
+                                        </div>
+                                        <div class="chat-commenttext">
+                                            <p><%=comment[key][j].content%></p>
+                                        </div>
+                                        <ul class="chat-twicetext">
+                                            <li class="essayblock">
+                                                <i class="fa fa-commenting-o"></i><span>123</span>
+                                            </li>
+                                            <li class="chat-deleteli">
+                                                <a href="javascript:;">删除</a>
+                                                <a href="javascript;;">编辑</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="chat-essay" style=" display: none;">
+                                        <textarea class="essay"></textarea>
+                                        <div class="essay-control">
+                                            <a class="essayreview" href="javascript:;">评论</a>
+                                            <a class="essaydel" href="javascript:;">取消</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                                <div class="box-room">
+                                    <textarea class="room-text" placeholder="留下你的评论"></textarea>
+                                    <div class="room-control" style="display: none;">
+                                        <a class="review" href="javascript:;">评论</a>
+                                        <a class="del" href="javascript:;">取消</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%}}%>
+                </div>
+            </div>
+            <div class="speak">
+                <div class="speak-peo">
+                    <div class="peotext">还可评论150个字</div>
+                    <textarea maxlength="150" class="textarea" name="content" placeholder="快来评论吧"></textarea>
+                    <div class="peobut">
+                        <a href="javascript:;">评论</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contentrelative">
+                <h3>相关文章</h3>
+                <ul class="relative-title">
+                    <li>
+                        <a href="javascript:;">
+                            <div class="rel-box">
+                                <ul class="box-t">
+                                    <span style="color:#B71ED7;float: left;font-size: 10px;line-height: 22px;margin-right: 10px">推荐</span>
+                                    <li>
+                                        <a href="javascript:;">三少</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">16小时前</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">java/js</a>
+                                    </li>
+                                </ul>
+                                <div class="box-title">
+                                    <a href="javascript:;">8月16日云栖精选夜读 | 加码投资亚太市场，阿里云区域</a>
+                                </div>
+                                <div class="box-like">
+                                    <a href="javascript:;">
+                                        <i class="fa fa-heart"></i>
+                                        <span>12</span>
+                                    </a>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-commenting"></i>
+                                        <span>12</span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="rel-box">
+                                <ul class="box-t">
+                                    <span style="color:#B71ED7;float: left;font-size: 10px;line-height: 22px;margin-right: 10px">推荐</span>
+                                    <li>
+                                        <a href="javascript:;">三少</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">16小时前</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">java/js</a>
+                                    </li>
+                                </ul>
+                                <div class="box-title">
+                                    <a href="javascript:;">8月16日云栖精选夜读 | 加码投资亚太市场，阿里云区域</a>
+                                </div>
+                                <div class="box-like">
+                                    <a href="javascript:;">
+                                        <i class="fa fa-heart"></i>
+                                        <span>12</span>
+                                    </a>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-commenting"></i>
+                                        <span>12</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="contentRight">
+            <div class="right-blogger">
+                <div class="blogger-title">
+                    博主介绍
+                </div>
+                <div class="blogger-pho">
+                    <img src="images/a3.jpg">
+                </div>
+                <div class="blogger-brief">
+                    <h6><a href="details?id=<%=aid.id%>/user"><%=datas.penName%></a></h6>
+                    <p class="brief-all">
+                        <span>文章</span><span><%= result.blogNum %>篇</span>
+                        <br/>
+                        <span>关注</span><span><%= result.myAttentionNumber %></span>
+                    </p>
+                    <p class="add">
+                        <a href="">+ 关注</a>
+                    </p>
+                </div>
+            </div>
+            <div class="its-blogg">
+                <div class="its-title">
+                    <span>博主其他文章</span>
+                    <a class="title-many" href="javascript:;">
+                        更多&nbsp;&nbsp;&nbsp;<i style="font-size: 16px" class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                <ul class="its-all">
+                    <%if(other !=null){%>
+                        <% for(var i in other){%>
+                        <li>
+                            <a href="/user">
+                                <span><%=other[i].blTitle%></span>
+                            </a>
+                        </li>
+                        <%}%>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="returntop" title="返回顶部">
+            <i class="fa fa-chevron-up"></i>
+        </div>
+    </div>
+</section>
+
+<!--搜索遮罩-->
+<%-include ./public/mask.ejs%>
+
+</body>
+<script>
+        //搜索
+        function OnChange() {
+            const val=$('.c_search').val();
+            const data={
+                key:val
+            }
+            $.ajax({
+                url:'/search',
+                type:'post',
+                data: data,
+                success:function (data) {
+                    let str="";
+                    if (data.length<=0){
+                        str="<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
+                    }
+                    //得到数据拼接字符串 并显示
+                    for (let i=0;i<data.length;i++){
+                        str+="<div class='c_list'><div class='main-info'><h3>标题</h3><p class='desc'>摘要</p></div>" +
+                            "<div class='less-info'><p class='source'><span class='author'>作者</span></p></div></div>"
+                    }
+                    $('#wrap').html(str);
+                }
+            })
+        }
+</script>
+</html>

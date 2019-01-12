@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客管理</title>
+    <link rel="stylesheet" href="stylesheets/admin/everycss/type2.css">
+</head>
+<body>
+    <table class="tab" cellpadding="0" cellspacing="0" id="tab">
+        <tr>
+            <th>ID</th>
+            <th>博客标题</th>
+            <th>博客标签</th>
+            <th>博客摘要</th>
+            <th>管理操作</th>
+        </tr>
+        <%for(let i = 0;i<list.length;i++){%>
+            <tr>
+                <td><%=list[i].id%></td>
+                <td><%=list[i].blTitle%></td>
+                <td><%=list[i].articleType%></td>
+                <td><%=list[i].articleType%></td>
+                <td><a href="#">操作</a></td>
+            </tr>
+        <%}%>
+    </table>
+</body>
+</html>

@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: #efefef url(../images/M-bg.png) repeat;
+}
+.top{
+    width: 100%;
+    height: 50px;
+    background-color: #373d41;
+}
+.wrap{
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+.top_pic{
+    width: 70px;
+    height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.name{
+    color: #fff;
+    font-size: 14px;
+    line-height: 50px;
+    font-weight: bold;
+    font-family: "楷体";
+}
+.wrapper{
+    width: 70%;
+    height: auto;
+    overflow: hidden;
+    margin: 15px auto;
+    position: relative;
+}
+.c_box{
+    width: 100%;
+    padding: 30px 30px 30px 50px;
+    background: #fff;
+    margin-bottom: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+.c_box:hover{  
+    box-shadow: 2px 2px 5px #ddd;
+    border: 1px solid #ccc;
+}
+.item-info{
+    width: 68%;
+    float: left;
+}
+.item-pic {
+    overflow: hidden;
+    width: 24%;
+    height: 120px;
+    float: right;
+    margin: 5px 0;
+    position: relative;
+}
+.item-pic .type {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(0,0,0,.3);
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0 6px;
+    z-index: 2;
+}
+.item-pic img {
+    display: block;
+    width: 100%;
+    height: 120px;
+}
+.pic-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 1;
+    background-color: rgba(0,0,0,.1);
+}
+.main-info{overflow: hidden}
+.main-info h3{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    max-height: 64px;
+    overflow: hidden;
+}
+.main-info h3 a{color: #373d41;}
+.main-info h3:hover a{color: #36f}
+.main-info .desc{
+    font-size: 12px;
+    color: #9b9ea0;
+    line-height: 20px;
+    margin: 12px 0;
+    max-height: 40px;
+    overflow: hidden;
+}
+.less-info{
+    position: relative;
+    z-index: 10;
+}
+.source{
+    color: #373d41;
+    font-size: 12px;
+    line-height: 20px;
+}
+.source span{
+    margin-right: 20px;
+    color: #9b9ea0;
+}
+.source a {
+    color: #373d41;
+    text-decoration: none;
+}
+.author{
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.type{
+    padding:2px 11px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+}
+.tipe1{
+    width: 100%;
+    height: 580px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+

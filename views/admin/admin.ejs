@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理界面</title>
+    <link rel="stylesheet" href="stylesheets/admin/admin.css">
+    <link rel="stylesheet" href="stylesheets/admin/everycss/type1.css">
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+</head>
+<body>
+<!--left-->
+    <div class="left">
+        <div class="l_img">
+            <img class="l_icon" src="images/tou.jpg">
+        </div>
+        <p class="l_font">汤小米</p>
+        <ul class="L_list">
+            <li id="1">
+                <i class="i-icon"><img src="images/01.png" alt=""></i>
+                类型管理
+                <i id="icons" class="ics"></i>
+            </li>
+            <li id="2" >
+                <i class="i-icon"><img src="images/02.png" alt=""></i>
+                博客管理
+                <i id="icons" class="ics"></i>
+            </li>
+            <li id="3" >
+                <i class="i-icon"><img src="images/03.png" alt=""></i>
+                收藏管理
+                <i id="icons" class="ics"></i>
+            </li>
+            <li id="4" >
+                <i class="i-icon"><img src="images/04.png" alt=""></i>
+                评论管理
+                <i id="icons" class="ics"></i>
+            </li>
+            <li id="5" >
+                <i class="i-icon"><img src="images/05.png" alt=""></i>
+                点赞管理
+                <i id="icons" class="ics"></i>
+            </li>
+            <li id="6" >
+                <i class="i-icon"><img src="images/06.png" alt=""></i>
+                草稿管理
+                <i id="icons" class="ics"></i>
+            </li>
+            <li id="7" >
+                <i class="i-icon"><img src="images/07.png" alt=""></i>
+                消息管理
+                <i id="icons" class="ics"></i>
+            </li>
+        </ul>
+    </div>
+    <!--right-->
+    <div class="right">
+        <!--top-->
+        <div class="r_top">
+            <div class="r_btns">
+                <span class="r_welcome">欢迎您，<span>汤小米</span></span>
+                <a href="/login" class="exit">
+                    <img class="e_png" src="images/exit.png">
+                    退出
+                </a>
+            </div>
+        </div>
+        <!--contain 内容区域-->
+        <div class="r_contain">
+            <div class="wrap-box" id="wrapid">
+                <div class="posit">
+                    <p class="pf1 pf">欢迎登录，</p>
+                    <p class="pf2 pf">后台管理界面</p>
+                </div>
+                <canvas id="canvasParticle">
+                    Canvas is not supported in your brower.
+                </canvas>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        let oCanvas = document.getElementById('canvasParticle');
+        let cxt = null;
+        let particles = {};
+        let particleIndex = 0;
+        if (oCanvas.getContext) {
+            cxt = oCanvas.getContext('2d');
+        }
+        oCanvas.width = 1300;
+        oCanvas.height = window.innerHeight - 58;
+        function Particle() {
+            particleIndex++;
+            particles[particleIndex] = this;
+            this.x = oCanvas.width / 2;
+            this.y = oCanvas.height / 2;
+            this.vx = Math.random() * 6 - 3;
+            this.vy = Math.random() * 4 - 2;
+            this.growth = (Math.abs(this.vx) + Math.abs(this.vy)) * 0.01; // 根据x/y轴的位置决定大小
+            this.id = particleIndex;
+            this.size = 0;
+            this.color = getRandomColor();
+        }
+        Particle.prototype.draw = function() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.size += this.growth;
+
+            if (this.x < 0 || this.x > oCanvas.width || this.y < 0 || this.y > oCanvas.height) {
+                delete particles[this.id];
+            }
+            cxt.fillStyle = this.color;
+            cxt.beginPath();
+            cxt.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+            cxt.fill();
+        };
+        function animate() {
+            requestAnimationFrame(animate);
+            //背景颜色
+            cxt.fillStyle = '#fff';
+            cxt.fillRect(0, 0, oCanvas.width, oCanvas.height);
+
+            new Particle();
+
+            for (let i in particles) {
+                particles[i].draw();
+            }
+        }
+        requestAnimationFrame(animate);
+    };
+    function getRandomColor() {
+        return '#' + (Math.random() * 0xffffff << 0).toString(16);
+    }
+</script>
+<script type="text/javascript" src="javascripts/admin.js"></script>
+</html>

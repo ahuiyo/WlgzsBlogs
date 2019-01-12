@@ -1,0 +1,39 @@
+
+    <%for(var i=0;i<data.length;i++){%>
+        <div id="tab" class="c_box">
+            <div class="item-info">
+                <div class="main-info">
+                    <h3>
+                        <!--页面问题-->
+                        <a href="/details?id=<%=data[i].id%>">
+                            <%=data[i].blTitle%>
+                        </a>
+                    </h3>
+                    <%if (data[i].blSummary) {%>
+                        <p class="desc"><%=data[i].blSummary%></p>
+                    <%}else{%>
+                        <p class="desc"></p>
+                    <%}%>
+                </div>
+                <!--时间  浏览数量-->
+                <div class="less-info">
+                    <p class="source">
+                        <span class="author"><a href="/"><%=data[i].name%></a></span>
+                        <span class="type"><%=data[i].articleType%></span>
+                        <span><%=data[i].createTime%></span>
+                        <span><%=data[i].pageviews%>人浏览</span>
+                        <span>来自 <i style="font-style:normal;color:#000">博客</i></span>
+                    </p>
+                </div>
+            </div>
+            <!--图片-->
+            <div class="item-pic">
+                <a href="">
+                    <span class="type">博客</span>
+                    <img src="images/page.png">
+                    <!--遮罩-->
+                    <div class="pic-mask"></div>
+                </a>
+            </div>
+        </div>
+    <%}%>

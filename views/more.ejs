@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载更多-博客</title>
+    <link rel="stylesheet" href="stylesheets/more.css">
+</head>
+<body>
+    <!-- 顶部 -->
+    <div class="top">
+        <div class="wrap">
+            <img src="images/top1.png" class="top_pic">
+            <span class="name">未来工作室</span>
+        </div>
+    </div>
+    <!--wrapper-->
+        <div class="wrapper">
+        <!--博客列表-->
+            <% for(var i = 0;i < list.length; i++){ %>
+            <div id="tab" class="c_box">
+                <div class="item-info">
+                    <div class="main-info">
+                        <h3>
+                            <a href="/details?id=<%=list[i].id%>"><%=list[i].blTitle%></a>
+                        </h3>
+                        <p class="desc"><%=list[i].blSummary%></p>
+                    </div>
+                    <!--时间、浏览数量-->
+                    <div class="less-info">
+                        <p class="source">
+                            <span class="author"><a href="#"><%=list[i].className%></a></span>
+                            <span class="type"><%=list[i].articleType%></span>
+                            <span><%=list[i].createTime%></span>
+                            <span><%=list[i].pageviews%>人浏览</span>
+                            <span>来自 <i style="font-style:normal;color:#000">博客</i></span>
+                        </p>
+                    </div>
+                </div>
+                <!--图片-->
+                <div class="item-pic">
+                    <a href="#">
+                        <span class="type">博客</span>
+                        <img src="images/page.png">
+                        <!--遮罩-->
+                        <div class="pic-mask"></div>
+                    </a>
+                </div>
+            </div> 
+            <%}%>
+        </div>
+</body>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+</html>

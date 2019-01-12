@@ -1,0 +1,32 @@
+<div id="tab1" class="tabm">
+    <div class="g_font" style="position: relative;">
+        <p>我的博客</p>
+        <button class="b_btn">发表文章</button>
+    </div>
+    <div class="g_wrap" id="w1">
+        <%for(let i=0;i<list.length;i++){%>
+        <div class="g_list">
+            <div class="s-content">
+                <a href="/details?id=<%=list[i].id%>" class="s-title"><%=list[i].blTitle%></a>
+                <p class="s-info">
+                    <span>发布时间：<%=list[i].createTime%></span>
+                    <span>浏览：<%=list[i].pageviews%></span>
+                    <span>评论 ：<%=list[i].comments%></span>
+                </p>
+                <p class="s-desc"><%=list[i].blSummary%></p>
+                <!--标签-->
+                <p class="tags">
+                    <%for (var j=0;j<list[i].label.length;j++){ %>
+                    <a href="#" class="label-item"><%=list[i].label[j]%></a>
+                    <%}%>
+                </p>
+            </div>
+        </div>
+        <%}%>
+    </div>
+</div>
+
+
+
+
+
