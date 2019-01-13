@@ -244,7 +244,9 @@ input {
 .headers .content .contentLeft .contentOper a:hover {
     color: #22b2ef;
 }
-
+.headers .content .contentLeft .contentOper a.Operclick{
+    color: #22b2ef;
+}
 .headers .content .contentLeft .contentOper:after {
     content: "\0020";
     display: block;

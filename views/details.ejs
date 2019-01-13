@@ -32,11 +32,11 @@
         <div class="contentLeft">
             <h1 class="contentTitle"><%=datas.blTitle%></h1>
             <ul class="contentTime">
-                <li><a href="javascript:;"><%=datas.penName%></a></li>
+                <li><a href="javascript:;"><%=users.username %></a></li>
                 <li><img src="images/detailtime.png"> <span><%=datas.createTime%></span></li>
                 <li><img src="images/detailsee.png"><span>浏览 <%=datas.pageviews%></span></li>
                 <li><img src="images/detailspeak.png"><span>评论 <%=datas.comments%></span></li>
-                <% if(datas.userId == users.user.id){ %>
+                <% if(result.loginUserId == users.id){ %>
                 <li class="right">
                     <a href="javascript:;">编辑</a>
                     <a href="javascript:;">删除</a>
@@ -52,19 +52,120 @@
                 <b>摘要 ： </b><span><%= datas.blSummary %></span>
             </div>
             <div class="contenttext">
-                <%=datas.htmlContent%>
+                <%-datas.htmlContent%>
             </div>
             <div class="contentOper">
                 <a href="javascript:;" class="Operspeak">
                     <i class="fa fa-commenting-o" ></i>
-                    <span>评论 (<i><%= datas.comments %></i>)</span></a>
-                <a href="javascript:;" class="Operclick">
+                    <span>评论 (<i><%= datas.comments %></i>)</span>
+                </a>
+                <%if(result.isLike==0){%>
+                <a href="javascript:;" class="noclick">
                     <i class="fa fa-thumbs-o-up" ></i>
-                    <span>点赞 (<i><%= datas.blLikes %></i>)</span></a>
-                <a href="javascript:;" class="Opergather">
+                    <span>点赞 (<i><%= datas.blLikes %></i>)</span>
+                </a>
+                <%}%>
+                <%if(result.isLike==1){%>
+                    <a href="javascript:;" class="noclick Operclick">
+                        <i class="fa fa-thumbs-o-up" ></i>
+                        <span>点赞 (<i><%= datas.blLikes %></i>)</span>
+                    </a>
+                <%}%>
+                <input type="hidden" class="dataid" value="<%=datas.id%>" />
+                <script>
+                    // 点赞以及取消点赞ajax
+                    $('.noclick').click(
+                        function () {
+                            let noclick=$(this);
+                            let dataid=$('.dataid').val();
+
+                            $.ajax({
+                                url:'/details/savelike',
+                                type:'get',
+                                data:{
+                                    id : dataid,
+                                },
+                                success:function (data) {
+                                    if(data.code==0){
+                                        if(noclick.hasClass('Operclick')){
+                                            noclick.removeClass('Operclick');
+                                            let num=noclick.children("span").children("i").html();
+                                            num--;
+                                            noclick.children("span").children("i").html(num);
+
+                                        }else{
+                                            noclick.addClass('Operclick');
+                                            let num=noclick.children("span").children("i").html();
+                                            num++;
+                                            noclick.children("span").children("i").html(num);
+
+
+                                        }
+                                    }else{
+                                        alert("网络错误，请重试！");
+                                    }
+
+
+                                }
+                            })
+
+                        }
+                    );
+
+
+
+                </script>
+                <%if(result.isCollection==0){%>
+                <a href="javascript:;" class="nocollect">
                     <i class="fa fa-heart-o"></i>
                     <span>收藏 (<i><%= datas.collects %></i>)</span>
                 </a>
+                <%}%>
+                <%if(result.isCollection==1){%>
+                    <a href="javascript:;" class="nocollect Operclick">
+                        <i class="fa fa-heart-o"></i>
+                        <span>收藏 (<i><%= datas.collects %></i>)</span>
+                    </a>
+                <%}%>
+                <script>
+                    // <!--收藏-->
+                    $('.nocollect').click(
+                        function () {
+
+                            let nocollect=$(this);
+                            let dataid=$('.dataid').val();
+
+                                $.ajax({
+                                    url:'/details/savecollect',
+                                    type:'get',
+                                    data:{
+                                        id:dataid
+                                    },
+                                    success:function (data) {
+                                        if(data.code==0){
+                                            if(nocollect.hasClass('Operclick')){
+                                                nocollect.removeClass('Operclick');
+                                                let num=nocollect.children("span").children("i").html();
+                                                num--;
+                                                nocollect.children("span").children("i").html(num);
+
+                                            }else{
+                                                nocollect.addClass('Operclick');
+                                                let num=nocollect.children("span").children("i").html();
+                                                num++;
+                                                nocollect.children("span").children("i").html(num);
+
+
+                                            }
+                                        }else{
+                                            alert("网络错误，请重试！");
+                                        }
+                                    }
+                                })
+
+                        }
+                    );
+                </script>
             </div>
             <div class="updown">
                 <% if(before){%>
@@ -97,7 +198,7 @@
                                 <li class="twicetextbut">
                                     <i class="fa fa-commenting-o"></i><span>123</span>
                                 </li>
-                                <% if(comment[key][0].userId==users.user.id){%>
+                                <% if(comment[key][0].userId==result.loginUserId){%>
                                 <li class="deleteli">
                                     <a href="javascript:;">删除</a>
                                     <a href="javascript;;">编辑</a>
@@ -120,7 +221,7 @@
                                             <li class="essayblock">
                                                 <i class="fa fa-commenting-o"></i><span>123</span>
                                             </li>
-                                            <% if(comment[key][j].userId==users.user.id){%>
+                                            <% if(comment[key][j].userId==result.loginUserId){%>
                                             <li class="chat-deleteli">
                                                 <a href="javascript:;">删除</a>
                                                 <a href="javascript;;">编辑</a>
