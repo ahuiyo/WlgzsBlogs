@@ -1,6 +1,13 @@
 //跳到评论的地方
 $('.Operspeak').click(function () {
-    var speak=$('.speak');
+    // var speak=$('.speak');
+    mTop = $('.speak')[0].offsetTop;
+    // sTop = $(window).scrollTop();
+    // result = mTop - sTop;
+    $('html,body').animate({
+        scrollTop: mTop-200
+    }, 800);
+
 })
 //评论时的字数限制
 

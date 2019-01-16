@@ -12,7 +12,8 @@ const owner =require('./owner');
 const admin=require('./admin');
 const user = require('./user');
 const login = require('./login');
-const more = require('./more.js')
+const more = require('./more.js');
+const personblog =require('./personblog');
 
 //主页
 router.get('/',function (req,res) {
@@ -128,6 +129,8 @@ router.use('/login',login);
 //博客更多页面
 router.use('/more',more);
 
+//博主页面
+router.use('/personblog',personblog);
 //登出
 router.get('/logout',function (req, res) {
     req.session.destroy(function (err) {

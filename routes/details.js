@@ -32,11 +32,12 @@ router.get('/',function(req,res){
                         const comment=JSON.parse(data.text).datacomments;
                         const data3=JSON.parse(ress.text).data;
                         const users=JSON.parse(data.text).user.user;
-
+                        const dataother=JSON.parse(data.text).dataother;
                         res.render('details',{
                             data3,
                             aid,
                             users,
+                            dataother,
                             result:result,
                             datas:datas,
                             label:label,
@@ -77,7 +78,7 @@ router.get('/savelike',function (req,res) {
             }
         });
 
-})
+});
 
 // ----------------取消收藏与收藏    地址 例  /details/savecollect?id=3
 router.get('/savecollect',function (req,res) {
@@ -106,8 +107,34 @@ router.get('/savecollect',function (req,res) {
             }
         });
 
-})
+});
 
+//  -------------对博客进行评论
+router.post('/save',function (req,res) {
+
+    let url='http://wlgzs.org:9090/mock/42/blog/save';
+    console.log(req.body);
+    superagent
+        .post(url)
+        .send(req.body)
+        .end(function (err,data) {
+            if(!err){
+                const save=JSON.parse(data.text);
+                console.log(save);
+                if(save.code==0){
+                    res.json(save)
+
+                }else{
+                    res.json({
+                        code:-1,
+                        data:'评论失败！',
+                    })
+                }
+
+            }
+        });
+
+})
 
 
 
