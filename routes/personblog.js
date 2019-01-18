@@ -41,9 +41,6 @@ router.get('/',function (req,res) {
                             data3,
                             user,
                             code,
-                            // database:database,
-                            // personInformation:personInformation[0],
-                            // dataother:dataother,
                         })
                     }
                 })
@@ -60,10 +57,34 @@ router.get('/attention',function (req,res) {
                 res.json(JSON.parse(data.text));
             }
         })
-        
+});
 
-
-})
+// router.get('/list',function (req,res) {
+//
+//     const url='http://wlgzs.org:9090/mock/42/personal/listblog';
+//
+//
+//     superagent
+//         .get(url)
+//         .query(req.query)
+//         .end(function (err,namedata) {
+//
+//
+//                if(!err){
+//                    const datas = JSON.parse(namedata.text).data;
+//                    for (var i in datas){
+//                        let labels=datas[i].label.split('，');
+//                        datas[i].label=labels;
+//                    }
+//
+//                    res.json(datas);
+//                }
+//
+//         })
+//
+//
+//
+// });
 
 
 module.exports = router;   /*暴露这个 router模块*/
