@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>未来工作室-个人主页</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="stylesheets/public/header.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/personblog.css">
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+</head>
+<body>
+<%-include ./public/header.ejs%>
+
+<section class="top">
+    <div class="topimg">
+        <div class="top-con">
+            <img src="images/a3.jpg">
+            <div class="con-infor">
+                <h3>
+                    <span><%=user.user.username%></span>
+                    <%if(code==0){%>
+                        <a href="javascrippt:;" class="attention">+&nbsp;关注</a>
+                    <%}%>
+                    <%if(code != 0){%>
+                        <a href="javascrippt:;" class="attention">已关注</a>
+                    <%}%>
+                    <input type="hidden" class="attentionid" value="<%=user.user.id%>">
+                    <script>
+                        $('.attention').click(function () {
+                            $.ajax({
+                                url: '/personblog/attention',
+                                type:'get',
+                                data:{
+                                    id:$('.attentionid').val(),
+                                },
+                                success:function (data) {
+                                    if(data.code==0){
+                                        console.log(data.msg);
+                                    }
+
+                                }
+                            })
+                        })
+
+                    </script>
+                </h3>
+                <p>
+                    <span>关注&nbsp;<i></i></span>
+                    <span>粉丝&nbsp;<i>1</i></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="headers">
+    <ul>
+        <li class="liactive"><a href="">首页</a> </li>
+        <li><a href="">草稿</a> </li>
+    </ul>
+</section>
+<section class="table">
+    <ul class="table-queer">
+        <%for(var i =0;i<datas.length;i++){%>
+
+        <!--此li为有图片的li-->
+        <li class="queer-time">
+            <div class="delorwrite">
+                <a href="">编辑</a>
+                <a href="">删除</a>
+            </div>
+            <a href="/details?id=<%=datas[i].id%>">
+                <div class="time-icon"></div>
+                <div class="time-content">
+                    <p class="content-time"><%=datas[i].createTime%></p>
+                    <h3>
+                        <span><%=datas[i].blTitle%></span>
+                    </h3>
+                    <div class="img-info">
+                        <img src="images/b1.jpg">
+                    </div>
+                    <div class="other-info">
+                        <p class="infonum">
+                            <span>浏览&nbsp;<i><%=datas[i].blLikes%></i></span>
+                            <span>回帖&nbsp;<i><%=datas[i].comments%></i></span>
+                        </p>
+                        <p class="infocon">
+                            <%=datas[i].blSummary%>
+                        </p>
+                        <ul class="infotype">
+                            <%for(var j=0;j<datas[i].label.length;j++){%>
+                            <li><%=datas[i].label[j]%></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <%}%>
+
+        <!--此li是无图片的li-->
+        <!--<li class="queer-time">-->
+        <!--<div class="delorwrite">-->
+        <!--<a href="">编辑</a>-->
+        <!--<a href="">删除</a>-->
+        <!--</div>-->
+        <!--<a href="javascript:;">-->
+        <!--<div class="time-icon"></div>-->
+        <!--<div class="time-content">-->
+        <!--<p class="content-time">2017/01/01</p>-->
+        <!--<h3>大咖 | Huffinton邮报创始人致马斯克：努力很重要，睡觉也一样</h3>-->
+        <!--<div class="noimg">-->
+        <!--<p class="infonum">-->
+        <!--<span>浏览&nbsp;<i>162</i></span>-->
+        <!--<span>回帖&nbsp;<i>10</i></span>-->
+        <!--</p>-->
+        <!--<p class="infocon">-->
+        <!--最近钢铁侠Elon Mask的日子不太好过， Mask的日子不太好过，来自外界的压力使其精 Mask的日子不太好过，来自外界的压力使其精来自外界的压力使其精疲力竭最近钢铁侠Elon Mask的日子不太好过，来自外界的压力使其精疲力竭，Model 3产能不足更让他雪上加霜，以至于一周工作120小时，可谓身心俱疲。本次带来他的朋友——Huffington邮报创始...-->
+        <!--</p>-->
+        <!--<ul class="infotype">-->
+        <!--<li>前端</li>-->
+        <!--<li>后端</li>-->
+        <!--<li>前端</li>-->
+        <!--<li>后端</li>-->
+        <!--<li>前端</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</a>-->
+        <!--</li>-->
+    </ul>
+    <div class="table-side">
+        <div class="side-above">
+            <div class="above-title">
+                <span>博客分类</span>
+                <!--<a href="javascript:;">更多&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a>-->
+            </div>
+            <div class="above-pro">
+                <%for(var i=0;i<cotegory.length;i++){%>
+                <a href="/bloglist?name=<%=cotegory[i].name%>&id=<%=user.id%>" data-id="<%=user.id%>" name="<%=cotegory[i].name%>"  class="pro">
+                    <span><%=cotegory[i].name%></span>
+                    <div class="teal">
+                        <%=cotegory[i].number%>
+                    </div>
+
+                </a>
+                <%}%>
+                <!--<a href="" class="pro">-->
+                <!--<img src="images/a3.jpg">-->
+                <!--<span>123132</span>-->
+                <!--</a>-->
+
+            </div>
+        </div>
+        <div class="side-above">
+            <div class="above-title">
+                <span>归档</span>
+                <!--&nbsp;-->
+                <!--<span style="color: #999">(19)</span>-->
+                <!--<a href="javascript:;">更多&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></a>-->
+            </div>
+            <div class="above-pro">
+                <%for(var i=0;i<result.length;i++){%>
+                <a href="javascript:;" data-id="<%=user.user.id%>" name="<%=result[i].name%>" class="pro">
+                    <span><%=result[i].name%></span>
+                    <div class="teal">
+                        <%=result[i].number%>
+                    </div>
+
+                </a>
+                <%}%>
+
+                <!--<a href="" class="pro">-->
+                <!--<img src="images/a3.jpg">-->
+                <!--<span>454</span>-->
+                <!--</a>-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--搜索遮罩-->
+<%-include ./public/mask.ejs%>
+
+
+</body>
+<script>
+
+    // $('.pro').on('click',function () {
+    //     console.log($(this).attr("name"));
+    //     $.ajax({
+    //         type:'post',
+    //         url:'/bloglist',
+    //         data:{
+    //             name:$(this).attr("name"),
+    //             id: $(this).data('id'),
+    //         },
+    //         success:function (data) {
+    //             location.reload();
+    //         }
+    //     })
+    // })
+
+
+
+    // $('.pro').on('click',function () {
+    //     console.log($(this).attr("name"));
+    //     $.ajax({
+    //         type:'get',
+    //         url:'/personblog/list',
+    //         data:{
+    //             name:$(this).attr("name"),
+    //         },
+    //         success:function (data) {
+    //
+    //                 var datas=data;
+    //                 var num = "";
+    //                 for (var i=0;i<datas.length;i++){
+    //                     num+=`<li class="queer-time">
+    //                             <div class="delorwrite">
+    //                                 <a href="">编辑</a>
+    //                                 <a href="">删除</a>
+    //                             </div>
+    //                             <a href="/details?id=${datas[i].id}">
+    //                                 <div class="time-icon"></div>
+    //                                 <div class="time-content">
+    //                                     <p class="content-time">${datas[i].createTime}</p>
+    //                                     <h3>
+    //                                         <span>${datas[i].blTitle}</span>
+    //                                     </h3>
+    //                                     <div class="img-info">
+    //                                         <img src="images/b1.jpg">
+    //                                     </div>
+    //                                     <div class="other-info">
+    //                                         <p class="infonum">
+    //                                             <span>浏览&nbsp;<i>${datas[i].blLikes}</i></span>
+    //                                             <span>回帖&nbsp;<i>${datas[i].comments}</i></span>
+    //                                         </p>
+    //                                         <p class="infocon">
+    //                                             ${datas[i].blSummary}
+    //                                         </p>
+    //                                         <ul class="infotype">`;
+    //
+    //                                             for(var j=0;j<datas[i].label.length;j++){
+    //                                                 num+=`<li>${datas[i].label[j]}</li>`
+    //                                             };
+    //
+    //                                         num+=`  </ul>
+    //                                                 </div>
+    //                                             </div>
+    //                                         </a>
+    //                                     </li>`;
+    //
+    //                 }
+    //
+    //
+    //                 $('.table-queer').html(" ");
+    //                 $('.table-queer').append(num);
+    //
+    //
+    //         }
+    //     })
+    // })
+    //
+
+    //搜索
+    function OnChange() {
+        const val=$('.c_search').val();
+        const data={
+            key:val
+        }
+        $.ajax({
+            url:'/search',
+            type:'post',
+            data: data,
+            success:function (data) {
+                let str="";
+                if (data.length<=0){
+                    str="<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
+                }
+                //得到数据拼接字符串 并显示
+                for (let i=0;i<data.length;i++){
+                    str+="<div class='c_list'><div class='main-info'><h3>标题</h3><p class='desc'>摘要</p></div>" +
+                        "<div class='less-info'><p class='source'><span class='author'>作者</span></p></div></div>"
+                }
+                $('#wrap').html(str);
+            }
+        })
+    }
+
+</script>
+</html>
