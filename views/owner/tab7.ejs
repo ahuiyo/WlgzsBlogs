@@ -2,8 +2,8 @@
     <div class="i_head">
         <p>
             <span>我的消息</span>
-            <a href="" class="meg_clear">清空消息</a>
-        </p>
+            <span class="meg_clear" onclick="delAll(this)">清空所有消息</span>
+        </p> 
         <p class="i_font">共有 <span id="i_info"><%=list.length%></span> 条消息</p>
     </div>
     <div class="g_wrap" id="w7" style="margin-top: 10px">
@@ -12,7 +12,9 @@
                 <div class='g_list self'>
                     <!-- 内容 -->
                     <div class="meg_left">
-                        <a class="meg_title" href="/details?id=<%=list[i].blId%>"><%=list[i].title%></a>
+                        <a class="meg_title" href="/details?id=<%=list[i].blId%>" data_id="<%=list[i].blId%>">
+                            <%=list[i].title%>
+                        </a>
                         <p>
                             <span class="megs"><%=list[i].name%></span>
                             <span class="megs"><%=list[i].content%></span>
@@ -21,16 +23,18 @@
                     </div>
                     <!-- 删除按钮 -->
                     <div class="meg_right">
-                        <input class="meg_btn" type="button" value="删除信息">
+                        <input class="meg_btn" type="button" value="删除信息" onclick="delinfo(this)"/>
                     </div>
                 </div>
             </div>
         <%}%>
     </div>
-    <div class="split_page">
+    <%if(list.length>0){%>
+        <div class="split_page">
             <span><</span>
             <span class="active">1</span>
-            <span>2</span>
+            <span onclick="spiltPage()">2</span>
             <span>></span>
         </div>
+    <%}%>
 </div>

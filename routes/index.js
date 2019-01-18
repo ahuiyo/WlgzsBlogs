@@ -14,6 +14,7 @@ const user = require('./user');
 const login = require('./login');
 const more = require('./more.js')
 
+
 //主页
 router.get('/',function (req,res) {
 
@@ -98,14 +99,14 @@ router.get('/articel/:name',function (req,res) {
     }
 });
 
-//处理点击搜索
+//处理点击搜索(模糊搜索)
 router.post('/search',function (req, res) {
     const key=req.body.key;
     superagent
-        .get('http://wlgzs.org:9090/mock/42/home/searchfor')  //?inquiries=js
-        // .query({inquiries:key})
+        .post('http://wlgzs.org:9090/mock/42/home/searchfor')  
+        .query({inquiries:key})
         .end(function (err,data) {
-            const list=JSON.parse(data.text).data;
+            const list=JSON.parse(data.text).result.records;
             res.send(list);
         })
 });
@@ -127,6 +128,7 @@ router.use('/login',login);
 
 //博客更多页面
 router.use('/more',more);
+
 
 //登出
 router.get('/logout',function (req, res) {

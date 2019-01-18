@@ -1,44 +1,89 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>个人资料</title>
-    <link rel="stylesheet"  type="text/css" href="stylesheets/public/header.css">
-    <link rel="stylesheet"  type="text/css" href="stylesheets/public/footer.css">
-    <link rel="stylesheet"  type="text/css" href="stylesheets/owner.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/header.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/owner.css">
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 </head>
+
 <body>
-<!--header-->
-<%-include ./public/header.ejs%>
-<!--info-->
+    <!--header-->
+    <%-include ./public/header1.ejs%>
+    <!--info-->
     <div class="info">
         <!--left-->
         <div class="i_left">
-            <p class="my">
-                我的博客
+            <div class="wel_com">
+                <p class="wel_font">欢迎来到</p>
+                <p class="my">博客管理中心</p>
+                <p style="font-size:10px;color:#a3a2a2">Welcome to Blog Management Center</p>
+            </div>
+            <!-- 
                 <i id="user" style="display: none"><%=userinfo%></i>
-            </p>
+             -->
             <ul class="chose">
-                <li tab="tab1" class="pubc tab1" data-url="/owner/">我的博客</li>
-                <li tab="tab2" class="pubc tab2" data-url="/owner/">我的点赞</li>
-                <li tab="tab3" class="pubc tab3"  data-url="/owner/">我的收藏</li>
-                <li tab="tab4" class="pubc tab4"  data-url="/owner/">我的评论</li>
-                <li tab="tab5" class="pubc tab5"  data-url="/owner/">我的关注</li>
-                <li tab="tab6" class="pubc tab6"  data-url="/owner/">我的粉丝</li>
-                <li tab="tab7" class="pubc tab7"  data-url="/owner/">我的消息</li>
-                <li tab="tab8" class="pubc tab8"  data-url="/owner/">个人资料</li>
+                <li tab="tab1" class="pubc tab1" data-url="/owner/">
+                    <img src="images/02.png">
+                    我的博客
+                    <i></i>
+                </li>
+                <li tab="tab2" class="pubc tab2" data-url="/owner/">
+                    <img src="images/05.png">
+                    我的点赞
+                    <i></i>
+                </li>
+                <li tab="tab3" class="pubc tab3" data-url="/owner/">
+                    <img src="images/03.png">
+                    我的收藏
+                    <i></i>
+                </li>
+                <li tab="tab4" class="pubc tab4" data-url="/owner/">
+                    <img src="images/07.png">
+                    我的评论
+                    <i></i>
+                </li>
+                <li tab="tab5" class="pubc tab5" data-url="/owner/">
+                    <img src="images/08.png">
+                    我的关注
+                    <i></i>
+                </li>
+                <li tab="tab6" class="pubc tab6" data-url="/owner/">
+                    <img src="images/09.png">
+                    我的粉丝
+                    <i></i>
+                </li>
+                <li tab="tab7" class="pubc tab7" data-url="/owner/">
+                    <img src="images/04.png">
+                    我的消息
+                    <i></i>
+                </li>
+                <li tab="tab8" class="pubc tab8" data-url="/owner/">
+                    <img src="images/01.png">
+                    个人资料
+                    <i></i>
+                </li>
             </ul>
         </div>
         <!--right-->
         <div class="i_contain">
-            <!--<div class="i_welcome">-->
-                <!--<p class="Tone">W</p>-->
-            <!--</div>-->
-        </div>
+            <div class="we_lcome_page">
+                <p>
+                    欢迎进入
+                </p>
+                <p>
+                    个人博客管理中心
+                </p>
+            </div>
+        </div> 
     </div>
-<!--footer-->
+    <!--footer-->
     <%-include ./public/footer.ejs%>
 </body>
+
 <script type="text/javascript" src="javascripts/owner.js"></script>
+
 </html>
