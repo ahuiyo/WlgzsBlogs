@@ -137,5 +137,33 @@ router.post('/save',function (req,res) {
 })
 
 
+//删除评论
+router.get('/detele',function (req,res) {
+
+    let url='http://wlgzs.org:9090/mock/42/blog/delete';
+    console.log(req.body);
+    superagent
+        .get(url)
+        .query(req.query)
+        .end(function (err,data) {
+            if(!err){
+                const save=JSON.parse(data.text);
+                console.log(save);
+                if(save.code==0){
+                    res.json(save)
+
+                }else{
+                    res.json({
+                        code:-1,
+                        data:'评论失败！',
+                    })
+                }
+
+            }
+        });
+
+});
+
+
 
 module.exports = router;   /*暴露这个 router模块*/

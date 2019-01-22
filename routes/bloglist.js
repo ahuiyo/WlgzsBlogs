@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
 
     // let aid = req.body;
     let aid = req.query;
-    console.log(aid);
+
     const name=req.query.name;
     superagent
         .post('http://wlgzs.org:9090/mock/42/personal/listblog')

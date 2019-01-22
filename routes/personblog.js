@@ -24,7 +24,7 @@ router.get('/',function (req,res) {
                         const data3 = JSON.parse(ress.text).data;
                         const user=JSON.parse(data.text).user.user;
                         const code=JSON.parse(data.text).code;
-
+                        const past=JSON.parse(data.text).past;
                         // const database=JSON.parse(data.text).database;
                         // const personInformation=JSON.parse(data.text).datacomments.personInformation;
                         // const dataother=JSON.parse(data.text).dataother;
@@ -41,6 +41,7 @@ router.get('/',function (req,res) {
                             data3,
                             user,
                             code,
+                            past,
                         })
                     }
                 })

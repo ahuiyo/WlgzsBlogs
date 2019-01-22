@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>未来工作室-个人兴趣选择</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/hobbies.css">
+</head>
+<body>
+<header>
+     <ul class="list">
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+     </ul>
+    <div class="next">
+        <div class="sha"></div>
+        <div class="secele">
+            选择5
+        </div>
+        <a href="javascript:;" class="yesnext" style="display: none">next</a>
+    </div>
+</header>
+<section class="point">
+    <div class="point-inter">
+        <div class="interbig">
+            <div class="big">
+                <p class="bigtext">What are your interests?</p>
+                <p class="chtext">你的兴趣是什么？<br/>请选择你所感兴趣的选项,我们将会根据你的兴趣进行文章推送。</p>
+            </div>
+        </div>
+        <%for(var i in datas){%>
+        <div class="interli" >
+            <div class="little">
+                <p data-id="<%=datas[i].id%>" class="titles"><%=datas[i].caName%></p>
+                <img src="images/point1.jpg">
+            </div>
+        </div>
+        <%}%>
+        <!--<div class="interli" >-->
+            <!--<div class="little">-->
+                <!--<p class="titles">后端</p>-->
+                <!--<img src="images/point1.jpg">-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</section>
+<script rel="script" src="javascripts/jquery.min.js"></script>
+<script rel="script" src="javascripts/hobbies.js"></script>
+</body>
+</html>
