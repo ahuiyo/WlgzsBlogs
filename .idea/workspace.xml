@@ -2,34 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45b2280d-0fe6-4ba8-b5c5-2a2d00ad1f12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/bg-nav.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/javascripts/line.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/public/header1.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blogs.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/blog-First.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/blog-First.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/owner.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/owner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/owner.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/owner.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/public/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/public/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/public/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/public/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/more.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/more.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/owner.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/owner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/owner.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/owner.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/owner/tab1.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/owner/tab1.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/owner/tab4.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/owner/tab4.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/owner/tab5.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/owner/tab5.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/owner/tab7.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/owner/tab7.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/owner/tab8.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/owner/tab8.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/public/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/public/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/public/mask.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/public/mask.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/details.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/allhobbs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/allhobbs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/details.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/hobbies.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/hobbies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/personblog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/personblog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/details.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,37 +25,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/login.js">
+        <entry file="file://$PROJECT_DIR$/routes/details.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="1368">
+              <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
+        <entry file="file://$PROJECT_DIR$/routes/hobbies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2774">
-              <caret line="146" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="357">
+              <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/login.ejs">
+        <entry file="file://$PROJECT_DIR$/routes/allhobbs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/details.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2831">
-              <caret line="149" column="48" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="48" />
+            <state relative-caret-position="247">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -133,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/javascripts/lunbo.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/index.css" />
         <option value="$PROJECT_DIR$/views/admin/admin.ejs" />
         <option value="$PROJECT_DIR$/routes/admin.js" />
@@ -161,9 +130,7 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/javascripts/blog-First.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/details.css" />
-        <option value="$PROJECT_DIR$/public/javascripts/details.js" />
         <option value="$PROJECT_DIR$/views/public/header.ejs" />
-        <option value="$PROJECT_DIR$/views/details.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/personblog.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/22.css" />
         <option value="$PROJECT_DIR$/views/public/22.ejs" />
@@ -174,16 +141,19 @@
         <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/routes/bloglist.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/routes/personblog.js" />
         <option value="$PROJECT_DIR$/views/hobbies.ejs" />
-        <option value="$PROJECT_DIR$/routes/hobbies.js" />
         <option value="$PROJECT_DIR$/public/javascripts/hobbies.js" />
-        <option value="$PROJECT_DIR$/routes/allhobbs.js" />
         <option value="$PROJECT_DIR$/views/allhobbs.ejs" />
-        <option value="$PROJECT_DIR$/routes/details.js" />
         <option value="$PROJECT_DIR$/time.js" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/routes/login.js" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/views/details.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/details.js" />
+        <option value="$PROJECT_DIR$/routes/details.js" />
+        <option value="$PROJECT_DIR$/routes/personblog.js" />
+        <option value="$PROJECT_DIR$/routes/allhobbs.js" />
+        <option value="$PROJECT_DIR$/routes/hobbies.js" />
       </list>
     </option>
   </component>
@@ -219,6 +189,12 @@
               <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
               <item name="blogs" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blogs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blogs" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -358,12 +334,15 @@
       <workItem from="1547943513491" duration="275000" />
       <workItem from="1547946413141" duration="168000" />
       <workItem from="1548124405709" duration="2074000" />
-      <workItem from="1548126589452" duration="238000" />
+      <workItem from="1548126589452" duration="429000" />
+      <workItem from="1548141004980" duration="115000" />
+      <workItem from="1548141439349" duration="2704000" />
+      <workItem from="1548146808648" duration="103000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="560027000" />
+    <option name="totallyTimeSpent" value="563039000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -376,8 +355,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -387,13 +367,13 @@
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" sideWeight="0.49925596" weight="0.32885906" />
-      <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="运行" order="7" weight="0.3288364" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49925596" weight="0.12919463" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.39765102" />
       <window_info anchor="bottom" id="调试" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.49702382" weight="0.3104027" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.49702382" weight="0.3456376" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -534,13 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/public/header.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -607,13 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/bloglist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/bloglist.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1330">
@@ -642,20 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/details.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1273">
-          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/superagent/lib/node/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -668,13 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
           <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/hobbies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -692,31 +637,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/allhobbs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/personblog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="44" column="26" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/details.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="401" column="22" selection-start-line="401" selection-start-column="22" selection-end-line="401" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="399">
           <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -727,17 +658,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/details.js">
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2831">
-          <caret line="149" column="48" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="48" />
+        <state relative-caret-position="172">
+          <caret line="182" column="41" selection-start-line="182" selection-start-column="41" selection-end-line="182" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/details.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2774">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="134">
+          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/details.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="445" column="5" lean-forward="true" selection-start-line="445" selection-start-column="5" selection-end-line="445" selection-end-column="5" />
+          <folding>
+            <element signature="n#script#0;n#div#0;n#div#1;n#section#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/personblog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/bloglist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/details.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/allhobbs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/hobbies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="38" column="3" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
         </state>
       </provider>
     </entry>

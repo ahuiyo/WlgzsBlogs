@@ -200,7 +200,7 @@
                                 </li>
                                 <% if(comment[key][0].userId==result.loginUserId){%>
                                 <li class="deleteli">
-                                    <a href="javascript:;">删除</a>
+                                    <a href="javascript:;" class="detalecomm" data-id="<%=comment[key][0].id%>">删除</a>
                                     <a href="javascript;;">编辑</a>
                                 </li>
                                 <%}%>
@@ -223,7 +223,7 @@
                                             </li>
                                             <% if(comment[key][j].userId==result.loginUserId){%>
                                             <li class="chat-deleteli">
-                                                <a href="javascript:;">删除</a>
+                                                <a href="javascript:;"  class="detalecomm" data-id="<%=comment[key][j].id%>" >删除</a>
                                                 <a href="javascript;;">编辑</a>
                                             </li>
                                             <%}%>

@@ -79,4 +79,23 @@ $('.returntop').on('click',function () {
     $('html,body').animate({
         scrollTop: 0
     }, 800);
+});
+$('.detalecomm').on('click',function () {
+    let id=$(this).data('id');
+    $.ajax({
+        type:'get',
+        url:'/details/detele',
+        data: {
+            id:id,
+        },
+        success:function (data) {
+            if (data.code==0){
+                console.log(data.msg);
+                // location.reload();
+            }else{
+                alert(data.msg);
+            }
+        }
+    })
 })
+

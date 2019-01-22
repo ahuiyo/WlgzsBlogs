@@ -6,7 +6,7 @@ const superagent=require('superagent');
 
 router.get('/',function (req,res) {
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
-    const url='http://wlgzs.org:9090/mock/42/home/gettype';
+    const url='http://10.1.32.20:18080/home/gettype';
     superagent
         .get(url)
         .end(function (err, data) {
@@ -23,7 +23,7 @@ router.get('/',function (req,res) {
 
 router.get('/save',function (req,res) {
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
-    const url='http://wlgzs.org:9090/mock/42/personal/save';
+    const url='http://10.1.32.20:18080/personal/save';
     console.log(req.query);
     superagent
         .get(url)

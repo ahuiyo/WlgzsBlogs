@@ -8,14 +8,14 @@ const superagent=require('superagent');
 
 router.get('/',function (req,res) {
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
-    const url='http://wlgzs.org:9090/mock/42/blog/list?id=12';
+    const url='http://10.1.32.20:18080/blog/list?id=12';
     let aid=req.query;
     superagent
         .get(url)
         // .query(aid)
         .end(function (err, data) {
             superagent
-                .get('http://wlgzs.org:9090/mock/42/personal/statistical')
+                .get('http://10.1.32.20:18080/personal/statistical')
                 .end(function (err, ress) {
                     if (!err) {
                         const datas = JSON.parse(data.text).data;
@@ -48,7 +48,7 @@ router.get('/',function (req,res) {
         })
 });
 router.get('/attention',function (req,res) {
-    const url='http://wlgzs.org:9090/mock/42/blog/attention';
+    const url='http://10.1.32.20:18080/blog/attention';
     let aid =req.query;
     superagent
         .get(url)

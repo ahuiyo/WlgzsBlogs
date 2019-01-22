@@ -7,13 +7,13 @@ const superagent=require('superagent');
 router.get('/',function(req,res){
     let aid=req.query;
 
-    let url='http://wlgzs.org:9090/mock/42/blog/getdetails';
+    let url='http://10.1.32.20:18080/blog/getdetails';
     superagent
         .get(url)
         .query(aid)
         .end(function (err, data) {
             superagent
-                .get('http://wlgzs.org:9090/mock/42/personal/statistical')
+                .get('http://10.1.32.20:18080/personal/statistical')
                 .end(function (err,ress) {
                     if(!err){
                         /*result  用户登录信息以及登录用户是否关注博主
@@ -54,7 +54,7 @@ router.get('/',function(req,res){
 //  ------------------取消与点赞  地址 例  /details/savelike?id=3
 router.get('/savelike',function (req,res) {
 
-    let url='http://wlgzs.org:9090/mock/42/blog/savelike';
+    let url='http://10.1.32.20:18080/blog/savelike';
     superagent
         .get(url)
         .query(req.query)
@@ -83,7 +83,7 @@ router.get('/savelike',function (req,res) {
 // ----------------取消收藏与收藏    地址 例  /details/savecollect?id=3
 router.get('/savecollect',function (req,res) {
 
-    let url='http://wlgzs.org:9090/mock/42/blog/savecollect';
+    let url='http://10.1.32.20:18080/blog/savecollect';
     superagent
         .get(url)
         .query(req.query)
@@ -112,7 +112,7 @@ router.get('/savecollect',function (req,res) {
 //  -------------对博客进行评论
 router.post('/save',function (req,res) {
 
-    let url='http://wlgzs.org:9090/mock/42/blog/save';
+    let url='http://10.1.32.20:18080/blog/save';
     console.log(req.body);
     superagent
         .post(url)
@@ -140,22 +140,22 @@ router.post('/save',function (req,res) {
 //删除评论
 router.get('/detele',function (req,res) {
 
-    let url='http://wlgzs.org:9090/mock/42/blog/delete';
-    console.log(req.body);
+    let url='http://10.1.32.20:18080/blog/delete';
+
     superagent
         .get(url)
-        .query(req.query)
+        .query({id:6})
         .end(function (err,data) {
             if(!err){
                 const save=JSON.parse(data.text);
-                console.log(save);
+
                 if(save.code==0){
                     res.json(save)
 
                 }else{
                     res.json({
                         code:-1,
-                        data:'评论失败！',
+                        msg:'删除失败！',
                     })
                 }
 
