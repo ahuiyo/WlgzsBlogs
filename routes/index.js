@@ -15,6 +15,10 @@ const more = require('./more.js');
 const personblog = require('./personblog');
 const bloglist = require('./bloglist');
 const hobbies = require('./hobbies')
+const personblog =require('./personblog');
+const bloglist =require('./bloglist');
+const hobbies=require('./hobbies');
+const allhobbs=require('./allhobbs');
 
 
 //主页
@@ -128,6 +132,12 @@ router.use('/more', more);
 
 //博主页面
 router.use('/personblog', personblog);
+
+//用户第一次登陆  选择兴趣
+router.use('/hobbies',hobbies);
+
+//用户所选择的所有兴趣词条页面
+router.use('/allhobbs',allhobbs);
 
 //博主分类页面
 router.use('/bloglist', bloglist);

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>未来工作室-兴趣选择</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/allhobbs.css">
+</head>
+<body>
+<section>
+    <p>这是你所选择的兴趣爱好....</p>
+    <ul>
+        <% for(var i in datas) {%>
+        <li><%=datas[i].caName%></li>
+        <%}%>
+    </ul>
+    <div class="next">5s后将会跳转至博客首页</div>
+</section>
+<script>
+    var i=5;
+    var time=setInterval(function () {
+        if(i>=0) {
+            document.getElementsByClassName('next')[0].innerHTML = i + 's后将会跳转至博客首页';
+            if(i==0){
+                location='/';
+            }
+            i--;
+        }else {
+            clearInterval(time)
+        }
+    },1000);
+    //    var num=document.getElementsByTagName('li');
+    //    var leng=0;
+    //    var j=4/parseInt(num.length);
+    //
+    //    var litime=setInterval(function () {
+    //        if(leng<num.length){
+    //            console.log(leng)
+    //            console.log(num[leng]);
+    //            num[leng].style.display='block';
+    //            num[leng].style.animation = "aa 0.2s";
+    //            leng++;
+    //        }else {
+    //            clearInterval(litime);
+    //        }
+    //    },j*1000);
+
+</script>
+</body>
+</html>
