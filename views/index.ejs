@@ -98,13 +98,13 @@
             <div class="clock">
                 <div id="zzsc"></div>
             </div>
+
             <!--推荐博客-->
+            <div class="newBlog">
+                <span style="font-weight: bold;font-size: 13px">推荐博客</span>
+                 <a class="more" href="/more">>>更多</a>
+            </div>
             <div class="pix">
-                <div class="newBlog">
-                    <span style="font-weight: bold;">推荐博客</span>
-                     <!-- 博客更多链接 -->
-                     <a class="more" href="/more">>>更多</a>
-                </div>
                 <ul class="ul4">
                     <%for (var n=0;n<past.length;n++){ %>
                         <a href="/details?id=<%=past[n].id%>">
@@ -128,6 +128,7 @@
 </body>
 <script type="text/javascript" src="javascripts/blog-First.js"></script>
 <!-- <script type="text/javascript" src="javascripts/lunbo.js"></script> -->
+<script type="text/javascript" src="javascripts/line.js"></script>
 <script type="text/javascript" src="javascripts/zzsc.js"></script>
 <script>
     $(function () {
@@ -176,11 +177,12 @@
                 let str="";
                 if (data.length<=0){
                     str="<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
-                }
-                //得到数据拼接字符串 并显示
-                for (let i=0;i<data.length;i++){
-                    str+="<div class='c_list'><div class='main-info'><h3>标题</h3><p class='desc'>摘要</p></div>" +
-                        "<div class='less-info'><p class='source'><span class='author'>作者</span></p></div></div>"
+                }else{
+                    //得到数据拼接字符串 并显示
+                    for (let i=0;i<data.length;i++){
+                        str+="<div class='c_list'><div class='main-info'><h3>标题</h3><p class='desc'>摘要</p></div>" +
+                            "<div class='less-info'><p class='source'><span class='author'>作者</span></p></div></div>"
+                    }
                 }
                 $('#wrap').html(str);
             }

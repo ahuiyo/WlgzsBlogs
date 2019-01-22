@@ -5,7 +5,7 @@
             <div class='subject-item'>
                 <div class="s-content" style="margin:30px 100px 30px 30px">
                     <h3 class="s-title">
-                        <a href="/details?id=<%=list[i].id%>" class="s-h3"><%=list[i].title%></a>
+                        <a href="/details?id=<%=list[i].id%>" class="s-h3" data_id="<%=list[i].id%>"><%=list[i].title%></a>
                     </h3>
                     <p class="s-desc">
                         <span style="font-weight: bold"> 我的评论：</span>
@@ -13,6 +13,10 @@
                     <p class="s-info">
                         <span>评论时间：<%=list[i].createTime%></span>
                     </p>
+                    <!-- 删除按钮 -->
+                    <div class="del_commont">
+                        <input class="meg_btn" type="button" value="删除评论" onclick="del_comont(this)"/>
+                    </div>
                 </div>
             </div>
         <%}%>

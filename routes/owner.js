@@ -6,7 +6,6 @@ const superagent=require('superagent');
 
 //owner页面
 router.get('/',function (req,res) {
-   
     superagent
         .get('http://wlgzs.org:9090/mock/42/personal/listmy?id=12')
         .end(function (err,data) {
@@ -72,11 +71,10 @@ function Asktags(_href,name,res){
 
 //相应li点击
 router.get('/:pathname',function (req,res) {
-
     //查询的时候带上参数
     let _name = req.params.pathname;
     if (_name == 'tab1') {         //我的博客
-        Asktags("http://wlgzs.org:9090/mock/42/personal/personHome?pageNumber=1", _name, res);
+        Asktags("http://wlgzs.org:9090/mock/42/personal/listmy?id=12", _name, res);
     } 
     else if (_name == 'tab2') {  //我的点赞
         Ask("http://wlgzs.org:9090/mock/42/personal/listtwoparts?id=2", _name, res);
@@ -112,6 +110,53 @@ router.get('/:pathname',function (req,res) {
             })
     }
 });
+
+//删除我的消息
+router.post('/delinfo',function (req,res) {
+    var Bid = req.body.id;
+    superagent
+        .get('http://wlgzs.org:9090/mock/42/personal/unsubscribe')
+        .query({id:Bid})
+        .end(function(err,resu){
+            var list = JSON.parse(resu.text);
+            res.send(list);
+        })
+});
+
+// 清空全部消息
+router.post('/delAllinfo',function(req,res){
+    superagent
+        .get('http://wlgzs.org:9090/mock/42/personal/delete')
+        .end(function(err,datat){
+            var list = JSON.parse(datat.text);
+            res.send(list);
+        })
+});
+
+
+
+router.post('/decomment',function(req,res){
+ 
+})
+
+//个人资料页--保存按钮
+router.post('/update',function(req,res){
+    var str = req.body.str;
+    var _id = req.body._id;
+    superagent
+        .post('http://wlgzs.org:9090/mock/42/personal/update')
+        .type('form')  //想要以application/x-www-form-urlencoded格式发送数据 调用type()方法传入'form'默认json
+        .send({module:str})  //已经选择的所有标签的id
+        .send({id:_id})      //当前用户的主键
+        .end(function(err,datas){
+            var list = JSON.parse(datas.text).database['module'];
+            res.send(list)
+        })
+})
+
+
+
+
 
 //传回到页面中的参数
 // res.send('hello')
