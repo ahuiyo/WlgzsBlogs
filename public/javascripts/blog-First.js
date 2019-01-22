@@ -31,13 +31,13 @@ $(function () {
 
         //右边的推荐博客
         if(s>=400){
-            $('.pix').css({
+            $('.aside-c').css({
                 "position":"fixed",
                 "top":"0",
-                "width":"340px"
+                "width":"22%"
             })            
         }else{
-            $('.pix').css({'position':'static',"width":"100%"});
+            $('.aside-c').css({'position':'static',"width":"100%"});
         }
     });
 

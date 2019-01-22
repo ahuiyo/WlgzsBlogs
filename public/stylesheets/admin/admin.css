@@ -42,8 +42,8 @@ body{
 }
 .L_list li{
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    height: 50px;
+    line-height: 50px;
     padding-left: 20px;
     cursor: pointer;
     border-left: 4px solid transparent;
@@ -174,7 +174,7 @@ body{
      }
  }
 /*单元格不同颜色背景*/
-.ag{background-color: #f8f8f8;}
+.ag{background-color: #fcfcfc;}
 
 
 

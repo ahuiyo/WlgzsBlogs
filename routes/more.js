@@ -4,13 +4,13 @@ const superagent=require('superagent');
 
 router.get('/',function(req,res){
     superagent
-        .get("http://wlgzs.org:9090/mock/42/home/many")
+        .get("http://10.1.32.20:18080/home/many")
         .end(function (err,data) {
             var list = JSON.parse(data.text).data
             res.render('more',{
                 list
             })
         })
-})
+}) 
  
 module.exports = router;

@@ -7,7 +7,6 @@ const router = express.Router();   /*可使用 express.Router 类创建模块化
 const superagent=require('superagent');
 
 router.get('/',function (req,res) {
-    // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
     const url='http://wlgzs.org:9090/mock/42/blog/list?id=12';
     let aid=req.query;
     superagent
@@ -24,11 +23,6 @@ router.get('/',function (req,res) {
                         const data3 = JSON.parse(ress.text).data;
                         const user=JSON.parse(data.text).user.user;
                         const code=JSON.parse(data.text).code;
-
-                        // const database=JSON.parse(data.text).database;
-                        // const personInformation=JSON.parse(data.text).datacomments.personInformation;
-                        // const dataother=JSON.parse(data.text).dataother;
-
                         for (var i in datas){
                             let labels=datas[i].label.split('，');
                             datas[i].label=labels;

@@ -19,12 +19,8 @@ router.get('/', function (req, res) {
     const name=req.query.name;
     superagent
         .post('http://wlgzs.org:9090/mock/42/personal/listblog')
-
         .send({ 'name': name })
-
         .end(function (err, dataname) {
-
-
             superagent
                 .get('http://wlgzs.org:9090/mock/42/blog/list')
                 .query({id:aid.id})

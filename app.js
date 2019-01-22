@@ -24,22 +24,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 const session = require("express-session");
 //配置中间件  固定格式
 app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
+    secret: 'keyboard cat',   //加密session
+    resave: false,            //强制保存session
+    saveUninitialized: true,  //强制将未初始化的session存储 
     cookie: {
         maxAge:1000*60*30*30  //过期时间
     },
     rolling:true  //只要页面由刷新，session值就会被保存，若为false则1000*60*30*30以后不管有没有操作，session都会消失
 }));
 
-app.locals['userinfo']='';   //设置初始值为空
+// 全局可访问
+app.locals['userinfo']=12;   //登录之后再赋值
 
 //引入模块
 const indexRouter =require('./routes/index.js');
 
 //跨域设置
 app.all('*',function (req, res, next) {
+    res.header("Access-Control-Allow-Credentials","true");
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
@@ -53,16 +55,16 @@ app.all('*',function (req, res, next) {
 });
 
 
-//访问页面的时候判断用户是否登录
 
+//访问页面的时候判断用户是否登录
 // app.use(function (req, res, next) {
 //     if (req.url=='/login'||req.url=='/dologin'){
 //         next();
 //     } else{
-//         if (req.session.userinfo && req.session.userinfo.username!=''){
+//         if (req.session.user){   //如果session中有信息 就表示已经登录
 //             next();
 //         }else{
-//             res.redirect('/login');
+//             res.send("<script>alert('您还没有登录，请先登录！');window.location.href='/login';</script>");
 //         }
 //     }
 // });

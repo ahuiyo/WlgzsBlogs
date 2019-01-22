@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>类型管理</title>
     <link rel="stylesheet" href="stylesheets/admin/everycss/type1.css">
+    <link rel="stylesheet" href="stylesheets/admin/everycss/common.css">
 </head>
 <body>
 <!--增加按钮-->
@@ -17,7 +18,7 @@
         </div>
     </div>
 <!--表格-->
-    <table class="tab" cellpadding="0" cellspacing="0" id="tab">
+    <table class="tab tab1" cellpadding="0" cellspacing="0" id="tab">
         <tr>
             <th>ID</th>
             <th>博客标签</th>
@@ -29,8 +30,8 @@
             <td><%=list[i].id%></td>
             <td><%=list[i].caName%></td>
             <td>
-                <a href="#" class="hov-btn one" onclick="Change(this)">Modify</a>
-                <a href="#" class="hov-btn two" onclick="Del(this)">Del</a>
+                <a href="#" class="one hov-btn" onclick="Change(this)">修改</a>
+                <a href="#" class="two hov-btn" onclick="Del(this)">删除</a>
             </td>
         </tr>
         <%}else{%>
@@ -38,8 +39,8 @@
             <td><%=list[i].id%></td>
             <td><%=list[i].caName%></td>
             <td>
-                <a href="#" class="hov-btn one" onclick="Change(this)">Modify</a>
-                <a href="#" class="hov-btn two" onclick="Del(this)">Del</a>
+                <a href="#" class="one hov-btn" onclick="Change(this)">修改</a>
+                <a href="#" class="two hov-btn" onclick="Del(this)">删除</a>
             </td>
         </tr>
         <%}}%>

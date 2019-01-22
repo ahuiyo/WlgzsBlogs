@@ -16,6 +16,11 @@
                             <%=list[i].blSummary%>
                         </div>
                     </div>
+                     <!-- 取消点赞 -->
+                    <div class="del_commont">
+                        <span id="idg" style="display:none" data-id="<%=list[i].id%>"></span>
+                        <input class="meg_btn" type="button" value="取消点赞" onclick="cancelG(this,'/owner/cancelgood')"/>
+                    </div>
                 </div>
             </div>
         </div>

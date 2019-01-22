@@ -5,12 +5,12 @@ const router = express.Router();   /*可使用 express.Router 类创建模块化
 const superagent=require('superagent');
 //   -------------进入博客页面   地址  例   /details?id=4
 router.get('/',function(req,res){
-    let aid=req.query;
+    let aid = req.query;
 
     let url='http://wlgzs.org:9090/mock/42/blog/getdetails';
     superagent
         .get(url)
-        .query(aid)
+        .query(aid)  
         .end(function (err, data) {
             superagent
                 .get('http://wlgzs.org:9090/mock/42/personal/statistical')

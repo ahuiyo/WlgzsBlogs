@@ -36,6 +36,17 @@ body{
     font-weight: bold;
     font-family: "楷体";
 }
+.names{
+    color: #fff;
+    font-size: 18px;
+    line-height: 60px;
+    font-weight: bold;
+    font-family: "楷体";
+}
+.mar_name{
+    display: inline-block;
+    margin-left: 22px;
+}
 .search{
     width: 380px;
     height: 40px;

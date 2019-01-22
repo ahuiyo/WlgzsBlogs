@@ -205,7 +205,7 @@ body{
 /*右边*/
 .w_right{
     float: right;
-    width: 28%;
+    width: 29%;
     height:100%;
     z-index: -1;
 }
@@ -256,7 +256,7 @@ body{
 .item {
       display: inline-block;
       width: 90%;
-      margin-top: 10px;
+      margin-top: 20px;
       line-height: 100%;
       font-size: 12px;
       overflow: hidden;

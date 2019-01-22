@@ -1,28 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>博客管理</title>
     <link rel="stylesheet" href="stylesheets/admin/everycss/type2.css">
+    <link rel="stylesheet" href="stylesheets/admin/everycss/common.css">
 </head>
+
 <body>
-    <table class="tab" cellpadding="0" cellspacing="0" id="tab">
+    <table class="tab tab2" cellpadding="0" cellspacing="0">
         <tr>
             <th>ID</th>
-            <th>博客标题</th>
-            <th>博客标签</th>
-            <th>博客摘要</th>
+            <th>标题</th>
+            <th>创作时间</th>
+            <th>摘要</th>
             <th>管理操作</th>
         </tr>
         <%for(let i = 0;i<list.length;i++){%>
-            <tr>
-                <td><%=list[i].id%></td>
-                <td><%=list[i].blTitle%></td>
-                <td><%=list[i].articleType%></td>
-                <td><%=list[i].articleType%></td>
-                <td><a href="#">操作</a></td>
-            </tr>
+        <tr>
+            <td>
+                <%=list[i].id%>
+            </td>
+            <td>
+                <div class="w-control">
+                    <%=list[i].blTitle%>
+                </div>
+            </td>
+            <td>
+                <%=list[i].createTime%>
+            </td>
+            <td>
+                <div class="w-control">
+                    <%=list[i].blSummary%>
+                </div>
+            </td>
+            <td><a href="#" class="hov-btn two">删除</a></td>
+        </tr>
         <%}%>
     </table>
+    
+    <!--分页-->
+    <div class="split_page">
+        <span><</span> 
+        <span class="a_active">1</span>
+        <span>2</span>
+        <span>></span>
+    </div>
+   
+    <!-- 详细信息弹框 -->
+    <div class="info_mask">
+        <h3 class="info_h3">详细内容：
+            <span class="info_close">×</span>
+        </h3>
+        <p class="info_p"></p>
+    </div>
+
 </body>
+<script>
+    // 详细查看摘要、博客标题详细信息...
+    $('.w-control').click(function () {
+        var a = $(this).text().trim();
+        $('.info_mask').css({ 'top': '0' });
+        $('.info_p').text(a);
+
+    })
+    //    关闭信息框
+    $('.info_close').click(function () {
+        $('.info_mask').css({ 'top': '-100%' });
+    })
+</script>
+
 </html>

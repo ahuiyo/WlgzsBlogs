@@ -16,36 +16,34 @@ router.get('/',function(req,res){
 router.post('/dologin',function (req,res) {
     var username = req.body.username;   //获取输入的用户名和密码
     var password = req.body.password;
-    var users = {
-        username,
-        password
-    }
     superagent
-        .post('http://10.1.32.40:8085/login')
-        .type("form")     //????
-        .send({username: username, password: password})
+        .get('http://wlgzs.org:9090/mock/42/login?username=2016zjg&password=zjg')
+        .type("form")     
+        // .query({
+        //     username: username, 
+        //     password: password
+        // })
         .end(function (err, data) {
-            var code = JSON.parse(data.text).code;
-            var data1 = JSON.parse(data.text).data;
-            var user = JSON.parse(data.text).user.user;
-            var past = JSON.parse(data.text).past;
-            var cotegory = JSON.parse(data.text).cotegory;
+            // var code = JSON.parse(data.text).code;
+            // var data1 = JSON.parse(data.text).data;   //博客
+            // var user = JSON.parse(data.text).user.user;
+            // var past = JSON.parse(data.text).past;    //
+            // var cotegory = JSON.parse(data.text).cotegory;  //类型
+
             //用户名保存session
-            req.session.userinfo = users;  
-            // code=0 不是新用户 code=-1是新用户
+            // req.locals.userinfo = users;
+            // req.session.userinfo = users;  
+
+            // code=0 老用户 code=-1是新用户
             // if (code==0){
             //     console.log(req.session.userinfo);     //打印显示
                 
-            //     res.render('index');
+            //     res.render('index'); 
             // } else{
             //     console.log("555");
-                
             // }
-            console.log(data1);
-            
-            // res.render('index');
+            res.render('a');
         });
-
 });
 
 

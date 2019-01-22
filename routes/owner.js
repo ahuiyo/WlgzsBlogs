@@ -2,34 +2,32 @@ const express =require('express');
 const router = express.Router();
 const superagent=require('superagent');
 
-
-
+ 
 //owner页面
 router.get('/',function (req,res) {
-    superagent
-        .get('http://wlgzs.org:9090/mock/42/personal/listmy?id=12')
-        .end(function (err,data) {
-            const list=JSON.parse(data.text).data;
-            const len=list.length;  // 长度
-            const arr=[];
+    let aid = req.query;
+    console.log(aid);
+    req.session.userID = aid.id;
+    // superagent
+        // .get('http://10.1.32.20:18080/personal/listmy')
+        // .query(aid)
+        // .end(function (err,data) {
+            // const list=JSON.parse(data.text).data;
+            // const len=list.length;  // 长度 
+            // const arr=[];
             //分隔之后保存数组中
-            for (let i=0;i<len;i++){
-                const str=list[i].label;
-                arr[i]=str.split(',');
-            }
+            // for (let i=0;i<len;i++){
+            //     const str=list[i].label;
+            //     arr[i]=str.split(',');
+            // }
             //数组保存对象中 传对象参数到页面
-            const obj={arr:arr};
-            superagent
-                .get('http://wlgzs.org:9090/mock/42/personal/statistical')
-                .end(function (err,data) {
-                    const list3=JSON.parse(data.text).data;
-                    res.render('owner',{
-                        list,
-                        obj,
-                        data3:list3,
-                    })
-                });
-        })
+            // const obj={arr:arr};
+            res.render('owner',{
+                // list,
+                // obj,
+                // username:req.session.user.username   //登录的用户名
+            })
+        // })
 });
 //直接返回data里的内容
 function Ask(_href,name,res){
@@ -74,7 +72,7 @@ router.get('/:pathname',function (req,res) {
     //查询的时候带上参数
     let _name = req.params.pathname;
     if (_name == 'tab1') {         //我的博客
-        Asktags("http://wlgzs.org:9090/mock/42/personal/listmy?id=12", _name, res);
+        Asktags("http://wlgzs.org:9090/mock/42/personal/listmy?id="+req.session.userID, _name, res);
     } 
     else if (_name == 'tab2') {  //我的点赞
         Ask("http://wlgzs.org:9090/mock/42/personal/listtwoparts?id=2", _name, res);
@@ -133,7 +131,47 @@ router.post('/delAllinfo',function(req,res){
         })
 });
 
+// 取消关注
+ router.post('/cancel/',function(req,res){
+    var _id = req.body.id;
+    superagent
+        .get('http://wlgzs.org:9090/mock/42/blog/attention')
+        .query({'id':_id})
+        .end(function(err,data){
+            var lis = JSON.parse(data.text);
+            if(lis.code == 0){
+                var title = lis.msg;
+                res.send(title)
+            }
+        })
 
+ })
+
+ //取消点赞
+ router.post('/cancelgood',function(req,res){
+     var id = req.body._id;
+    superagent
+        .get('http://wlgzs.org:9090/mock/42/blog/savelike')
+        .query({'id':id})
+        .end(function(err,result){
+            var data = JSON.parse(result.text);
+            console.log(data);
+            res.send('ok');
+        })
+ })
+
+//  取消收藏
+router.post('/cancelcoll',function(req,res){
+    var id = req.body._id;
+   superagent
+       .get('http://wlgzs.org:9090/mock/42/blog/savecollect')
+       .query({'id':id})
+       .end(function(err,result){
+           var data = JSON.parse(result.text);
+           console.log(data);
+           res.send('ok');
+       })
+})
 
 router.post('/decomment',function(req,res){
  
