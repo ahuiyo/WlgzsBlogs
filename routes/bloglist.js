@@ -14,11 +14,6 @@ router.get('/', function (req, res) {
     const name=req.query.name;
     superagent
         .post('http://10.1.32.20:18080/personal/listblog')
-<<<<<<< HEAD
-
-        // .post('http://wlgzs.org:9090/mock/42/personal/listblog')
-=======
->>>>>>> 85f9b939173fbf7517720c7ae44347a41f88aeb0
         .send({ 'name': name })
         .end(function (err, dataname) {
             superagent
