@@ -86,6 +86,7 @@
                                     id : dataid,
                                 },
                                 success:function (data) {
+                                    console.log(data);
                                     if(data.code==0){
                                         if(noclick.hasClass('Operclick')){
                                             noclick.removeClass('Operclick');
@@ -272,7 +273,7 @@
                         type:'post',
                         data:{
                             content:$('.textarea').val(),
-                            objects:1,
+                            // objects:1,
                             userId:$('.userId').val(),
                             blId:$('.dataid').val(),
                             title:$('.blTitle').text(),

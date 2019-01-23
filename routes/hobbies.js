@@ -6,8 +6,11 @@ router.use(bodyParser.json());
 const superagent=require('superagent');
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 85f9b939173fbf7517720c7ae44347a41f88aeb0
 router.get('/',function (req,res) {
     const url='http://10.1.32.20:18080/home/gettype';
     superagent

@@ -164,7 +164,7 @@
             </div>
             <div class="above-pro">
                 <%for(var i=0;i<result.length;i++){%>
-                <a href="javascript:;" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
+                <a href="/bloglist?name=<%=result[i].name%>&id=<%=user.id%>" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
                     <span><%=result[i].name%></span>
                     <div class="teal">
                         <%=result[i].number%>
