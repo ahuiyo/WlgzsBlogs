@@ -1,22 +1,25 @@
-<div id="tab3" class="tabm">
-    <p class="g_font">我的收藏<span class="indo_lens">共2条</span></p>
-    
-    <div class="g_wrap" id="w3">
-        <%for(let i=0;i<list.length;i++){%>
+<%if(list.length==0){%>
+    <p class="err_info">抱歉，该分类下还没有内容，赶快去添加吧！！</p>
+<%}else{%>
+    <div id="tab3" class="tabm">
+        <p class="g_font">我的收藏<span class="indo_lens">共<%=list.length%>条</span></p>
+        <div class="g_wrap" id="w3">
+            <%for(let i=0;i<list.length;i++){%>
             <div class="g_list">
                 <div class="s-content">
                     <a href="/details?id=<%=list[i].id%>" class="s-title p_l">
                         <%=list[i].blTitle%>
                     </a>
-                    <span id="idg" data-id="<%=list[i].id%>" style="display: none" ></span>
+                    <span id="idg" data-id="<%=list[i].id%>" style="display: none"></span>
                     <span class="cancel_fav" onclick="cancelG(this,'/owner/cancelcoll')">取消</span>
                     <p class="s-info s_right">
                         <span><%=list[i].createTime%></span>
-                        <span>浏览：<%=list[i].pageviews%></span>
+                        <span>浏览 ：<%=list[i].pageviews%></span>
                         <span>评论 ：<%=list[i].comments%></span>
                     </p>
                 </div>
             </div>
-        <%}%>
+            <%}%>
+        </div>
     </div>
-</div>
+<%}%>

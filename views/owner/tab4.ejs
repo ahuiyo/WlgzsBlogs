@@ -1,3 +1,6 @@
+<%if(list.length==0){%>
+    <p class="err_info">抱歉，该分类下还没有内容，赶快去添加吧！！</p>
+<%}else{%>
 <div id="tab4" class="tabm">
     <p class="g_font">我的评论</p>
     <div class="g_wrap" id="w4">
@@ -15,6 +18,7 @@
                     </p>
                     <!-- 删除按钮 -->
                     <div class="del_commont">
+                        <span id="idc" data-id="<%=list[i].id%>" style="display: none" ></span>
                         <input class="meg_btn" type="button" value="删除评论" onclick="del_comont(this)"/>
                     </div>
                 </div>
@@ -22,3 +26,4 @@
         <%}%>
     </div>
 </div> 
+<%}%>

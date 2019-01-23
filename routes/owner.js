@@ -6,8 +6,7 @@ const superagent=require('superagent');
 //owner页面
 router.get('/',function (req,res) {
     let aid = req.query;
-    console.log(aid);
-    req.session.userID = aid.id;
+    req.session.userID = aid.id;   //得到登录用户id
     // superagent
         // .get('http://10.1.32.20:18080/personal/listmy')
         // .query(aid)
@@ -61,6 +60,7 @@ function Asktags(_href,name,res){
                 var labels=list[i].label.split(',');
                 list[i].label=labels;
             }
+            
             res.render('owner/'+name,{
                 list,
             });
@@ -72,48 +72,50 @@ router.get('/:pathname',function (req,res) {
     //查询的时候带上参数
     let _name = req.params.pathname;
     if (_name == 'tab1') {         //我的博客
-        Asktags("http://wlgzs.org:9090/mock/42/personal/listmy?id="+req.session.userID, _name, res);
+        Asktags("http://10.1.32.20:18080/personal/listmy?id="+req.session.userID, _name, res);
     } 
     else if (_name == 'tab2') {  //我的点赞
-        Ask("http://wlgzs.org:9090/mock/42/personal/listtwoparts?id=2", _name, res);
+        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2", _name, res);
     } 
     else if (_name == 'tab3') {  //我的收藏
-        Asktags("http://wlgzs.org:9090/mock/42/personal/listtwoparts?id=7", _name, res);
+        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7", _name, res);
     } 
     else if (_name == 'tab4') {  //我的评论
-        AskR("http://wlgzs.org:9090/mock/42/personal/listotherparts?id=3", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3", _name, res);
     } 
     else if (_name == 'tab5') {  //我的关注
-        AskR("http://wlgzs.org:9090/mock/42/personal/listotherparts?id=1", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1", _name, res);
     } 
     else if (_name == 'tab6') {  //我的粉丝
-        AskR("http://wlgzs.org:9090/mock/42/personal/listotherparts?id=8", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=8", _name, res);
     } 
     else if (_name == 'tab7') {   //我的消息
-        AskR("http://wlgzs.org:9090/mock/42/personal/listotherparts?id=5", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5", _name, res);
     } 
     else {                       //个人信息
         superagent
-            .get('http://wlgzs.org:9090/mock/42/personal/getinfo')
+            .get('http://10.1.32.20:18080/personal/getinfo')
             .end(function (err, data) {
                 const list = JSON.parse(data.text).user.user;
+                const datax = JSON.parse(data.text).data;
                 const lable = JSON.parse(data.text).database.module;
                 const cotegory = JSON.parse(data.text).cotegory;
                 res.render('owner/'+_name, {
                     list,
                     lable,
-                    cotegory
+                    cotegory,
+                    dataID:datax.id
                 });
-                
             })
     }
 });
+
 
 //删除我的消息
 router.post('/delinfo',function (req,res) {
     var Bid = req.body.id;
     superagent
-        .get('http://wlgzs.org:9090/mock/42/personal/unsubscribe')
+        .get('http://10.1.32.20:18080/personal/unsubscribe')
         .query({id:Bid})
         .end(function(err,resu){
             var list = JSON.parse(resu.text);
@@ -124,7 +126,7 @@ router.post('/delinfo',function (req,res) {
 // 清空全部消息
 router.post('/delAllinfo',function(req,res){
     superagent
-        .get('http://wlgzs.org:9090/mock/42/personal/delete')
+        .get('http://10.1.32.20:18080/personal/delete')
         .end(function(err,datat){
             var list = JSON.parse(datat.text);
             res.send(list);
@@ -132,49 +134,57 @@ router.post('/delAllinfo',function(req,res){
 });
 
 // 取消关注
- router.post('/cancel/',function(req,res){
+ router.post('/cancelatten',function(req,res){
     var _id = req.body.id;
     superagent
-        .get('http://wlgzs.org:9090/mock/42/blog/attention')
-        .query({'id':_id})
+        .get('http://10.1.32.20:18080/blog/attention?id=12')
+        // .query({'id':_id})
         .end(function(err,data){
             var lis = JSON.parse(data.text);
-            if(lis.code == 0){
-                var title = lis.msg;
-                res.send(title)
-            }
+            // if(lis.code == 0){
+            //     var title = lis.msg;
+            //     res.send(title)
+            // }
+            console.log(lis);
         })
 
  })
 
  //取消点赞
- router.post('/cancelgood',function(req,res){
-     var id = req.body._id;
+router.post('/cancelGood',function(req,res){
+    var _id = req.body._id;
     superagent
         .get('http://wlgzs.org:9090/mock/42/blog/savelike')
-        .query({'id':id})
+        .query({'id':_id})
         .end(function(err,result){
             var data = JSON.parse(result.text);
-            console.log(data);
-            res.send('ok');
+            res.send(data);
         })
- })
+})
+
 
 //  取消收藏
 router.post('/cancelcoll',function(req,res){
     var id = req.body._id;
    superagent
-       .get('http://wlgzs.org:9090/mock/42/blog/savecollect')
+       .get('http://10.1.32.20:18080/blog/savecollect')
        .query({'id':id})
        .end(function(err,result){
            var data = JSON.parse(result.text);
-           console.log(data);
-           res.send('ok');
+           res.send(data);
        })
 })
 
+//删除评论
 router.post('/decomment',function(req,res){
- 
+    var id = req.body._id;
+    superagent
+        .del('http://10.1.32.20:18080/blog/delete')    //DELETE请求 
+        .query({'id':id})
+        .end(function(err,data){
+            var list = JSON.parse(data.text);
+            res.json(list);
+        })
 })
 
 //个人资料页--保存按钮
@@ -182,13 +192,14 @@ router.post('/update',function(req,res){
     var str = req.body.str;
     var _id = req.body._id;
     superagent
-        .post('http://wlgzs.org:9090/mock/42/personal/update')
+        .post('http://10.1.32.20:18080/personal/update')
         .type('form')  //想要以application/x-www-form-urlencoded格式发送数据 调用type()方法传入'form'默认json
         .send({module:str})  //已经选择的所有标签的id
         .send({id:_id})      //当前用户的主键
         .end(function(err,datas){
-            var list = JSON.parse(datas.text).database['module'];
-            res.send(list)
+            console.log(datas);
+            // var list = JSON.parse(datas.text).database['module'];
+            // res.send(list)
         })
 })
 

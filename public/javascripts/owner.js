@@ -34,10 +34,11 @@ function add(e) {
 }
 
 // 我的粉丝 button 按钮 
-// function fans(self){
-//     const _this=self;
-//     $(_this).parent().css("display","none");
-// }
+function fans(self){
+    const _this=self;
+
+
+}
 
 //我的消息  按钮
 function del(self) {
@@ -59,6 +60,8 @@ function delinfo(that){
         success:function(result){
             if(result.code==0){
                 $(_this).parents('.present-panel').css({'display':'none'});
+            }else if(result.code==-1){
+                alert('删除失败!')
             }
         }
     })
@@ -73,7 +76,9 @@ function delAll(that){
             type:'post',   
             success:function(result){
                 if(result.code==0){
-                    $('#w7').css({'display':'none'});
+                    $('#tab7').css({'display':'none'});
+                }else{
+                    alert('清理失败!')
                 }
             }
         })
@@ -82,16 +87,37 @@ function delAll(that){
 
 // 删除我的评论
 function del_comont(that){
+    var _id = $('#idc').attr('data-id');
+    var data = {
+        _id,
+    }
+    $.ajax({
+        url:'/owner/decomment',
+        type:'post',
+        data:data,
+        success:function(result){
+            if(result.code==0){
+                $('.subject-item').css({'display':'none'});
+            }
+        }
+    })
 
 }
 
 //个人资料模块  保存修改按钮
-function btn_update(that){
+function btnUpdate(that){
     var str='';
     var _id = $('#hiden').attr('value');
-    $('#listdemo').find('li').each(function(){
-        str+=$.trim($(this).attr('data_id'))+','  //拿到已经选择的值，保存到字符串中(去掉空格)
+    var lens = $('#listdemo').find('li').length;
+    $('#listdemo').find('li').each(function(i){
+        if(i==lens-1){
+            str+=$.trim($(this).attr('data_id'));    //最后一个不加逗号
+        }else{
+             str+=$.trim($(this).attr('data_id'))+','  //拿到已经选择的值，保存到字符串中(去掉空格)
+        }
+       
     })
+    console.log(_id);
    //发送请求
    $.ajax({
        url:'/owner/update',
@@ -102,19 +128,23 @@ function btn_update(that){
        },
        success:function(result){
            var len = result.length;
-           console.log(len);
         }
    })
 }
  
-// 我的关注
-function cancel_Concent(){
-
+// 取消关注
+function cancelConcent(that){
+    $.ajax({
+        url:'/owner/cancelatten',
+        type:'post',
+        success:function(result){
+            console.log(result);
+        }
+    })
 }
 
-//取消点赞
+//取消点赞/收藏
 function cancelG(that,_url){
-    var _this = that;
     var _id = $('#idg').attr('data-id');
     var data = {
         _id
@@ -124,30 +154,27 @@ function cancelG(that,_url){
         type:'post',
         data:data,
         success:function(result){
-            console.log(result);
-            alert('ok')
+            if(result.code == 0){
+                $('.g_list').css({'display':'none'});
+            }
         }
     })
-
 }
 
-//取消收藏
-// function cancelColl(this){
-//     var _this = that;
-//     var _id = $('#idg').attr('data-id');
-//     var data = {
-//         _id
-//     };
-//     $.ajax({
-//         url:'/owner/cancelgood',
-//         type:'post',
-//         data:data,
-//         success:function(result){
-//             console.log(result);
-//         }
-//     })
-// }
-
+function cancelColl(that){
+    var _id = $('#id').attr('data-id');
+    var data ={
+        _id
+    };
+    $.ajax({
+        url:'/owner/cancelGood',
+        type:'post',
+        data:data,
+        success:function(result){
+            console.log(result);
+        }
+    })
+}
 
 
 //测试分页
