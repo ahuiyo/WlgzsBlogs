@@ -31,7 +31,7 @@
     <div class="content">
         <div class="contentLeft">
             <h1 class="contentTitle"><%=datas.blTitle%></h1>
-            <ul class="contentTime">
+            <ul class="contentTime"> 
                 <li><a href="javascript:;"><%=users.username %></a></li>
                 <li><img src="images/detailtime.png"> <span><%=datas.createTime%></span></li>
                 <li><img src="images/detailsee.png"><span>浏览 <%=datas.pageviews%></span></li>
@@ -104,15 +104,11 @@
                                     }else{
                                         alert("网络错误，请重试！");
                                     }
-
-
                                 }
                             })
 
                         }
                     );
-
-
 
                 </script>
                 <%if(result.isCollection==0){%>

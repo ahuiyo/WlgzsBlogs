@@ -60,8 +60,8 @@ body{
 }
 .search::-webkit-input-placeholder{color: #eee;}
 .btn{
-    width: 55px;
-    height: 35px;
+    width: 65px;
+    height: 40px;
     border:1px solid #373d41;
     background-color: rgba(165,159,159,.35);
     border-radius: 100%;
@@ -70,10 +70,14 @@ body{
     outline: none;
     color: #fff;
     font-size: 15px;
-    font-weight: bold;
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
+}
+.btn:hover{
+    font-weight: bold;
+    border: 1px solid #787777;
+    box-shadow: 2px 2px 2px #787777;
 }
 .pic-right{
     float: right;

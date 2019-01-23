@@ -6,7 +6,7 @@ router.get('/',function(req,res){
     superagent
         .get("http://10.1.32.20:18080/home/many")
         .end(function (err,data) {
-            var list = JSON.parse(data.text).data
+            var list = JSON.parse(data.text).data;
             res.render('more',{
                 list
             })

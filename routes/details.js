@@ -1,20 +1,18 @@
 const express=require('express');
-
 const router = express.Router();   /*可使用 express.Router 类创建模块化、可挂载的路由句柄*/
-
 const superagent=require('superagent');
+
 //   -------------进入博客页面   地址  例   /details?id=4
 router.get('/',function(req,res){
     let aid = req.query;
-
     let url='http://10.1.32.20:18080/blog/getdetails';
     superagent
         .get(url)
         .query(aid)  
         .end(function (err, data) {
-            superagent
-                .get('http://10.1.32.20:18080/personal/statistical')
-                .end(function (err,ress) {
+            // superagent
+                // .get('http://10.1.32.20:18080/personal/statistical')
+                // .end(function (err,ress) {
                     if(!err){
                         /*result  用户登录信息以及登录用户是否关注博主
                         * datas   本文章的相关数据   label  文章标签
@@ -25,16 +23,16 @@ router.get('/',function(req,res){
 
                         const result=JSON.parse(data.text).result;
                         const datas=JSON.parse(data.text).data;
-                        const label=datas.label.split('，');
+                        const label=datas.label.split(',');
                         const other=JSON.parse(data.text).database.other;
                         const before=JSON.parse(data.text).database.before;
                         const after=JSON.parse(data.text).database.after;
                         const comment=JSON.parse(data.text).datacomments;
-                        const data3=JSON.parse(ress.text).data;
+                        // const data3=JSON.parse(ress.text).data;
                         const users=JSON.parse(data.text).user.user;
                         const dataother=JSON.parse(data.text).dataother;
                         res.render('details',{
-                            data3,
+                            // data3,
                             aid,
                             users,
                             dataother,
@@ -47,7 +45,7 @@ router.get('/',function(req,res){
                             comment:comment
                         })
                     }
-                });
+                // });
         })
 });
 

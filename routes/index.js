@@ -24,15 +24,12 @@ router.get('/', function (req, res) {
         //首页全部
         .get('http://10.1.32.20:18080/home/index')
         .end(function (err, data) {
-           
             const list = JSON.parse(data.text).data;  //左边分类下面的推荐阅读
             const past = JSON.parse(data.text).past;  //右边推荐博客
             const cotegory = JSON.parse(data.text).cotegory;   //左边顶部分类标签
-            const number = JSON.parse(data.text).dataother['information'];  //顶部各个部分的数量
+            // const number = JSON.parse(data.text).dataother['information'];  //顶部各个部分的数量
             const userinfo = JSON.parse(data.text).user['user'];
             const ID = userinfo.id;   //登录用户的ID
-            // indexImages   博客图片字段
-            
             const imgarr = [];
             for(var i = 0;i<list.length;i++){
                 imgarr.push(list[i].indexImages);
@@ -41,7 +38,7 @@ router.get('/', function (req, res) {
                 data1: list,
                 past,
                 cotegory,
-                number,
+                // number,
                 imgarr,
                 ID
             })
@@ -146,17 +143,20 @@ router.get('/login', function (req, res) {
 
 //处理数据
 router.post('/dologin', function (req, res) {
+
     var username = req.body.username;   //获取输入的用户名和密码
     var password = req.body.password;
+
     superagent
-        .get('http://wlgzs.org:9090/mock/42/login')
-        .type("form")
-        .query({
-            username: username,
-            password: password
-        })
+        .post('http://10.1.32.20:18080/login')
+        .type('form')
+        .send({ username: username })
+        .send({ password: password })
         .end(function (err, data) {
+            
             var code = JSON.parse(data.text).code;
+            console.log(code)
+
             if (code == 0 || code == 1) {
                 req.session.user = {
                     username,
@@ -169,8 +169,15 @@ router.post('/dologin', function (req, res) {
 
 //登出
 router.get('/logout', function (req, res) {
-    req.session.destroy(function (err) {
-        res.send('/login')
-    })
+    superagent
+        .get('http://10.1.32.20:18080/tologinout')
+        .end(function(err,data){
+            var list = JSON.parse(data.text);
+            if(list.code==0){
+                req.session.destroy(function (err) {
+                    res.send('/login')
+                })
+            }
+        })
 });
 module.exports = router;

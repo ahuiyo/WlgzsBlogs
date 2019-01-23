@@ -1,29 +1,21 @@
 const express = require('express');
-
 const router = express.Router();   /*可使用 express.Router 类创建模块化、可挂载的路由句柄*/
-
 const bodyParser = require('body-parser');
+const superagent = require('superagent');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 
-const superagent = require('superagent');
+
 
 router.get('/', function (req, res) {
-    // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
-
-
     // let aid = req.body;
     let aid = req.query;
-
     const name=req.query.name;
     superagent
-<<<<<<< HEAD
         .post('http://10.1.32.20:18080/personal/listblog')
 
-=======
-        .post('http://wlgzs.org:9090/mock/42/personal/listblog')
->>>>>>> 115fb44a0184c2335bd3c0155c23cf97bb6d7915
+        // .post('http://wlgzs.org:9090/mock/42/personal/listblog')
         .send({ 'name': name })
         .end(function (err, dataname) {
             superagent
@@ -54,7 +46,7 @@ router.get('/', function (req, res) {
                                     datas[i].label = labels;
                                 }
 
-                                res.render('personblog', {
+                                res.render('bloglist', {
                                     datas,
                                     result,
                                     cotegory,
