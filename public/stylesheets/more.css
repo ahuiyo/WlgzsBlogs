@@ -11,10 +11,11 @@ body{
 }
 .top{
     width: 100%;
-    height: 50px;
+    height: 60px;
+    line-height: 60px;
     background-color: #373d41;
 }
-.wrap{
+.m_wrap{
     width: 80%;
     margin: 0 auto;
     height: auto;
@@ -33,6 +34,19 @@ body{
     line-height: 50px;
     font-weight: bold;
     font-family: "楷体";
+}
+.indexPage{
+    float: right;
+    color: #fff;
+    text-decoration: none;
+    vertical-align: middle;
+    font-size: 13px;
+    margin-right: 90px;
+}
+.samll_pic{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 .wrapper{
     width: 70%;

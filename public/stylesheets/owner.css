@@ -250,10 +250,11 @@
     width: 90%;
     margin:0 auto;
     line-height: 90px;
-    border-bottom: 1px solid #e9e9e9
+    border-bottom: 1px solid #e9e9e9;
+    font-size: 20px;
 }
 .g_list{
-    padding: 25px 100px 25px 0;
+    padding: 20px 100px 20px 0;
     border: 1px solid #e9e9e9;
     border-width: 0 0 1px;
     overflow: hidden;
@@ -277,8 +278,8 @@
     border-width: 0 13px 11px;
     border-color: transparent transparent #f3f2f2;
 }
-.g_box:hover{border:1px solid #36f;}
-.g_box:hover .arrow{border-color: transparent transparent #36f;}
+.g_box:hover{border:1px solid #b6c1e1;}
+.g_box:hover .arrow{border-color: transparent transparent #b6c1e1;}
 .s-content {
     border-left: 0;
     margin-left: 0;
@@ -294,22 +295,43 @@
     overflow: hidden;
 }
 .s-title{
-    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 20px;
+    font-size: 17px;
     color: #000;
     padding-bottom: 10px;
 }
+.p_l{padding-left: 22px;}
 .s-title:hover{color: #36f !important;}
-.s-info {overflow: hidden;}
+.s-info {overflow: hidden}
 .s-info span {
     float: left;
     font-size: 12px;
     padding-right: 30px;
     color: #999;
 }
+.s_top{
+    margin-top: 8px;
+}
+.s_right{
+    float: right;
+    vertical-align: middle
+}
+.indo_lens{
+    float: right;
+    font-size: 14px;
+    color: #767474;
+    margin-right: 30px;
+}
+/* 取消点赞按钮 */
+.cancel_fav{
+    color: #999;
+    cursor: pointer;
+    margin-top: -5px;
+    float: right;
+}
+.cancel_fav:hover{color: #ca0c16;}
 .label-item {
     display: inline-block;
     margin: 0 8px;

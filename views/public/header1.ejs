@@ -2,6 +2,8 @@
 <div class="header1 p_header" style="border-bottom: 2px inset #303030;">
     <img class="pic" src="images/top1.png">
     <span class="name">未来工作室</span>
+    <span class="names mar_name">欢迎 </span>
+    <span class="names"></span>
     <div class="h_right">
         <ul class="h_ul">
             <li>
@@ -11,9 +13,18 @@
                 <a href="#"><img class="icon" title="写文章" src="images/pencil.png"/>编辑文章</a>
             </li>
             <li>
-                <a href="#"><img class="icon" title="写文章" src="images/exit.png"/>退出</a>
+                <a href="javascript:;" onclick="exit()"><img class="icon" title="写文章" src="images/exit.png"/>退出</a>
             </li>
         </ul>
     </div>
 </div>
+<script>
+    function exit(){
+        if(confirm("确定要退出？")){
+            window.location = '/login';
+        }else{
+            return false;
+        }
+    }
+</script>
 

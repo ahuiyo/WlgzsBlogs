@@ -34,10 +34,10 @@ function add(e) {
 }
 
 // 我的粉丝 button 按钮 
-function fans(self){
-    const _this=self;
-    $(_this).parent().css("display","none");
-}
+// function fans(self){
+//     const _this=self;
+//     $(_this).parent().css("display","none");
+// }
 
 //我的消息  按钮
 function del(self) {
@@ -79,6 +79,7 @@ function delAll(that){
         })
     }
 }
+
 // 删除我的评论
 function del_comont(that){
 
@@ -91,7 +92,6 @@ function btn_update(that){
     $('#listdemo').find('li').each(function(){
         str+=$.trim($(this).attr('data_id'))+','  //拿到已经选择的值，保存到字符串中(去掉空格)
     })
-   console.log(str);
    //发送请求
    $.ajax({
        url:'/owner/update',
@@ -106,6 +106,49 @@ function btn_update(that){
         }
    })
 }
+ 
+// 我的关注
+function cancel_Concent(){
+
+}
+
+//取消点赞
+function cancelG(that,_url){
+    var _this = that;
+    var _id = $('#idg').attr('data-id');
+    var data = {
+        _id
+    };
+    $.ajax({
+        url:_url,
+        type:'post',
+        data:data,
+        success:function(result){
+            console.log(result);
+            alert('ok')
+        }
+    })
+
+}
+
+//取消收藏
+// function cancelColl(this){
+//     var _this = that;
+//     var _id = $('#idg').attr('data-id');
+//     var data = {
+//         _id
+//     };
+//     $.ajax({
+//         url:'/owner/cancelgood',
+//         type:'post',
+//         data:data,
+//         success:function(result){
+//             console.log(result);
+//         }
+//     })
+// }
+
+
 
 //测试分页
 

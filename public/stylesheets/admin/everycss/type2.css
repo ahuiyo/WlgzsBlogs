@@ -1,0 +1,51 @@
+.tab2{
+    width: 80%;
+}
+.w-control{
+    width: 250px;
+    height: 27px;
+    overflow: hidden;
+    padding: 5px 3px;
+    margin: 0 auto;
+}
+/* 详细信息弹框 */
+.info_mask{
+    width: 350px;
+    padding-bottom: 25px;
+    position: fixed;
+    top: -100%;
+    /* top: 0; */
+    left: 50%;
+    background: #fff;
+    transform: translateX(-50%);
+    transition: all .5s;
+    text-align: center;
+    box-shadow: 2px 2px 3px #9b9a9a;
+    border: 1px solid #babbbc;
+}
+.info_h3{
+    height: 40px;
+    line-height: 40px;
+    background: #989999;
+    color: #fff;
+    border-bottom: 1px solid #a5a0a0;
+    box-shadow: 0 2px 3px #939292;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    position: relative;
+}
+.info_close{
+    vertical-align: middle;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+.info_p{
+    line-height: 30px;
+    padding: 0 50px;
+}
+
+
+
+

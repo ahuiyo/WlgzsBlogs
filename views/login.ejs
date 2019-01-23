@@ -15,7 +15,7 @@
     </div>
     <div class="i_box">
         <p class="l_dl">登 录</p>
-        <form class="form" enctype="multipart/form-data">
+        <form class="form" enctype="multipart/form-data" action="/dologin">
             <!--图标-->
             <label>
                 <img src="images/user.png">
@@ -45,11 +45,21 @@
             const password=$('input[type="password"]').val();
             if (username && password){
                 $.ajax({
-                    url:'/login/dologin',
+                    url:'/dologin',
                     type:'post',
-                    data:{username:username,password:password},
+                    data:{
+                        username:username,
+                        password:password
+                    },
                     success:function (data) {
-                        console.log("ok");
+                        if(data == 0){
+                            window.location = '/';
+                        }else if(data == 1){
+                            window.location = '/hobbies';
+                        }else{
+                            alert('账户或密码不正确!');
+                            window.location='/login';
+                        }
                     }
                 })
             }else{
@@ -57,5 +67,6 @@
             }
         })
     })
+
 </script>
 </html>

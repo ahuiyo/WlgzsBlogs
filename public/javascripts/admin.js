@@ -14,10 +14,15 @@ $(function () {
      //根据id 进行加载页面
        let Eid = $(this).attr("id");
        let _url="/admin/type"+Eid;
-       $.get(_url,function (result) {
-           $("#wrapid").append().html(result);
+       $.ajax({
+           url:_url,
+           type:'post',
+           success(data){
+               $("#wrapid").html(data);
+           }
        })
    });
+
 
 
 });
