@@ -61,6 +61,7 @@ router.get('/savelike',function (req,res) {
         .end(function (err,data) {
             if(!err){
                 const savelike=JSON.parse(data.text);
+                console.log(savelike);
 
                 if(savelike.code == 0){
                     res.json({
@@ -113,10 +114,14 @@ router.get('/savecollect',function (req,res) {
 router.post('/save',function (req,res) {
 
     let url='http://10.1.32.20:18080/blog/save';
-
     superagent
         .post(url)
-        .send(req.body)
+        .type('form')
+        .send({content : req.body.content})
+        .send({userId : req.body.userId})
+        .send({blId : req.body.blId})
+        .send({title: req.body.title})
+        .send({id : req.body.id})
         .end(function (err,data) {
             if(!err){
                 const save=JSON.parse(data.text);
