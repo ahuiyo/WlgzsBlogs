@@ -113,7 +113,7 @@ router.get('/savecollect',function (req,res) {
 router.post('/save',function (req,res) {
 
     let url='http://10.1.32.20:18080/blog/save';
-    console.log(req.body);
+
     superagent
         .post(url)
         .send(req.body)
@@ -143,8 +143,8 @@ router.get('/detele',function (req,res) {
     let url='http://10.1.32.20:18080/blog/delete';
 
     superagent
-        .get(url)
-        .query({id:6})
+        .del(url)
+        .query(req.query)
         .end(function (err,data) {
             if(!err){
                 const save=JSON.parse(data.text);

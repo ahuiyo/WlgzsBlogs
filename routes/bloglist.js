@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
 
     const name=req.query.name;
     superagent
-        .post('http://wlgzs.org:9090/mock/42/personal/listblog')
+        .post('http://10.1.32.20:18080/personal/listblog')
 
         .send({ 'name': name })
 
@@ -26,12 +26,12 @@ router.get('/', function (req, res) {
 
 
             superagent
-                .get('http://wlgzs.org:9090/mock/42/blog/list')
+                .get('http://10.1.32.20:18080/blog/list')
                 .query({id:aid.id})
                 .end(function (err, data) {
 
                     superagent
-                        .get('http://wlgzs.org:9090/mock/42/personal/statistical')
+                        .get('http://10.1.32.20:18080/personal/statistical')
                         .end(function (err, ress) {
 
                             if (!err) {

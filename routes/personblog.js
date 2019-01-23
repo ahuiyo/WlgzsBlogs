@@ -8,11 +8,11 @@ const superagent=require('superagent');
 
 router.get('/',function (req,res) {
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
-    const url='http://10.1.32.20:18080/blog/list?id=12';
+    const url='http://10.1.32.20:18080/blog/list';
     let aid=req.query;
     superagent
         .get(url)
-        // .query(aid)
+        .query(aid)
         .end(function (err, data) {
             superagent
                 .get('http://10.1.32.20:18080/personal/statistical')
