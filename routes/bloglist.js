@@ -26,12 +26,11 @@ router.get('/', function (req, res) {
                 .query({id:aid.id})
                 .end(function (err, data) {
 
-                    superagent
-                        .get('http://10.1.32.20:18080/personal/statistical')
-                        .end(function (err, ress) {
+
 
                             if (!err) {
                                 const datas = JSON.parse(dataname.text).data;
+
                                 const result = JSON.parse(data.text).result;
                                 const cotegory = JSON.parse(data.text).cotegory;
                                 const data3 = JSON.parse(ress.text).data;
@@ -58,7 +57,7 @@ router.get('/', function (req, res) {
                                     past,
                                 })
                             }
-                        })
+
                 })
 
         })

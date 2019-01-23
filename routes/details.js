@@ -114,6 +114,7 @@ router.get('/savecollect',function (req,res) {
 router.post('/save',function (req,res) {
 
     let url='http://10.1.32.20:18080/blog/save';
+
     superagent
         .post(url)
         .type('form')
