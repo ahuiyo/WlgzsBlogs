@@ -6,17 +6,7 @@ router.use(bodyParser.json());
 const superagent=require('superagent');
 
 
-
 router.get('/',function (req,res) {
-<<<<<<< HEAD
-=======
-    var user=req.session.user
-
-    res.render('hobbies',{user});
-});
-
-router.get('/',function (req,res) {
->>>>>>> 65252804161351c9184a426fa3fdb189608985cd
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
     const url='http://10.1.32.20:18080/home/gettype';
     superagent

@@ -12,12 +12,8 @@ const owner = require('./owner');
 const admin = require('./admin');
 const user = require('./user');
 const more = require('./more.js');
-<<<<<<< HEAD
-const personblog =require('./personblog');
-=======
 const personblog = require('./personblog');
 const hobbies = require('./hobbies')
->>>>>>> 65252804161351c9184a426fa3fdb189608985cd
 const bloglist =require('./bloglist');
 const allhobbs=require('./allhobbs');
 
