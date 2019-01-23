@@ -11,7 +11,7 @@
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 </head>
 <body>
-<%-include ./public/header.ejs%>
+
 
 <section class="top">
     <div class="topimg">
@@ -38,6 +38,7 @@
                                 success:function (data) {
                                     if(data.code==0){
                                         console.log(data.msg);
+                                        location.reload();
                                     }
 
                                 }
@@ -190,20 +191,20 @@
 </body>
 <script>
 
-    // $('.pro').on('click',function () {
-    //     console.log($(this).attr("name"));
-    //     $.ajax({
-    //         type:'post',
-    //         url:'/bloglist',
-    //         data:{
-    //             name:$(this).attr("name"),
-    //             id: $(this).data('id'),
-    //         },
-    //         success:function (data) {
-    //             location.reload();
-    //         }
-    //     })
-    // })
+    $('.pro').on('click',function () {
+        console.log($(this).attr("name"));
+        $.ajax({
+            type:'post',
+            url:'/bloglist',
+            data:{
+                name:$(this).attr("name"),
+                id: $(this).data('id'),
+            },
+            success:function (data) {
+                // location.reload();
+            }
+        })
+    })
 
 
 

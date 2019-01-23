@@ -90,7 +90,7 @@ $('.detalecomm').on('click',function () {
         },
         success:function (data) {
             if (data.code==0){
-                console.log(data.msg);
+               location.reload();
                 // location.reload();
             }else{
                 alert(data.msg);

@@ -33,7 +33,6 @@ router.get('/',function (req,res) {
 router.get('/save',function (req,res) {
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
     const url='http://10.1.32.20:18080/personal/save';
-    console.log(req.query);
     superagent
         .get(url)
         .query(req.query)

@@ -11,7 +11,7 @@
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 </head>
 <body>
-<%-include ./public/header.ejs%>
+
 
 <section class="top">
     <div class="topimg">
@@ -19,14 +19,14 @@
             <img src="images/a3.jpg">
             <div class="con-infor">
                 <h3>
-                    <span><%=user.user.username%></span>
+                    <span><%=user.username%></span>
                     <%if(code==0){%>
                         <a href="javascrippt:;" class="attention">+&nbsp;关注</a>
                     <%}%>
                     <%if(code != 0){%>
                         <a href="javascrippt:;" class="attention">已关注</a>
                     <%}%>
-                    <input type="hidden" class="attentionid" value="<%=user.user.id%>">
+                    <input type="hidden" class="attentionid" value="<%=user.id%>">
                     <script>
                         $('.attention').click(function () {
                             $.ajax({
@@ -66,10 +66,12 @@
 
         <!--此li为有图片的li-->
         <li class="queer-time">
-            <div class="delorwrite">
-                <a href="">编辑</a>
-                <a href="">删除</a>
-            </div>
+            <%if(user.id==past.loginUserId){%>
+                <div class="delorwrite">
+                    <a href="">编辑</a>
+                    <a href="">删除</a>
+                </div>
+            <%}%>
             <a href="/details?id=<%=datas[i].id%>">
                 <div class="time-icon"></div>
                 <div class="time-content">
@@ -162,7 +164,7 @@
             </div>
             <div class="above-pro">
                 <%for(var i=0;i<result.length;i++){%>
-                <a href="javascript:;" data-id="<%=user.user.id%>" name="<%=result[i].name%>" class="pro">
+                <a href="javascript:;" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
                     <span><%=result[i].name%></span>
                     <div class="teal">
                         <%=result[i].number%>

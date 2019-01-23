@@ -3,11 +3,11 @@ const router = express.Router();   /*可使用 express.Router 类创建模块化
 const superagent=require('superagent');
 
 router.get('/',function (req,res) {
-    const url='http://10.1.32.20:18080/blog/list?id=12';
+    const url='http://10.1.32.20:18080/blog/list';
     let aid=req.query;
     superagent
         .get(url)
-        // .query(aid)
+        .query(aid)
         .end(function (err, data) {
             superagent
                 .get('http://10.1.32.20:18080/personal/statistical')

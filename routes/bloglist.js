@@ -18,16 +18,21 @@ router.get('/', function (req, res) {
 
     const name=req.query.name;
     superagent
+<<<<<<< HEAD
+        .post('http://10.1.32.20:18080/personal/listblog')
+
+=======
         .post('http://wlgzs.org:9090/mock/42/personal/listblog')
+>>>>>>> 115fb44a0184c2335bd3c0155c23cf97bb6d7915
         .send({ 'name': name })
         .end(function (err, dataname) {
             superagent
-                .get('http://wlgzs.org:9090/mock/42/blog/list')
+                .get('http://10.1.32.20:18080/blog/list')
                 .query({id:aid.id})
                 .end(function (err, data) {
 
                     superagent
-                        .get('http://wlgzs.org:9090/mock/42/personal/statistical')
+                        .get('http://10.1.32.20:18080/personal/statistical')
                         .end(function (err, ress) {
 
                             if (!err) {
