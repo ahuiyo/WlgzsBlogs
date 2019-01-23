@@ -3,10 +3,7 @@ const router = express.Router();   /*可使用 express.Router 类创建模块化
 const superagent=require('superagent');
 
 router.get('/',function (req,res) {
-<<<<<<< HEAD
-    // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
-=======
->>>>>>> 65252804161351c9184a426fa3fdb189608985cd
+
     const url='http://10.1.32.20:18080/blog/list';
     let aid=req.query;
     superagent
