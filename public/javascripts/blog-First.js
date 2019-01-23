@@ -2,7 +2,7 @@ $(function () {
     //展开/收起
    $('.choice-icon').click(function () {
       if($('.show').height()!=100){
-          $('.show').css({height:"100px"});
+          $('.show').css({height:"120px"});
           $('.choice-icon-txt').html('收起');
           $('.Turn').css({"transform":"rotate(0deg)"})
       }

@@ -1,5 +1,5 @@
 const express=require('express');
-const router = express.Router();   /*可使用 express.Router 类创建模块化、可挂载的路由句柄*/
+const router = express.Router(); 
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
@@ -12,12 +12,6 @@ router.get('/',function (req,res) {
 
     res.render('hobbies',{user});
 });
-
-
-
-const router = express.Router();   /*可使用 express.Router 类创建模块化、可挂载的路由句柄*/
-
-const superagent=require('superagent');
 
 router.get('/',function (req,res) {
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';

@@ -13,11 +13,8 @@ const admin = require('./admin');
 const user = require('./user');
 const more = require('./more.js');
 const personblog = require('./personblog');
-const bloglist = require('./bloglist');
 const hobbies = require('./hobbies')
-const personblog =require('./personblog');
 const bloglist =require('./bloglist');
-const hobbies=require('./hobbies');
 const allhobbs=require('./allhobbs');
 
 

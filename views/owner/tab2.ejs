@@ -1,4 +1,6 @@
-
+<%if(list.length==0){%>
+    <p class="err_info">抱歉，该分类下还没有内容，赶快去添加吧！！</p>
+<%}else{%>
 <div id="tab2" class="tabm">
     <p class="g_font">我的点赞</p>
     <div class="g_wrap" id="w2">
@@ -16,14 +18,10 @@
                             <%=list[i].blSummary%>
                         </div>
                     </div>
-                     <!-- 取消点赞 -->
-                    <div class="del_commont">
-                        <span id="idg" style="display:none" data-id="<%=list[i].id%>"></span>
-                        <input class="meg_btn" type="button" value="取消点赞" onclick="cancelG(this,'/owner/cancelgood')"/>
-                    </div>
                 </div>
             </div>
         </div>
         <%}%>
     </div>
 </div>
+<%}%>
