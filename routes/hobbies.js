@@ -20,7 +20,6 @@ router.get('/',function (req,res) {
                     datas:datas,
                 })
             }
-
         });
 });
 
@@ -36,11 +35,9 @@ router.get('/save',function (req,res) {
         .query({userid:userid})
         .end(function (err, data) {
             if(!err){
-
-                console.log(JSON.parse(data.text));
+                // console.log(JSON.parse(data.text));
                 res.json(JSON.parse(data.text));
             }
-
         });
 });
 

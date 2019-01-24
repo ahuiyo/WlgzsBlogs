@@ -7,9 +7,7 @@ const superagent = require('superagent');
 router.get('/', function (req, res) {
     let aid = req.query;
     req.session.userID = aid.id;   //得到登录用户id
-    res.render('owner', {
-        // username:req.session.user.username   //登录的用户名
-    })
+    res.render('owner')
 });
 //直接返回data里的内容
 function Ask(_href, name, res) {
@@ -58,26 +56,27 @@ router.get('/:pathname', function (req, res) {
         Asktags("http://10.1.32.20:18080/personal/listmy?id=" + req.session.userID, _name, res);
     }
     else if (_name == 'tab2') {  //我的点赞
-        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2", _name, res);
+        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2&userid="+req.session.userID, _name, res);
     }
     else if (_name == 'tab3') {  //我的收藏
-        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7", _name, res);
+        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7&userid="+req.session.userID, _name, res);
     }
     else if (_name == 'tab4') {  //我的评论
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3&userid="+req.session.userID, _name, res);
     }
     else if (_name == 'tab5') {  //我的关注
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1&userid="+req.session.userID, _name, res);
     }
     else if (_name == 'tab6') {  //我的粉丝
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=8", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=8&userid="+req.session.userID, _name, res);
     }
     else if (_name == 'tab7') {   //我的消息
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5", _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid="+req.session.userID, _name, res);
     }
     else {                       //个人信息
         superagent
             .get('http://10.1.32.20:18080/personal/getinfo')
+            .query({userid:req.session.userID}) //传用户的id
             .end(function (err, data) {
                 const list = JSON.parse(data.text).user.user;
                 const datax = JSON.parse(data.text).data;
@@ -110,6 +109,7 @@ router.post('/delinfo', function (req, res) {
 router.post('/delAllinfo', function (req, res) {
     superagent
         .get('http://10.1.32.20:18080/personal/delete')
+        .query({userid:req.session.userID}) //传用户的id
         .end(function (err, datat) {
             var list = JSON.parse(datat.text);
             res.send(list);

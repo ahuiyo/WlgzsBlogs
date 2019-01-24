@@ -57,17 +57,17 @@ app.all('*',function (req, res, next) {
 
 
 //访问页面的时候判断用户是否登录
-// app.use(function (req, res, next) {
-//     if (req.url=='/login'||req.url=='/dologin'){
-//         next();
-//     } else{
-//         if (req.session.user){   //如果session中有信息 就表示已经登录
-//             next();
-//         }else{
-//             res.send("<script>alert('您还没有登录，请先登录！');window.location.href='/login';</script>");
-//         }
-//     }
-// });
+app.use(function (req, res, next) {
+    if (req.url=='/login'||req.url=='/dologin'){
+        next();
+    } else{
+        if (req.session.user){   //如果session中有信息 就表示已经登录
+            next();
+        }else{
+            res.send("<script>alert('您还没有登录，请先登录！');window.location.href='/login';</script>");
+        }
+    }
+});
 
 // 访问主页面
 app.use('/', indexRouter);

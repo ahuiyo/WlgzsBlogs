@@ -20,9 +20,12 @@ const allhobbs=require('./allhobbs');
 
 //主页
 router.get('/', function (req, res) {
+    var userid = req.session.user.userID;
+    console.log(userid);
     superagent
         //首页全部
         .get('http://10.1.32.20:18080/home/index')
+        .query({userid:userid})
         .end(function (err, data) {
             const list = JSON.parse(data.text).data;  //左边分类下面的推荐阅读
             const past = JSON.parse(data.text).past;  //右边推荐博客
@@ -44,7 +47,7 @@ router.get('/', function (req, res) {
             })
         });
 });
-//最新博客、推荐博客
+//最新博客、推荐阅读
 function path1(res, url) {
     superagent
         .get(url)
@@ -80,17 +83,20 @@ function path2(res, _id, url) {
 
 //类型的搜索(推荐、最新、li)
 router.get('/articel/:name', function (req, res) {
+    var userid = req.session.user.userID;
+    console.log(userid);
     //最新博客
     if (req.params.name == 'getnew') {
-        path1(res, 'http://10.1.32.20:18080/home/getnew')
+        path1(res, 'http://10.1.32.20:18080/home/getnew');
     }
+    //推荐博客
     else if (req.params.name == 'recommend') {
-        path1(res, 'http://10.1.32.20:18080/home/recommend')
+        path1(res, 'http://10.1.32.20:18080/home/getnew?userid='+userid);
     }
     //剩下的几个标li签
     else {
         const val = req.params.name;
-        path2(res, val, 'http://10.1.32.20:18080/home/getblogby')
+        path2(res, val, 'http://10.1.32.20:18080/home/getblogby');
     }
 });
 
@@ -143,27 +149,25 @@ router.get('/login', function (req, res) {
 
 //处理数据
 router.post('/dologin', function (req, res) {
-
     var username = req.body.username;   //获取输入的用户名和密码
     var password = req.body.password;
 
     superagent
         .post('http://10.1.32.20:18080/login')
         .type('form')
-        .send({ username: username })
-        .send({ password: password })
+        .send({username:username})
+        .send({password:password})
         .end(function (err, data) {
-            
             var code = JSON.parse(data.text).code;
-            console.log(code)
-
+            var datas = JSON.parse(data.text).data;
             if (code == 0 || code == 1) {
                 req.session.user = {
                     username,
-                    password
+                    password,
+                    userID:datas.id
                 }
             }
-            res.json(code);
+            res.json(code); 
         })
 })
 
