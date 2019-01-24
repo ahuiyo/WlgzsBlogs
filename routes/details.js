@@ -5,10 +5,15 @@ const superagent=require('superagent');
 //   -------------进入博客页面   地址  例   /details?id=4
 router.get('/',function(req,res){
     let aid = req.query;
+<<<<<<< Updated upstream
+=======
+    let userid = req.session.user.userID;
+>>>>>>> Stashed changes
     let url='http://10.1.32.20:18080/blog/getdetails';
     superagent
         .get(url)
-        .query(aid)  
+        .query(aid)
+        .query({userid : userid})
         .end(function (err, data) {
             // superagent
                 // .get('http://10.1.32.20:18080/personal/statistical')
@@ -53,9 +58,11 @@ router.get('/',function(req,res){
 router.get('/savelike',function (req,res) {
 
     let url='http://10.1.32.20:18080/blog/savelike';
+    let userid = req.session.user.userID;
     superagent
         .get(url)
         .query(req.query)
+        .query({userid : userid})
         .end(function (err,data) {
             if(!err){
                 const savelike=JSON.parse(data.text);
@@ -83,9 +90,11 @@ router.get('/savelike',function (req,res) {
 router.get('/savecollect',function (req,res) {
 
     let url='http://10.1.32.20:18080/blog/savecollect';
+    let userid = req.session.user.userID;
     superagent
         .get(url)
         .query(req.query)
+        .query({userid:userid})
         .end(function (err,data) {
             if(!err){
                 const savecollect=JSON.parse(data.text);
@@ -112,7 +121,7 @@ router.get('/savecollect',function (req,res) {
 router.post('/save',function (req,res) {
 
     let url='http://10.1.32.20:18080/blog/save';
-
+    let userid = req.session.user.userID;
     superagent
         .post(url)
         .type('form')
@@ -121,6 +130,7 @@ router.post('/save',function (req,res) {
         .send({blId : req.body.blId})
         .send({title: req.body.title})
         .send({id : req.body.id})
+        .send({userid:userid})
         .end(function (err,data) {
             if(!err){
                 const save=JSON.parse(data.text);
@@ -145,10 +155,11 @@ router.post('/save',function (req,res) {
 router.get('/detele',function (req,res) {
 
     let url='http://10.1.32.20:18080/blog/delete';
-
+    let userid = req.session.user.userID;
     superagent
         .del(url)
         .query(req.query)
+        .query({userid:userid})
         .end(function (err,data) {
             if(!err){
                 const save=JSON.parse(data.text);

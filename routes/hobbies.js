@@ -25,10 +25,15 @@ router.get('/',function (req,res) {
 });
 
 router.get('/save',function (req,res) {
+<<<<<<< Updated upstream
+=======
+    let userid = req.session.user.userID;
+>>>>>>> Stashed changes
     const url='http://10.1.32.20:18080/personal/save';
     superagent
         .get(url)
         .query(req.query)
+        .query({userid:userid})
         .end(function (err, data) {
             if(!err){
 

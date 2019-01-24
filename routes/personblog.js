@@ -3,14 +3,15 @@ const router = express.Router();   /*可使用 express.Router 类创建模块化
 const superagent=require('superagent');
 
 router.get('/',function (req,res) {
-
+    let userid = req.session.user.userID;
     const url='http://10.1.32.20:18080/blog/list';
     let aid=req.query;
     superagent
         .get(url)
         .query(aid)
+        .query({userid:userid})
         .end(function (err, data) {
-            superagent
+            // superagent
                 // .get('http://10.1.32.20:18080/personal/statistical')
                 // .end(function (err, ress) {
                     if (!err) {
@@ -46,9 +47,11 @@ router.get('/',function (req,res) {
 router.get('/attention',function (req,res) {
     const url='http://10.1.32.20:18080/blog/attention';
     let aid =req.query;
+    let userid = req.session.user.userID;
     superagent
         .get(url)
         .query(aid)
+        .query({userid:userid})
         .end(function (err,data) {
             if(!err){
                 res.json(JSON.parse(data.text));

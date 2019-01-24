@@ -11,6 +11,10 @@ router.use(bodyParser.json());
 router.get('/', function (req, res) {
     // let aid = req.body;
     let aid = req.query;
+<<<<<<< Updated upstream
+=======
+    let userid = req.session.user.userID;
+>>>>>>> Stashed changes
     const name=req.query.name;
     superagent
         .post('http://10.1.32.20:18080/personal/listblog')
@@ -19,6 +23,7 @@ router.get('/', function (req, res) {
             superagent
                 .get('http://10.1.32.20:18080/blog/list')
                 .query({id:aid.id})
+                .query({userid:userid})
                 .end(function (err, data) {
 
 
