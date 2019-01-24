@@ -87,38 +87,16 @@
                                 },
                                 success:function (data) {
                                     console.log(data);
-                                    if(data.code==1){
-                                        // if(noclick.hasClass('Operclick')){
-                                        //     noclick.removeClass('Operclick');
-                                        //     let num=noclick.children("span").children("i").html();
-                                        //     num--;
-                                        //     noclick.children("span").children("i").html(num);
-
-                                        // }else{
-                                        //     noclick.addClass('Operclick');
-                                        //     let num=noclick.children("span").children("i").html();
-                                        //     num++;
-                                        //     noclick.children("span").children("i").html(num);
-
-
-                                        // }
-                                        location.reload();
-                                    }else if(data.code==0){
-                                        // if(noclick.hasClass('Operclick')){
-                                        //     noclick.removeClass('Operclick');
-                                        //     let num=noclick.children("span").children("i").html();
-                                        //     num--;
-                                        //     noclick.children("span").children("i").html(num);
-
-                                        // }else{
-                                        //     noclick.addClass('Operclick');
-                                        //     let num=noclick.children("span").children("i").html();
-                                        //     num++;
-                                        //     noclick.children("span").children("i").html(num);
-
-
-                                        // }
-                                        location.reload();
+                                    if(data.code == 1){
+                                        noclick.addClass('Operclick');
+                                        let num=noclick.children("span").children("i").html();
+                                        num++;
+                                        noclick.children("span").children("i").html(num);
+                                    }else if(data.code == 0){
+                                        noclick.removeClass('Operclick');
+                                        let num=noclick.children("span").children("i").html();
+                                        num--;
+                                        noclick.children("span").children("i").html(num);
                                     }else{
                                         alert("网络错误，请重试！");
                                     }
@@ -157,35 +135,16 @@
                                     },
                                     success:function (data) {
                                         if(data.code==1){
-                                            if(nocollect.hasClass('Operclick')){
-                                                nocollect.removeClass('Operclick');
-                                                let num=nocollect.children("span").children("i").html();
-                                                num--;
-                                                nocollect.children("span").children("i").html(num);
-
-                                            }else{
                                                 nocollect.addClass('Operclick');
                                                 let num=nocollect.children("span").children("i").html();
                                                 num++;
                                                 nocollect.children("span").children("i").html(num);
-
-
-                                            }
                                         }else if(data.code==0){
-                                            if(nocollect.hasClass('Operclick')){
                                                 nocollect.removeClass('Operclick');
                                                 let num=nocollect.children("span").children("i").html();
                                                 num--;
                                                 nocollect.children("span").children("i").html(num);
 
-                                            }else{
-                                                nocollect.addClass('Operclick');
-                                                let num=nocollect.children("span").children("i").html();
-                                                num++;
-                                                nocollect.children("span").children("i").html(num);
-
-
-                                            }
                                         }else{
                                             alert("网络错误，请重试！");
                                         }
@@ -230,7 +189,7 @@
                                 <% if(comment[key][0].userId==result.loginUserId){%>
                                 <li class="deleteli">
                                     <a href="javascript:;" class="detalecomm" data-id="<%=comment[key][0].id%>">删除</a>
-                                    <a href="javascript;;">编辑</a>
+
                                 </li>
                                 <%}%>
                             </ul>
@@ -253,7 +212,7 @@
                                             <% if(comment[key][j].userId==result.loginUserId){%>
                                             <li class="chat-deleteli">
                                                 <a href="javascript:;"  class="detalecomm" data-id="<%=comment[key][j].id%>" >删除</a>
-                                                <a href="javascript;;">编辑</a>
+
                                             </li>
                                             <%}%>
                                         </ul>
@@ -437,8 +396,9 @@
                         <span>关注</span><span><%= result.fanNum %></span>
                     </p>
                     <p class="add">
-                        <a href="">+ 关注</a>
+                        <a href="" >+ 关注</a>
                     </p>
+
                 </div>
             </div>
             <div class="its-blogg">

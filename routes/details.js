@@ -68,7 +68,12 @@ router.get('/savelike',function (req,res) {
                 if(savelike.code == 0){
                     res.json({
                         code:0,
-                        data:'成功！',
+                        data:'取消点赞成功！',
+                    })
+                }else if(savelike.code == 1){
+                    res.json({
+                        code:1,
+                        data:'点赞成功！',
                     })
                 }else{
                     res.json({
@@ -99,7 +104,12 @@ router.get('/savecollect',function (req,res) {
                 if(savecollect.code == 0){
                     res.json({
                         code:0,
-                        data:'成功！',
+                        data:'取消收藏成功！',
+                    })
+                }else if(savecollect.code == 1){
+                    res.json({
+                        code:1,
+                        data:'收藏成功！',
                     })
                 }else{
                     res.json({

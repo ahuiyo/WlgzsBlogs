@@ -24,35 +24,35 @@ router.get('/', function (req, res) {
 
 
 
-                            if (!err) {
-                                const datas = JSON.parse(dataname.text).data;
+                    if (!err) {
+                        const datas = JSON.parse(dataname.text).data;
 
-                                const result = JSON.parse(data.text).result;
-                                const cotegory = JSON.parse(data.text).cotegory;
-                                const data3 = JSON.parse(ress.text).data;
-                                const user = JSON.parse(data.text).user.user;
-                                const code = JSON.parse(data.text).code;
-                                const past = JSON.parse(data.text).past;
+                        const result = JSON.parse(data.text).result;
+                        const cotegory = JSON.parse(data.text).cotegory;
+                        const data3 = JSON.parse(ress.text).data;
+                        const user = JSON.parse(data.text).user.user;
+                        const code = JSON.parse(data.text).code;
+                        const past = JSON.parse(data.text).past;
 
-                                // const database=JSON.parse(data.text).database;
-                                // const personInformation=JSON.parse(data.text).datacomments.personInformation;
-                                // const dataother=JSON.parse(data.text).dataother;
+                        // const database=JSON.parse(data.text).database;
+                        // const personInformation=JSON.parse(data.text).datacomments.personInformation;
+                        // const dataother=JSON.parse(data.text).dataother;
 
-                                for (var i in datas) {
-                                    let labels = datas[i].label.split('，');
-                                    datas[i].label = labels;
-                                }
+                        for (var i in datas) {
+                            let labels = datas[i].label.split('，');
+                            datas[i].label = labels;
+                        }
 
-                                res.render('bloglist', {
-                                    datas,
-                                    result,
-                                    cotegory,
-                                    data3,
-                                    user,
-                                    code,
-                                    past,
-                                })
-                            }
+                        res.render('bloglist', {
+                            datas,
+                            result,
+                            cotegory,
+                            data3,
+                            user,
+                            code,
+                            past,
+                        })
+                    }
 
                 })
 
