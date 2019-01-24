@@ -35,7 +35,7 @@ router.get('/',function (req,res) {
                             datas,
                             result,
                             cotegory,
-                            data3,
+                            // data3,
                             user,
                             code,
                             past,

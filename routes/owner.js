@@ -4,35 +4,41 @@ const superagent = require('superagent');
 
 
 //owner页面
-router.get('/', function (req, res) {
+router.get('/', function (req, res) { 
     let aid = req.query;
     req.session.userID = aid.id;   //得到登录用户id
-    res.render('owner')
+    res.render('owner',{
+        sID:req.session.userID,
+        userName:req.session.user.username
+    })
 });
 //直接返回data里的内容
-function Ask(_href, name, res) {
+function Ask(_href, name, res,sessionid) {
     superagent
         .get(_href)    //每个li请求的地址不同
+        .query({})
         .end(function (err, data) {
             var list = JSON.parse(data.text).data;
             res.render('owner/' + name, {
-                list
+                list,
+                sessionid
             });
         })
 }
 //返回records里面的内容
-function AskR(_href, name, res) {
+function AskR(_href, name, res,sessionid) {
     superagent
         .get(_href)
         .end(function (err, rest) {
             var list = JSON.parse(rest.text).result.records;
             res.render('owner/' + name, {
-                list
+                list,
+                sessionid
             });
         })
 }
 //需要分割label标签
-function Asktags(_href, name, res) {
+function Asktags(_href, name, res,sessionid) {
     superagent
         .get(_href)
         .end(function (err, data) {
@@ -41,9 +47,9 @@ function Asktags(_href, name, res) {
                 var labels = list[i].label.split(',');
                 list[i].label = labels;
             }
-
             res.render('owner/' + name, {
                 list,
+                sessionid
             });
         })
 }
@@ -52,28 +58,30 @@ function Asktags(_href, name, res) {
 router.get('/:pathname', function (req, res) {
     //查询的时候带上参数
     let _name = req.params.pathname;
+    var SID = req.session.userID;
     if (_name == 'tab1') {         //我的博客
-        Asktags("http://10.1.32.20:18080/personal/listmy?id=" + req.session.userID, _name, res);
+        Asktags("http://10.1.32.20:18080/personal/listmy?id=" + SID, _name, res,SID);
     }
     else if (_name == 'tab2') {  //我的点赞
-        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2&userid="+req.session.userID, _name, res);
+        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2&userid="+SID, _name, res,SID);
     }
     else if (_name == 'tab3') {  //我的收藏
-        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7&userid="+req.session.userID, _name, res);
+        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7&userid="+SID, _name, res,SID);
     }
     else if (_name == 'tab4') {  //我的评论
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3&userid="+req.session.userID, _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3&userid="+SID, _name, res,SID);
     }
     else if (_name == 'tab5') {  //我的关注
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1&userid="+req.session.userID, _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1&userid="+SID, _name, res,SID);
     }
     else if (_name == 'tab6') {  //我的粉丝
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=8&userid="+req.session.userID, _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=8&userid="+SID, _name, res,SID);
     }
     else if (_name == 'tab7') {   //我的消息
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid="+req.session.userID, _name, res);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid="+SID, _name, res,SID);
     }
-    else {                       //个人信息
+    else {      
+                      //个人信息
         superagent
             .get('http://10.1.32.20:18080/personal/getinfo')
             .query({userid:req.session.userID}) //传用户的id
@@ -88,10 +96,10 @@ router.get('/:pathname', function (req, res) {
                     cotegory,
                     dataID: datax.id
                 });
+                // console.log(data);
             })
     }
 });
-
 
 //删除我的消息
 router.post('/delinfo', function (req, res) {
@@ -145,13 +153,12 @@ router.post('/cancelGood', function (req, res) {
         })
 })
 
-
 //  取消收藏
 router.post('/cancelcoll', function (req, res) {
     var id = req.body._id;
     superagent
         .get('http://10.1.32.20:18080/blog/savecollect')
-        .query({ 'id': id })
+        .query({'id': id}) 
         .end(function (err, result) {
             var data = JSON.parse(result.text);
             res.send(data);
@@ -180,9 +187,8 @@ router.post('/update', function (req, res) {
         .send({ module: str })  //已经选择的所有标签的id
         .send({ id: _id })      //当前用户的主键
         .end(function (err, datas) {
-            console.log(datas);
-            // var list = JSON.parse(datas.text).database['module'];
-            // res.send(list)
+            var list = JSON.parse(datas.text);
+            res.send(list)
         })
 })
 

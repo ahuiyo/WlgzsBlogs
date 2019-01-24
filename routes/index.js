@@ -14,18 +14,17 @@ const user = require('./user');
 const more = require('./more.js');
 const personblog = require('./personblog');
 const hobbies = require('./hobbies')
-const bloglist =require('./bloglist');
-const allhobbs=require('./allhobbs');
+const bloglist = require('./bloglist');
+const allhobbs = require('./allhobbs');
 
 
 //主页
 router.get('/', function (req, res) {
     var userid = req.session.user.userID;
-    console.log(userid);
     superagent
         //首页全部
         .get('http://10.1.32.20:18080/home/index')
-        .query({userid:userid})
+        .query({ userid: userid })
         .end(function (err, data) {
             const list = JSON.parse(data.text).data;  //左边分类下面的推荐阅读
             const past = JSON.parse(data.text).past;  //右边推荐博客
@@ -34,7 +33,7 @@ router.get('/', function (req, res) {
             const userinfo = JSON.parse(data.text).user['user'];
             const ID = userinfo.id;   //登录用户的ID
             const imgarr = [];
-            for(var i = 0;i<list.length;i++){
+            for (var i = 0; i < list.length; i++) {
                 imgarr.push(list[i].indexImages);
             }
             res.render('index', {
@@ -48,19 +47,26 @@ router.get('/', function (req, res) {
         });
 });
 //最新博客、推荐阅读
-function path1(res, url) {
+function path1(res,url,userid) {
     superagent
         .get(url)
         .end(function (err, data) {
             const list = JSON.parse(data.text).data;
-            res.render('articel/blog', {
-                data: list
-            })
+            const code = JSON.parse(data.text).code;
+            if (code == -1) {
+                res.render('articel/no-data', {
+                    userid,
+                })
+            } else {
+                res.render('articel/blog', {
+                    data: list
+                })
+            }
         });
 }
 
 //li  根据id进行查询博客
-function path2(res, _id, url) {
+function path2(res, _id, url, userid) {
     superagent
         .get(url)
         .query({ id: _id })
@@ -68,35 +74,36 @@ function path2(res, _id, url) {
             const list = JSON.parse(result.text).data;
             const code = JSON.parse(result.text).code;
             //判断这个分类下面是否有内容
-            if (code == -1){
-                res.render('articel/no-data')
-            } else{
-                res.render('articel/blog',{
-                    data:list
+            if (code == -1) {
+                res.render('articel/no-data', {
+                    userid,
+                })
+            } else {
+                res.render('articel/blog', {
+                    data: list,
                 })
             }
-            res.render('articel/blog', {
-                data: list
-            })
+            // res.render('articel/blog', {
+            //     data: list
+            // })
         })
 }
 
 //类型的搜索(推荐、最新、li)
 router.get('/articel/:name', function (req, res) {
     var userid = req.session.user.userID;
-    console.log(userid);
     //最新博客
     if (req.params.name == 'getnew') {
-        path1(res, 'http://10.1.32.20:18080/home/getnew');
+        path1(res,'http://10.1.32.20:18080/home/getnew',userid);
     }
     //推荐博客
     else if (req.params.name == 'recommend') {
-        path1(res, 'http://10.1.32.20:18080/home/getnew?userid='+userid);
+        path1(res, 'http://10.1.32.20:18080/home/getnew?userid=' + userid,userid);
     }
     //剩下的几个标li签
     else {
         const val = req.params.name;
-        path2(res, val, 'http://10.1.32.20:18080/home/getblogby');
+        path2(res, val, 'http://10.1.32.20:18080/home/getblogby',userid);
     }
 });
 
@@ -134,10 +141,10 @@ router.use('/more', more);
 router.use('/personblog', personblog);
 
 //用户第一次登陆  选择兴趣
-router.use('/hobbies',hobbies);
+router.use('/hobbies', hobbies);
 
 //用户所选择的所有兴趣词条页面
-router.use('/allhobbs',allhobbs);
+router.use('/allhobbs', allhobbs);
 
 //博主分类页面
 router.use('/bloglist', bloglist);
@@ -155,8 +162,8 @@ router.post('/dologin', function (req, res) {
     superagent
         .post('http://10.1.32.20:18080/login')
         .type('form')
-        .send({username:username})
-        .send({password:password})
+        .send({ username: username })
+        .send({ password: password })
         .end(function (err, data) {
             var code = JSON.parse(data.text).code;
             var datas = JSON.parse(data.text).data;
@@ -164,10 +171,10 @@ router.post('/dologin', function (req, res) {
                 req.session.user = {
                     username,
                     password,
-                    userID:datas.id
+                    userID: datas.id
                 }
             }
-            res.json(code); 
+            res.json(code);
         })
 })
 
@@ -175,9 +182,9 @@ router.post('/dologin', function (req, res) {
 router.get('/logout', function (req, res) {
     superagent
         .get('http://10.1.32.20:18080/tologinout')
-        .end(function(err,data){
+        .end(function (err, data) {
             var list = JSON.parse(data.text);
-            if(list.code==0){
+            if (list.code == 0) {
                 req.session.destroy(function (err) {
                     res.send('/login')
                 })

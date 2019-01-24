@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>未来工作室-博客首页</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/header.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 </head>
+
 <body>
 
-<!--header-->
-<%-include ./public/header.ejs%>
-<!--wrapper-->
+    <!--header-->
+    <%-include ./public/header.ejs%>
+    <!--wrapper-->
     <div class="wrapper">
         <!--left-->
         <div class="w_left">
             <!-- <div class="de_box"> -->
-                <!--轮播-->
-                <!-- <div class="LunBo clearfix">
+            <!--轮播-->
+            <!-- <div class="LunBo clearfix">
                     <div class="content" id="content">
                         <ul>
                             <li><img src="images/move2.jpg"></li>
@@ -29,8 +31,8 @@
                         </ul>
                     </div>
                 </div> -->
-                <!--两张图片-->
-                <!-- <div class="lun-right"  id="control">
+            <!--两张图片-->
+            <!-- <div class="lun-right"  id="control">
                     <ul>
                         <li><img class="img" id="id1" src="images/b1.jpg"></li>
                         <li><img class="img" id="id2" src="images/b1.jpg"></li>
@@ -43,9 +45,9 @@
                     <li class="recommend c_color" data-url="/articel/recommend">推荐阅读</li>
                     <li class="newset" data-url="/articel/getnew">最新博客</li>
                     <%for(var i = 0; i < cotegory.length; i++){%>
-                        <li class="lis" data-url="/articel/<%=cotegory[i].id%>">
-                            <%=cotegory[i].caName%>
-                        </li>
+                    <li class="lis" data-url="/articel/<%=cotegory[i].id%>">
+                        <%=cotegory[i].caName%>
+                    </li>
                     <%}%>
                 </ul>
                 <div class="choice-icon">
@@ -53,9 +55,14 @@
                     <span class="lineC Turn">×</span>
                 </div>
             </div>
-            <!--遍历博客--> 
+            <!--遍历博客-->
             <div id="contain">
-                <%if (data1){ for (var j=0;j<data1.length;j++){%>
+                <%if(data1.length==0){%>
+                <div style="text-align: center;background-color: #fff;height: 500px;padding-top: 200px;">
+                    <p style="margin-bottom: 50px">您还没有发表过一篇博客哦！快去发表自己的第一篇文章吧！</p>
+                    <a href="http://10.1.32.20:18080/edit?userid=<%=ID%>" style="background-color: #4a9bef;padding: 10px 20px;color: #fff;">发表博客</a>
+                </div>
+                <%}else{for (var j=0;j<data1.length;j++){%>
                 <div id="tab" class="c_box">
                     <div class="item-info">
                         <div class="main-info">
@@ -64,15 +71,21 @@
                                     <%=data1[j].blTitle%>
                                 </a>
                             </h3>
-                            <p class="desc"><%=data1[j].blSummary%></p>
+                            <p class="desc">
+                                <%=data1[j].blSummary%>
+                            </p>
                         </div>
                         <!--时间  浏览数量-->
                         <div class="less-info">
                             <p class="source">
-                                <span class="author"><a href="#"><%=data1[j].name%></a></span>
-                                <span class="type"><%=data1[j].articleType%></span>
-                                <span><%=data1[j].createTime%></span>
-                                <span><%=data1[j].pageviews%>人浏览</span>
+                                <span class="author"><a href="#">
+                                        <%=data1[j].name%></a></span>
+                                <span class="type">
+                                    <%=data1[j].articleType%></span>
+                                <span>
+                                    <%=data1[j].createTime%></span>
+                                <span>
+                                    <%=data1[j].pageviews%>人浏览</span>
                                 <span>来自 <i style="font-style:normal;color:#000">博客</i></span>
                             </p>
                         </div>
@@ -89,9 +102,7 @@
                         </a>
                     </div>
                 </div>
-                <%}}else{%>
-                    <p>error</p>
-                <%}%>
+                <%}}%>
             </div>
         </div>
         <!--right-->
@@ -102,31 +113,31 @@
             </div>
             <!--推荐博客-->
             <div class="aside-c">
-               <div class="newBlog">
-                <span style="font-weight: bold;font-size: 13px">推荐博客</span>
-                 <a class="more" href="/more">>>更多</a>
+                <div class="newBlog">
+                    <span style="font-weight: bold;font-size: 13px">一周内博客</span>
+                    <a class="more" href="/more">>>更多</a>
                 </div>
                 <div class="pix">
                     <ul class="ul4">
                         <%for (var n=0; n < past.length; n++){ %>
-                            <a href="/details?id=<%=past[n].id%>">
-                                <span class="dot"></span>
-                                <li class="item">
-                                    <%=past[n].blTitle%>
-                                </li>
-                            </a>
+                        <a href="/details?id=<%=past[n].id%>">
+                            <span class="dot"></span>
+                            <li class="item">
+                                <%=past[n].blTitle%>
+                            </li>
+                        </a>
                         <%}%>
-                    </ul> 
-                </div> 
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-<!--搜索遮罩-->
-<%-include ./public/mask.ejs%>
+    <!--搜索遮罩-->
+    <%-include ./public/mask.ejs%>
 
-<!--foot-->
-<%-include ./public/footer.ejs%>
+    <!--foot-->
+    <%-include ./public/footer.ejs%>
 
 </body>
 <script type="text/javascript" src="javascripts/blog-First.js"></script>
@@ -136,31 +147,31 @@
 <script>
     $(function () {
 
-    //左边分类标签
+        //左边分类标签
         //标签中各个li
         $('.lis').click(function () {
-            var _href=$(this).attr('data-url');    // data-url="/articel/2"
-            var _id=$(this).attr('id');     //动态获取id
+            var _href = $(this).attr('data-url');    // data-url="/articel/2"
+            var _id = $(this).attr('id');     //动态获取id
             $.ajax({
-                url:_href,
-                type:"get",
-                success:function (result) {
+                url: _href,
+                type: "get",
+                success: function (result) {
                     $('#contain').empty().append(result)
                 }
             })
         })
 
-    // 最新博客
+        // 最新博客
         $('.newset').click(function () {
-            var _href=$(this).attr('data-url');
-            $.get(_href,function (result) {
+            var _href = $(this).attr('data-url');
+            $.get(_href, function (result) {
                 $('#contain').empty().html(result)
             })
         })
         //推荐阅读
         $('.recommend').click(function () {
-            var _href=$(this).attr('data-url');
-            $.get(_href,function (result) {
+            var _href = $(this).attr('data-url');
+            $.get(_href, function (result) {
                 $('#contain').empty().html(result)
             })
         })
@@ -168,30 +179,34 @@
 
     //顶部搜索
     function OnChange() {
-        const val=$('.c_search').val();   //得到输入的值
-        const data={
-            key:val
-        }
-        $.ajax({
-            url:'/search',
-            type:'post',
-            data: data,
-            success:function (data) {
-                let str="";
-                if (data.length<=0){
-                    str="<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
-                }else{
-                    for (let i=0;i<data.length;i++){
-                        str+="<div class='c_list'><div class='main-info'><h3><a href='/blogdetails/details?id="+data[i].id+"'>"
-                            +data[i].blTitle +"</a></h3><p class='desc'>"+data[i].blSummary+"</p></div>" +
-                            "<div class='less-info'><p class='source'><span class='author'>作者"+data[i].penName+"</span>" +
-                            "<span class='type'>"+data[i].articleType+"</span><span>"+data[i].createTime+"</span>" +
-                            "<span>"+data[i].pageviews+" 人浏览</span></p></div></div>"
-                    }
-                }
-                $('#wrap').html(str);
+        const val = $('.c_search').val();   //得到输入的值
+        if(val==''){
+            alert('数据不能为空!')
+        }else{
+            const data = {
+                key: val
             }
-        })
+            $.ajax({
+                url: '/search',
+                type: 'post',
+                data: data,
+                success: function (data) {
+                    let str = "";
+                    if (data.length <= 0) {
+                        str = "<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
+                    } else {
+                        for (let i = 0; i < data.length; i++) {
+                            str += "<div class='c_list'><div class='main-info'><h3><a href='/blogdetails/details?id=" + data[i].id + "'>"
+                                + data[i].blTitle + "</a></h3><p class='desc'>" + data[i].blSummary + "</p></div>" +
+                                "<div class='less-info'><p class='source'><span class='author'>作者" + data[i].name + "</span>" +
+                                "<span class='type'>" + data[i].articleType + "</span><span>" + data[i].createTime + "</span>" +
+                                "<span>" + data[i].pageviews + " 人浏览</span></p></div></div>"
+                        }
+                    }
+                    $('#wrap').html(str);
+                }
+            })
+        }
     }
 </script>
 

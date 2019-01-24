@@ -5,10 +5,7 @@ const superagent=require('superagent');
 //   -------------进入博客页面   地址  例   /details?id=4
 router.get('/',function(req,res){
     let aid = req.query;
-<<<<<<< Updated upstream
-=======
     let userid = req.session.user.userID;
->>>>>>> Stashed changes
     let url='http://10.1.32.20:18080/blog/getdetails';
     superagent
         .get(url)

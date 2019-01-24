@@ -3,14 +3,14 @@
     <img class="pic" src="images/top1.png">
     <span class="name">未来工作室</span>
     <span class="names mar_name">欢迎 </span>
-    <span class="names"></span>
+    <span class="names"><%=userName%></span>
     <div class="h_right">
         <ul class="h_ul">
             <li>
                 <a href="/"><img class="icon" title="主页" src="images/home.png"/>博客首页</a>
             </li>
             <li>
-                <a href="http://10.1.32.20:18080/edit"><img class="icon" title="写文章" src="images/pencil.png"/>编辑文章</a>
+                <a href="http://10.1.32.20:18080/edit?userid=<%=sID%>"><img class="icon" title="写文章" src="images/pencil.png"/>编辑文章</a>
             </li>
             <li>
                 <a href="javascript:;" onclick="exit()"><img class="icon" title="退出" src="images/exit.png"/>退出</a>

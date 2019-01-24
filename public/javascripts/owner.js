@@ -115,9 +115,7 @@ function btnUpdate(that){
         }else{
              str+=$.trim($(this).attr('data_id'))+','  //拿到已经选择的值，保存到字符串中(去掉空格)
         }
-       
     })
-    console.log(_id);
    //发送请求
    $.ajax({
        url:'/owner/update',
@@ -127,7 +125,11 @@ function btnUpdate(that){
            _id
        },
        success:function(result){
-           var len = result.length;
+           if(result.code == 0){
+               alert('保存成功!')
+           }else{
+               alert('修改失败!')
+           }
         }
    })
 }
@@ -138,43 +140,45 @@ function cancelConcent(that){
         url:'/owner/cancelatten',
         type:'post',
         success:function(result){
-            console.log(result);
+            
         }
     })
 }
 
 //取消点赞/收藏
-function cancelG(that,_url){
-    var _id = $('#idg').attr('data-id');
-    var data = {
-        _id
-    };
-    $.ajax({
-        url:_url,
-        type:'post',
-        data:data,
-        success:function(result){
-            if(result.code == 0){
-                $('.g_list').css({'display':'none'});
-            }
-        }
-    })
-}
+// function cancelG(that,_url){
+//     var _id = $('#idg').attr('data-id');
+//     var data = {
+//         _id
+//     };
+//     $.ajax({
+//         url:_url,
+//         type:'post',
+//         data:data,
+//         success:function(result){
+//             if(result.code == 0){
+//                 $('.g_list').css({'display':'none'});
+//             }else{
+//                 alert('操作失败！')
+//             }
+//         }
+//     })
+// }
 
-function cancelColl(that){
-    var _id = $('#id').attr('data-id');
-    var data ={
-        _id
-    };
-    $.ajax({
-        url:'/owner/cancelGood',
-        type:'post',
-        data:data,
-        success:function(result){
-            console.log(result);
-        }
-    })
-}
+// function cancelColl(that){
+//     var _id = $('#id').attr('data-id');
+//     var data ={
+//         _id
+//     };
+//     $.ajax({
+//         url:'/owner/cancelGood',
+//         type:'post',
+//         data:data,
+//         success:function(result){
+//             console.log(result);
+//         }
+//     })
+// }
 
 
 //测试分页

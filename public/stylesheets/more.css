@@ -7,7 +7,7 @@
 body{
     width: 100%;
     height: 100%;
-    background: #efefef url(../images/M-bg.png) repeat;
+    background: #efefef url(../images/bg.gif) repeat; 
 }
 .top{
     width: 100%;
@@ -51,9 +51,11 @@ body{
 .wrapper{
     width: 70%;
     height: auto;
+    background: #ddd;
     overflow: hidden;
     margin: 15px auto;
     position: relative;
+    box-shadow: 0 0 10px #ababae;
 }
 .c_box{
     width: 100%;

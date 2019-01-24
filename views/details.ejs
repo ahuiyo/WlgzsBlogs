@@ -87,21 +87,38 @@
                                 },
                                 success:function (data) {
                                     console.log(data);
-                                    if(data.code==0){
-                                        if(noclick.hasClass('Operclick')){
-                                            noclick.removeClass('Operclick');
-                                            let num=noclick.children("span").children("i").html();
-                                            num--;
-                                            noclick.children("span").children("i").html(num);
+                                    if(data.code==1){
+                                        // if(noclick.hasClass('Operclick')){
+                                        //     noclick.removeClass('Operclick');
+                                        //     let num=noclick.children("span").children("i").html();
+                                        //     num--;
+                                        //     noclick.children("span").children("i").html(num);
 
-                                        }else{
-                                            noclick.addClass('Operclick');
-                                            let num=noclick.children("span").children("i").html();
-                                            num++;
-                                            noclick.children("span").children("i").html(num);
+                                        // }else{
+                                        //     noclick.addClass('Operclick');
+                                        //     let num=noclick.children("span").children("i").html();
+                                        //     num++;
+                                        //     noclick.children("span").children("i").html(num);
 
 
-                                        }
+                                        // }
+                                        location.reload();
+                                    }else if(data.code==0){
+                                        // if(noclick.hasClass('Operclick')){
+                                        //     noclick.removeClass('Operclick');
+                                        //     let num=noclick.children("span").children("i").html();
+                                        //     num--;
+                                        //     noclick.children("span").children("i").html(num);
+
+                                        // }else{
+                                        //     noclick.addClass('Operclick');
+                                        //     let num=noclick.children("span").children("i").html();
+                                        //     num++;
+                                        //     noclick.children("span").children("i").html(num);
+
+
+                                        // }
+                                        location.reload();
                                     }else{
                                         alert("网络错误，请重试！");
                                     }
@@ -139,7 +156,22 @@
                                         id:dataid
                                     },
                                     success:function (data) {
-                                        if(data.code==0){
+                                        if(data.code==1){
+                                            if(nocollect.hasClass('Operclick')){
+                                                nocollect.removeClass('Operclick');
+                                                let num=nocollect.children("span").children("i").html();
+                                                num--;
+                                                nocollect.children("span").children("i").html(num);
+
+                                            }else{
+                                                nocollect.addClass('Operclick');
+                                                let num=nocollect.children("span").children("i").html();
+                                                num++;
+                                                nocollect.children("span").children("i").html(num);
+
+
+                                            }
+                                        }else if(data.code==0){
                                             if(nocollect.hasClass('Operclick')){
                                                 nocollect.removeClass('Operclick');
                                                 let num=nocollect.children("span").children("i").html();
