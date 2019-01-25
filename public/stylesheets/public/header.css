@@ -46,6 +46,7 @@ body{
 .mar_name{
     display: inline-block;
     margin-left: 22px;
+    margin-right: 5px;
 }
 .search{
     width: 380px;
@@ -188,6 +189,7 @@ body{
     height: 60px;
     line-height: 60px;
     float: right;
+    margin-right: 20px;
 }
 .h_ul li{
     list-style: none;

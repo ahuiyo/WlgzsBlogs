@@ -205,7 +205,7 @@ $('.atten').click(function () {
                 num++;
                 $('.fannum').text(num);
             }else{
-                console.log(data.msg);
+                alert(data.msg);
             }
         }
     })

@@ -33,25 +33,12 @@ function add(e) {
     }
 }
 
-// 我的粉丝 button 按钮 
-function fans(self){
-    const _this=self;
-
-
-}
-
-//我的消息  按钮
-function del(self) {
-    const _this=self;
-    $(_this).parent().css("display","none");
-}
-
 //删除我的消息
 function delinfo(that){
     const _this=that;
-    var id = $(_this).parent().siblings('.meg_left').find('a').attr('data_id'); //找到博客id
+    var _id = $(_this).parent().siblings('.meg_left').find('a').attr('data_id'); //找到博客id
     const data={
-        id
+        _id
     };
     $.ajax({
         url:'/owner/delinfo',
@@ -133,37 +120,49 @@ function btnUpdate(that){
         }
    })
 }
- 
-// 取消关注
-function cancelConcent(that){
+
+//我的粉丝
+function fans(that){
+    var _this = that;
+    var id = $('#spid').attr('data-bid');  //关注这篇博客主人的id 
     $.ajax({
-        url:'/owner/cancelatten',
-        type:'post',
-        success:function(result){
-            
+        url:'/personblog/attention',
+        type:'get',
+        data:{
+            id:id,
+        },
+        success:function(data){
+            if(data.code==0){
+                $(_this).html('关注')
+            }else if(data.code==1){
+                $(_this).html('取消关注')
+            }else{
+                alert('操作失败！')
+            }
         }
     })
+
 }
 
 //取消点赞/收藏
-// function cancelG(that,_url){
-//     var _id = $('#idg').attr('data-id');
-//     var data = {
-//         _id
-//     };
-//     $.ajax({
-//         url:_url,
-//         type:'post',
-//         data:data,
-//         success:function(result){
-//             if(result.code == 0){
-//                 $('.g_list').css({'display':'none'});
-//             }else{
-//                 alert('操作失败！')
-//             }
-//         }
-//     })
-// }
+function cancelG(that,_url){
+    var _id = $('#idg').attr('data-id');
+    var data = {
+        _id
+    };
+    $.ajax({
+        url:_url,
+        type:'post',
+        data:data,
+        success:function(result){
+            if(result.code == 0){
+                $('.g_list').css({'display':'none'});
+            }else{
+                alert('操作失败！')
+            }
+        }
+    })
+}
 
 // function cancelColl(that){
 //     var _id = $('#id').attr('data-id');

@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
     req.session.userID = aid.id;   //得到登录用户id
     res.render('owner',{
         sID:req.session.userID,
-        userName:req.session.user.username
+        userName:req.session.user.username 
     })
 });
 //直接返回data里的内容
@@ -75,13 +75,13 @@ router.get('/:pathname', function (req, res) {
         AskR("http://10.1.32.20:18080/personal/listotherparts?id=1&userid="+SID, _name, res,SID);
     }
     else if (_name == 'tab6') {  //我的粉丝
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=8&userid="+SID, _name, res,SID);
+        AskR("http://10.1.32.20:18080/personal/myfan?id=9&userid="+SID, _name, res,SID);
     }
     else if (_name == 'tab7') {   //我的消息
         AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid="+SID, _name, res,SID);
     }
     else {      
-                      //个人信息
+        //个人信息
         superagent
             .get('http://10.1.32.20:18080/personal/getinfo')
             .query({userid:req.session.userID}) //传用户的id
@@ -103,7 +103,7 @@ router.get('/:pathname', function (req, res) {
 
 //删除我的消息
 router.post('/delinfo', function (req, res) {
-    var Bid = req.body.id;
+    var Bid = req.body._id;
     superagent
         .get('http://10.1.32.20:18080/personal/unsubscribe')
         .query({ id: Bid })
@@ -124,23 +124,6 @@ router.post('/delAllinfo', function (req, res) {
         })
 });
 
-// 取消关注
-router.post('/cancelatten', function (req, res) {
-    var _id = req.body.id;
-    superagent
-        .get('http://10.1.32.20:18080/blog/attention?id=12')
-        // .query({'id':_id})
-        .end(function (err, data) {
-            var lis = JSON.parse(data.text);
-            // if(lis.code == 0){
-            //     var title = lis.msg;
-            //     res.send(title)
-            // }
-            console.log(lis);
-        })
-
-})
-
 //取消点赞
 router.post('/cancelGood', function (req, res) {
     var _id = req.body._id;
@@ -153,7 +136,7 @@ router.post('/cancelGood', function (req, res) {
         })
 })
 
-//  取消收藏
+// 取消收藏
 router.post('/cancelcoll', function (req, res) {
     var id = req.body._id;
     superagent
@@ -176,6 +159,19 @@ router.post('/decomment', function (req, res) {
             res.json(list);
         })
 })
+
+//我的粉丝  
+// router.post('/fans',function(req,res){
+//     var id = req.session.user.userID;
+//     superagent
+//         .get('http://10.1.32.20:18080/personal/myfan?id=9')
+//         .query({userid:id})
+//         .end(function(err,data){
+//             var list = JSON.parse(data.text);
+//             res.send(list);
+//         })
+
+// })
 
 //个人资料页--保存按钮
 router.post('/update', function (req, res) {

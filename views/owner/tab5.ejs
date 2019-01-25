@@ -12,7 +12,7 @@
             </div>
             <div class='eve_concern'>
                 <img src='images/concern.png'>
-                <span id="spn" data-id="<%=userinfo%>" style="display: none"></span>
+                <span id="spn" data-bid="<%=list[i].userId%>" style="display: none"></span>
                 <button onclick="cancelConcent(this)" class='eve_btn cel_btn'>取消关注</button>
             </div>
         </div>
@@ -28,19 +28,23 @@
 </div>
 <%}%>
 <script>
-    function cancel_Concent(that){
+    function cancelConcent(that){
         var _this = that;
-        var id = $('#spn').attr('data-id');
-        var data = {
-            id
-        }
+        var id = $('#spn').attr('data-bid');  //关注这篇博客主人的id 
         $.ajax({
-            url:'/owner/cancel',
-            type:'post',
-            data: data,
+            url:'/personblog/attention',
+            type:'get',
+            data:{
+                id:id,
+            },
             success:function(data){
-                console.log(data);
-                $(_this).html(data)  //改变值
+                if(data.code==0){
+                    $(_this).html('关注')
+                }else if(data.code==1){
+                    $(_this).html('取消关注')
+                }else{
+                    alert('操作失败！')
+                }
             }
         })
     }

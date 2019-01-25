@@ -436,10 +436,6 @@
     border-color: #c6c3c3;
     color: #979090;
 }
-/* 显示删除按钮 */
-/* .s-content:hover .del_commont{
-    display: block
-} */
 /* 时间 */
 .meg_time{
     color: #c2c0c0;
@@ -552,20 +548,11 @@
      float: left;
      width: 40%;
      height: 50px;
-     font-size: 14px;
-     line-height: 28px;
+     font-size: 16px;
+     line-height: 50px;
      margin-top: 15px;
      margin-left: 25px;
  }
-.fans_font p{
-    font-size: 12px;
-    line-height:18px;
-    height: 50px;
-    width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: normal;
-}
 .F_btn{
     float: right;
     margin-top: 25px;
@@ -576,6 +563,7 @@
     background: #fff;
     border: 1px solid #ca0c16;
     cursor: pointer;
+    outline: none;
  }
 /*分页*/
 .split_page{

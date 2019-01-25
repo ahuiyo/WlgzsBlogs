@@ -77,9 +77,6 @@
 $(function () {
     // 获取当前的页面，并设置搜索栏中的placeholder
     const L_name = window.location.pathname;
-
-    // console.log(window.location.href);
-
     switch (L_name) {
         case '/':
             $('#M_search').attr({"placeholder":"请输入要搜索的博客名称"});
@@ -87,11 +84,11 @@ $(function () {
         case '/user':
             $("#M_search").attr({"placeholder":"搜索博主的其他文章"});
             break;
-        // case '/details':
-        //     $("#M_search").attr({"placeholder":"搜索相关的文章"});
-        //     break;
+        case '/details':
+            $("#M_search").attr({"placeholder":"搜索相关的文章"});
+            break;
         default:
-            $("#M_search").attr({"placeholder":"..."});
+            $("#M_search").attr({"placeholder":"搜索相关的文章"});
             break;
     }
 
