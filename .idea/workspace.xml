@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45b2280d-0fe6-4ba8-b5c5-2a2d00ad1f12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/details.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/personblog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/personblog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/details.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/bloglist.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bloglist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/personblog.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/personblog.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -34,17 +31,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/details.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="446">
               <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/details.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="108" column="22" lean-forward="true" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
+            <state relative-caret-position="191">
+              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -52,17 +49,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/bloglist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-162">
-              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state relative-caret-position="837">
+              <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/personblog.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="170" column="126" selection-start-line="170" selection-start-column="126" selection-end-line="170" selection-end-column="126" />
+            <state relative-caret-position="52">
+              <caret line="141" column="33" lean-forward="true" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -70,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/bloglist.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
+            <state relative-caret-position="294">
               <caret line="292" column="48" selection-start-line="292" selection-start-column="48" selection-end-line="292" selection-end-column="48" />
             </state>
           </provider>
@@ -79,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/personblog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1026">
+            <state relative-caret-position="1482">
               <caret line="84" column="50" lean-forward="true" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
             </state>
           </provider>
@@ -182,12 +179,12 @@
         <option value="$PROJECT_DIR$/routes/allhobbs.js" />
         <option value="$PROJECT_DIR$/routes/hobbies.js" />
         <option value="$PROJECT_DIR$/views/bloglist.ejs" />
-        <option value="$PROJECT_DIR$/routes/bloglist.js" />
         <option value="$PROJECT_DIR$/routes/details.js" />
         <option value="$PROJECT_DIR$/routes/personblog.js" />
         <option value="$PROJECT_DIR$/public/javascripts/details.js" />
         <option value="$PROJECT_DIR$/views/details.ejs" />
         <option value="$PROJECT_DIR$/views/personblog.ejs" />
+        <option value="$PROJECT_DIR$/routes/bloglist.js" />
       </list>
     </option>
   </component>
@@ -383,12 +380,12 @@
       <workItem from="1548233031218" duration="9521000" />
       <workItem from="1548288231564" duration="910000" />
       <workItem from="1548374278176" duration="22229000" />
-      <workItem from="1548414112693" duration="4939000" />
+      <workItem from="1548414112693" duration="7744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="613729000" />
+    <option name="totallyTimeSpent" value="616534000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -401,7 +398,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -419,7 +415,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.39765102" />
       <window_info anchor="bottom" id="调试" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.49702382" visible="true" weight="0.26342282" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.49702382" visible="true" weight="0.29362416" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -739,45 +735,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/bloglist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/bloglist.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
+        <state relative-caret-position="294">
           <caret line="292" column="48" selection-start-line="292" selection-start-column="48" selection-end-line="292" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/details.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
+        <state relative-caret-position="446">
           <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/details.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="108" column="22" lean-forward="true" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/personblog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
+        <state relative-caret-position="1482">
           <caret line="84" column="50" lean-forward="true" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/personblog.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="170" column="126" selection-start-line="170" selection-start-column="126" selection-end-line="170" selection-end-column="126" />
+        <state relative-caret-position="52">
+          <caret line="141" column="33" lean-forward="true" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/bloglist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/details.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
         </state>
       </provider>
     </entry>

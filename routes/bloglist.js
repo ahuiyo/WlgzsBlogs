@@ -10,18 +10,18 @@ router.use(bodyParser.json());
 
 router.get('/', function (req, res) {
     let aid = req.query;
-    var userid = req.session.user.userID;
-    const name=req.query.name;
-    console.log(name);
+    var userids = req.session.user.userID;
     superagent
         .post('http://10.1.32.20:18080/personal/listblog')
         .type('form')
-        .send({ 'name': name })
+        .send({ 'name': aid.name })
+        .send({ 'userid': aid.userid })
+        .send({ 'pid': aid.pid })
         .end(function (err, dataname) {
             superagent
                 .get('http://10.1.32.20:18080/blog/list')
                 .query({id:aid.id})
-                .query({userid:userid})
+                .query({userid:userids})
                 .end(function (err, data) {
 
 
@@ -53,7 +53,7 @@ router.get('/', function (req, res) {
                             user,
                             code,
                             past,
-                            ID:userid,
+                            ID:userids,
                         })
                     }
 

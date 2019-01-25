@@ -144,7 +144,7 @@
             </div>
             <div class="above-pro">
                 <%for(var i=0;i<cotegory.length;i++){%>
-                <a href="/bloglist?name=<%=cotegory[i].name%>&id=<%=user.id%>" data-id="<%=user.id%>" name="<%=cotegory[i].name%>"  class="pro">
+                <a href="/bloglist?name=<%=cotegory[i].name%>&id=<%=user.id%>&userid=<%=user.id%>&pid=1" data-id="<%=user.id%>" name="<%=cotegory[i].name%>"  class="pro">
                     <span><%=cotegory[i].name%></span>
                     <div class="teal">
                         <%=cotegory[i].number%>
@@ -168,7 +168,7 @@
             </div>
             <div class="above-pro">
                 <%for(var i=0;i<result.length;i++){%>
-                <a href="/bloglist?name=<%=result[i].name%>&id=<%=user.id%>&userid=<%=result[i].userid%>&pid=<%=result[i].pid%>" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
+                <a href="/bloglist?name=<%=result[i].name%>&id=<%=user.id%>&userid=<%=user.id%>&pid=2" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
                     <span><%=result[i].name%></span>
                     <div class="teal">
                         <%=result[i].number%>
