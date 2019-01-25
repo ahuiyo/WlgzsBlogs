@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/header.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/details.css">
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 
 </head>
 <body>
 
-
+<!--header-->
+<%-include ./public/header.ejs%>
 
 <section class="top">
     <div class="topimg"></div>
@@ -24,7 +26,7 @@
 <section class="headers">
     <div class="point">
         <span>未来工作室</span>
-        <span> <a class="color" href="javascript:;">首页</a></span>
+        <span> <a class="color" href="/">首页</a></span>
         <span><a class="color" href="javascript:;">博客</a></span>
         <span>正文</span>
     </div>
@@ -256,86 +258,6 @@
                 </div>
             </div>
             <input type="hidden" class="userId" value="<%=users.id%>"/>
-            <script>
-                // <!-- 一级评论 -->
-                $('.peobut').click(function () {
-                    $.ajax({
-                        url:'/details/save',
-                        type:'post',
-                        data:{
-                            content:$('.textarea').val(),
-                            // objects:1,
-                            userId:$('.userId').val(),
-                            blId:$('.dataid').val(),
-                            title:$('.blTitle').text(),
-                            id:0,
-                        },
-                        success:function (data) {
-                            if(data.code==0){
-                                console.log(data);
-                                location.reload();
-                            }else{
-                                alert("网络错误，请重试");
-                            }
-
-                        }
-                    })
-                })
-
-
-                // <!--二级-->
-                $('.review').on('click',function () {
-                    let pare=$(this).parent();
-                    $.ajax({
-                        url:'/details/save',
-                        type:'post',
-                        data:{
-                            content:$(pare).prev().val(),
-                            objects:0,
-                            userId:$(this).prev().val(),
-                            blId:$('.dataid').val(),
-                            title:$('.blTitle').text(),
-                            id:$(this).next().val(),
-                        },
-                        success:function (data) {
-                            if(data.code==0){
-                                console.log(data);
-                                location.reload();
-
-                            }else{
-                                alert("网络错误，请重试");
-                            }
-
-                        }
-                    })
-                })
-                // <!--对二级进行评论-->
-                $('.essayreview').on('click',function () {
-                    let pare=$(this).parent();
-                    $.ajax({
-                        url:'/details/save',
-                        type:'post',
-                        data:{
-                            content:$(pare).prev().val(),
-                            objects:0,
-                            userId:$(this).prev().val(),
-                            blId:$('.dataid').val(),
-                            title:$('.blTitle').text(),
-                            id:$(this).next().val(),
-                        },
-                        success:function (data) {
-                            if(data.code==0){
-                                console.log(data);
-                                location.reload();
-
-                            }else{
-                                alert("网络错误，请重试");
-                            }
-
-                        }
-                    })
-                })
-            </script>
             <% if( dataother != null){%>
             <div class="contentrelative">
                 <h3>相关文章</h3>
@@ -389,14 +311,19 @@
                     <img src="images/a3.jpg">
                 </div>
                 <div class="blogger-brief">
-                    <h6><a href="/personblog?id=12"><%= users.username%></a></h6>
+                    <h6><a href="/personblog?id=<%= users.id%>"><%= users.username%></a></h6>
                     <p class="brief-all">
                         <span>文章</span><span><%= result.blogNum %>篇</span>
                         <br/>
                         <span>关注</span><span><%= result.fanNum %></span>
                     </p>
                     <p class="add">
-                        <a href="" >+ 关注</a>
+                        <%if(code==0){%>
+                        <a class="atten" href="javascript:;" >+ 关注</a>
+                        <%}%>
+                        <%if(code!=0){%>
+                            <a class="atten yes" href="javascript:;" >已关注</a>
+                        <%}%>
                     </p>
 
                 </div>
@@ -429,6 +356,9 @@
 
 <!--搜索遮罩-->
 <%-include ./public/mask.ejs%>
+
+<!--foot-->
+<%-include ./public/footer.ejs%>
 
 </body>
 

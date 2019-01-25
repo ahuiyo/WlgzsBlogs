@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="stylesheets/public/header.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/personblog.css">
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 </head>
 <body>
-
-
+<!--header-->
+<%-include ./public/header.ejs%>
 <section class="top">
     <div class="topimg">
         <div class="top-con">
@@ -37,8 +38,11 @@
                                 },
                                 success:function (data) {
                                     if(data.code==0){
-                                        console.log(data.msg);
-                                        location.reload();
+                                        $('.attention').text('+ 关注');
+                                    }else if(data.code==1){
+                                        $('.attention').text('已关注');
+                                    }else{
+                                        alert('失败');
                                     }
 
                                 }
@@ -84,7 +88,7 @@
                     </div>
                     <div class="other-info">
                         <p class="infonum">
-                            <span>浏览&nbsp;<i><%=datas[i].blLikes%></i></span>
+                            <span>浏览&nbsp;<i><%=datas[i].pageviews%></i></span>
                             <span>回帖&nbsp;<i><%=datas[i].comments%></i></span>
                         </p>
                         <p class="infocon">
@@ -186,7 +190,8 @@
 <!--搜索遮罩-->
 <%-include ./public/mask.ejs%>
 
-
+<!--foot-->
+<%-include ./public/footer.ejs%>
 </body>
 <script>
 

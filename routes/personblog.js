@@ -27,7 +27,7 @@ router.get('/',function (req,res) {
                         // const dataother=JSON.parse(data.text).dataother;
 
                         for (var i in datas){
-                            let labels=datas[i].label.split('，');
+                            let labels=datas[i].label.split(',');
                             datas[i].label=labels;
                         }
 
@@ -39,6 +39,7 @@ router.get('/',function (req,res) {
                             user,
                             code,
                             past,
+                            ID:userid,
                         })
                     }
                 // })

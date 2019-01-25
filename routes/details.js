@@ -22,7 +22,7 @@ router.get('/',function(req,res){
                         * comment  评论相关信息
                         * users   博主信息
                         * */
-
+                        const code=JSON.parse(data.text).code;
                         const result=JSON.parse(data.text).result;
                         const datas=JSON.parse(data.text).data;
                         const label=datas.label.split(',');
@@ -34,7 +34,7 @@ router.get('/',function(req,res){
                         const users=JSON.parse(data.text).user.user;
                         const dataother=JSON.parse(data.text).dataother;
                         res.render('details',{
-                            // data3,
+                            code,
                             aid,
                             users,
                             dataother,
@@ -44,7 +44,8 @@ router.get('/',function(req,res){
                             other:other,
                             before:before,
                             after:after,
-                            comment:comment
+                            comment:comment,
+                            ID:userid,
                         })
                     }
                 // });

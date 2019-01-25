@@ -58,7 +58,91 @@ $('.room-text').click(function(){
 })
 $('.del').click(function () {
     $('.room-control').hide();
+});
+
+// <!-- 一级评论 -->
+$('.peobut').click(function () {
+    $.ajax({
+        url:'/details/save',
+        type:'post',
+        data:{
+            content:$('.textarea').val(),
+            // objects:1,
+            userId:$('.userId').val(),
+            blId:$('.dataid').val(),
+            title:$('.blTitle').text(),
+            id:0,
+        },
+        success:function (data) {
+            if(data.code==0){
+                console.log(data);
+                location.reload();
+            }else{
+                alert("网络错误，请重试");
+            }
+
+        }
+    })
 })
+
+
+// <!--二级-->
+$('.review').on('click',function () {
+    let pare=$(this).parent();
+    $.ajax({
+        url:'/details/save',
+        type:'post',
+        data:{
+            content:$(pare).prev().val(),
+            // objects:0,
+            userId:$(this).prev().val(),
+            blId:$('.dataid').val(),
+            title:$('.blTitle').text(),
+            id:$(this).next().val(),
+        },
+        success:function (data) {
+            if(data.code==0){
+                console.log(data);
+                location.reload();
+
+            }else{
+                alert("网络错误，请重试");
+            }
+
+        }
+    })
+})
+// <!--对二级进行评论-->
+$('.essayreview').on('click',function () {
+    let pare=$(this).parent().prev().val();
+    let commpare=$(this).parent().parent().prev().children('div.chat-comment-autor').children('a.chat-autor-l').text();
+    let content='@'+ commpare +pare;
+    $.ajax({
+        url:'/details/save',
+        type:'post',
+        data:{
+            content:content,
+            // objects:0,
+            userId:$(this).prev().val(),
+            blId:$('.dataid').val(),
+            title:$('.blTitle').text(),
+            id:$(this).next().val(),
+        },
+        success:function (data) {
+            if(data.code==0){
+                console.log(data);
+                location.reload();
+
+            }else{
+                alert("网络错误，请重试");
+            }
+
+        }
+    })
+})
+
+
+
 //滚动条滚到标题处  fixed定位的标题出现
 $(window).scroll(function () {
     var hei=$('.contentTitle').offset().top - $(window).scrollTop();
@@ -99,3 +183,24 @@ $('.detalecomm').on('click',function () {
     })
 })
 
+
+$('.atten').click(function () {
+    $.ajax({
+        url: '/personblog/attention',
+        type:'get',
+        data:{
+            id:$('.userId').val(),
+        },
+        success:function (data) {
+            if(data.code==0){
+                $('.atten').removeClass('yes');
+                $('.atten').text("+ 关注");
+            }else if(data.code==1){
+                $('.atten').addClass('yes');
+                $('.atten').text("已关注");
+            }else{
+                console.log(data.msg);
+            }
+        }
+    })
+})

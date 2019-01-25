@@ -12,8 +12,10 @@ router.get('/', function (req, res) {
     let aid = req.query;
     var userid = req.session.user.userID;
     const name=req.query.name;
+    console.log(name);
     superagent
         .post('http://10.1.32.20:18080/personal/listblog')
+        .type('form')
         .send({ 'name': name })
         .end(function (err, dataname) {
             superagent
@@ -26,10 +28,10 @@ router.get('/', function (req, res) {
 
                     if (!err) {
                         const datas = JSON.parse(dataname.text).data;
-
+                        console.log(datas);
                         const result = JSON.parse(data.text).result;
                         const cotegory = JSON.parse(data.text).cotegory;
-                        const data3 = JSON.parse(ress.text).data;
+
                         const user = JSON.parse(data.text).user.user;
                         const code = JSON.parse(data.text).code;
                         const past = JSON.parse(data.text).past;
@@ -39,18 +41,19 @@ router.get('/', function (req, res) {
                         // const dataother=JSON.parse(data.text).dataother;
 
                         for (var i in datas) {
-                            let labels = datas[i].label.split('，');
+                            let labels = datas[i].label.split(',');
                             datas[i].label = labels;
                         }
 
-                        res.render('bloglist', {
+                        res.render('personblog', {
                             datas,
                             result,
                             cotegory,
-                            data3,
+
                             user,
                             code,
                             past,
+                            ID:userid,
                         })
                     }
 

@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="stylesheets/public/header.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/personblog.css">
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 </head>
 <body>
-
-
+<!--header-->
+<%-include ./public/header.ejs%>
 <section class="top">
     <div class="topimg">
         <div class="top-con">
@@ -37,7 +38,11 @@
                                 },
                                 success:function (data) {
                                     if(data.code==0){
-                                        console.log(data.msg);
+                                        $('.attention').text('+ 关注');
+                                    }else if(data.code==1){
+                                        $('.attention').text('已关注');
+                                    }else{
+                                        alert('失败');
                                     }
 
                                 }
@@ -63,7 +68,6 @@
 <section class="table">
     <ul class="table-queer">
         <%for(var i =0;i<datas.length;i++){%>
-
         <!--此li为有图片的li-->
         <li class="queer-time">
             <%if(user.id==past.loginUserId){%>
@@ -186,24 +190,25 @@
 <!--搜索遮罩-->
 <%-include ./public/mask.ejs%>
 
-
+<!--foot-->
+<%-include ./public/footer.ejs%>
 </body>
 <script>
 
-    // $('.pro').on('click',function () {
-    //     console.log($(this).attr("name"));
-    //     $.ajax({
-    //         type:'post',
-    //         url:'/bloglist',
-    //         data:{
-    //             name:$(this).attr("name"),
-    //             id: $(this).data('id'),
-    //         },
-    //         success:function (data) {
-    //             location.reload();
-    //         }
-    //     })
-    // })
+    $('.pro').on('click',function () {
+        console.log($(this).attr("name"));
+        $.ajax({
+            type:'post',
+            url:'/bloglist',
+            data:{
+                name:$(this).attr("name"),
+                id: $(this).data('id'),
+            },
+            success:function (data) {
+                // location.reload();
+            }
+        })
+    })
 
 
 
