@@ -116,7 +116,7 @@ $('.review').on('click',function () {
 $('.essayreview').on('click',function () {
     let pare=$(this).parent().prev().val();
     let commpare=$(this).parent().parent().prev().children('div.chat-comment-autor').children('a.chat-autor-l').text();
-    let content='@'+ commpare +pare;
+    let content='@'+ commpare+ " "  +pare;
     $.ajax({
         url:'/details/save',
         type:'post',
@@ -195,12 +195,42 @@ $('.atten').click(function () {
             if(data.code==0){
                 $('.atten').removeClass('yes');
                 $('.atten').text("+ 关注");
+                var num=$('.fannum').text();
+                num--;
+                $('.fannum').text(num);
             }else if(data.code==1){
                 $('.atten').addClass('yes');
                 $('.atten').text("已关注");
+                var num=$('.fannum').text();
+                num++;
+                $('.fannum').text(num);
             }else{
                 console.log(data.msg);
             }
         }
     })
+});
+
+//删除博客
+$('.deteleblog').click(function () {
+    var id=$(this).data('id');
+    var userid=$(this).data('user');
+    userid = '/personblog?id='+ userid ;
+    if(confirm("你确定要删除此博客吗？")){
+        $.ajax({
+            url: '/personblog/deleteblog',
+            type:'get',
+            data:{
+                id:id,
+            },
+            success:function (data) {
+                if(data.code==0){
+                    location= userid;
+                }else{
+                    alert('删除失败');
+                }
+            }
+        })
+    }
+
 })

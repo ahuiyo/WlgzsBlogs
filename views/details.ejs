@@ -34,14 +34,14 @@
         <div class="contentLeft">
             <h1 class="contentTitle"><%=datas.blTitle%></h1>
             <ul class="contentTime"> 
-                <li><a href="javascript:;"><%=users.username %></a></li>
+                <li><a href="/personblog?id=<%=users.id%>"><%=users.username %></a></li>
                 <li><img src="images/detailtime.png"> <span><%=datas.createTime%></span></li>
                 <li><img src="images/detailsee.png"><span>浏览 <%=datas.pageviews%></span></li>
                 <li><img src="images/detailspeak.png"><span>评论 <%=datas.comments%></span></li>
                 <% if(result.loginUserId == users.id){ %>
                 <li class="right">
-                    <a href="javascript:;">编辑</a>
-                    <a href="javascript:;">删除</a>
+                    <a  class="editblog" href="http://10.1.32.20:18080/update?id=<%=datas.id%>&userid=<%=datas.userId%>">编辑</a>
+                    <a data-id="<%=datas.id%>"  data-user="<%=datas.userId%>" class="deteleblog" href="javascript:;">删除</a>
                 </li>
                 <%}%>
             </ul>
@@ -178,7 +178,7 @@
                         </div>
                         <div class="allcommentRight">
                             <div class="comment-autor">
-                                <a href="javascript:;" class="autor-l"><%=comment[key][0].name%></a>
+                                <a href="/personblog?id=<%=comment[key][0].userId%>" class="autor-l"><%=comment[key][0].name%></a>
                                 <a class="autor-r"><%=comment[key][0].createTime%></a>
                             </div>
                             <div class="commenttext">
@@ -186,7 +186,7 @@
                             </div>
                             <ul class="twicetext">
                                 <li class="twicetextbut">
-                                    <i class="fa fa-commenting-o"></i><span><%=comment[key][0].comments%></span>
+                                    <i class="fa fa-commenting-o"></i>评论(<span><%=comment[key].length -1 %></span>)
                                 </li>
                                 <% if(comment[key][0].userId==result.loginUserId){%>
                                 <li class="deleteli">
@@ -201,7 +201,7 @@
 
                                     <div class="chat">
                                         <div class="chat-comment-autor">
-                                            <a href="javascript:;" class="chat-autor-l"><%=comment[key][j].name%></a>
+                                            <a href="/personblog?id=<%=comment[key][j].userId%>" class="chat-autor-l"><%=comment[key][j].name%></a>
                                             <a class="chat-autor-r"><%=comment[key][j].createTime%></a>
                                         </div>
                                         <div class="chat-commenttext">
@@ -209,7 +209,7 @@
                                         </div>
                                         <ul class="chat-twicetext">
                                             <li class="essayblock">
-                                                <i class="fa fa-commenting-o"></i><span><%=comment[key][j].comments%></span>
+                                                <i class="fa fa-commenting-o"></i>评论
                                             </li>
                                             <% if(comment[key][j].userId==result.loginUserId){%>
                                             <li class="chat-deleteli">
@@ -224,7 +224,7 @@
                                         <div class="essay-control">
                                             <input type="hidden" value="<%=comment[key][j].userId%>">
                                             <a class="essayreview" href="javascript:;">评论</a>
-                                            <input type="hidden" value="<%=comment[key][j].id%>">
+                                            <input type="hidden" value="<%=comment[key][0].id%>">
                                             <a class="essaydel" href="javascript:;">取消</a>
                                         </div>
                                     </div>
@@ -315,7 +315,7 @@
                     <p class="brief-all">
                         <span>文章</span><span><%= result.blogNum %>篇</span>
                         <br/>
-                        <span>关注</span><span><%= result.fanNum %></span>
+                        <span>关注</span><span class="fannum"><%= result.fanNum %></span>
                     </p>
                     <p class="add">
                         <%if(code==0){%>

@@ -73,7 +73,7 @@
             <%if(user.id==past.loginUserId){%>
             <div class="delorwrite">
                 <a href="">编辑</a>
-                <a href="">删除</a>
+                <a data-id="<%=datas[i].id%>" class="deteleblog" href="javascript:;">删除</a>
             </div>
             <%}%>
             <a href="/details?id=<%=datas[i].id%>">
@@ -168,7 +168,7 @@
             </div>
             <div class="above-pro">
                 <%for(var i=0;i<result.length;i++){%>
-                <a href="/bloglist?name=<%=result[i].name%>&id=<%=user.id%>" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
+                <a href="/bloglist?name=<%=result[i].name%>&id=<%=user.id%>&userid=<%=result[i].userid%>&pid=<%=result[i].pid%>" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
                     <span><%=result[i].name%></span>
                     <div class="teal">
                         <%=result[i].number%>
@@ -296,6 +296,26 @@
             }
         })
     }
+    
+    $('.deteleblog').on('click',function () {
+        var id=$(this).data('id');
+        if(confirm("你确定要删除此博客吗？")){
+            $.ajax({
+                url: '/personblog/deleteblog',
+                type:'get',
+                data:{
+                    id:id,
+                },
+                success:function (data) {
+                    if(data.code==0){
+                        location.reload();
+                    }else{
+                        alert('删除失败');
+                    }
+                }
+            })
+        }
+    })
 
 </script>
 </html>
