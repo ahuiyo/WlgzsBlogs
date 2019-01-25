@@ -268,7 +268,6 @@ body{ width: 100vw;}
     height: auto;
     overflow: hidden;
     min-height: 615px;
-    /* background: #f4f5f5 url("../images/M-bg.png") center center repeat-x ; */
     background-size: contain;
 }
 .back-main{

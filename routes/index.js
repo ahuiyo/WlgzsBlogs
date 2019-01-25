@@ -154,7 +154,7 @@ router.get('/login', function (req, res) {
     res.render('login');
 });
 
-//处理数据
+//处理登录数据
 router.post('/dologin', function (req, res) {
     var username = req.body.username;   //获取输入的用户名和密码
     var password = req.body.password;
@@ -188,7 +188,9 @@ router.get('/logout', function (req, res) {
                 req.session.destroy(function (err) {
                     res.send('/login')
                 })
-            }
+            }  
         })
 });
+
+
 module.exports = router;

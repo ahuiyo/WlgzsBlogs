@@ -11,7 +11,7 @@
 /* 详细信息弹框 */
 .info_mask{
     width: 350px;
-    padding-bottom: 25px;
+    padding-bottom: 30px;
     position: fixed;
     top: -100%;
     /* top: 0; */

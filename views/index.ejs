@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <!--header-->
     <%-include ./public/header.ejs%>
     <!--wrapper-->
@@ -51,8 +50,8 @@
                     <%}%>
                 </ul>
                 <div class="choice-icon">
-                    <span class="lineC choice-icon-txt">收起</span>
-                    <span class="lineC Turn">×</span>
+                    <!-- <span class="lineC choice-icon-txt">收起</span> -->
+                    <!-- <span class="lineC Turn">×</span> -->
                 </div>
             </div>
             <!--遍历博客-->
@@ -78,15 +77,11 @@
                         <!--时间  浏览数量-->
                         <div class="less-info">
                             <p class="source">
-                                <span class="author"><a href="#">
-                                        <%=data1[j].name%></a></span>
-                                <span class="type">
-                                    <%=data1[j].articleType%></span>
-                                <span>
-                                    <%=data1[j].createTime%></span>
-                                <span>
-                                    <%=data1[j].pageviews%>人浏览</span>
-                                <span>来自 <i style="font-style:normal;color:#000">博客</i></span>
+                                <span class="author"><a href="#"><%=data1[j].name%></a></span>
+                                <span class="type"><%=data1[j].articleType%></span>
+                                <span><%=data1[j].createTime%></span>
+                                <span><%=data1[j].pageviews%>人浏览</span>
+                                <span>来自 <i style="font-style:normal;color:#000">Feature</i></span>
                             </p>
                         </div>
                     </div>
@@ -179,7 +174,7 @@
 
     //顶部搜索
     function OnChange() {
-        const val = $('.c_search').val();   //得到输入的值
+        var val = $('.c_search').val();   //得到输入的值
         if(val==''){
             alert('数据不能为空!')
         }else{
@@ -208,6 +203,7 @@
             })
         }
     }
+
 </script>
 
 </html>

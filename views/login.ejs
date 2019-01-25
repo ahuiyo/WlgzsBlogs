@@ -1,72 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>login</title>
     <link rel="stylesheet" href="stylesheets/login.css">
     <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 </head>
+
 <body>
-<div class="b_box">
-    <img class="logo" src="images/logo.png" alt="">
-    <div class="i_left">
-        <p class="i_font one">总有<span style="color: #e7a939">新朋友</span>在路上</p>
-        <p class="i_font two">在这里 ， 留下属于你的足迹</p>
+    <div class="b_box">
+        <img class="logo" src="images/logo.png" alt="">
+        <div class="i_left">
+            <p class="i_font one">总有<span style="color: #e7a939">新朋友</span>在路上</p>
+            <p class="i_font two">在这里 ， 留下属于你的足迹</p>
+        </div>
+        <div class="i_box">
+            <p class="l_dl">登 录</p>
+            <form class="form" enctype="multipart/form-data" action="/dologin">
+                <!--图标-->
+                <label>
+                    <img src="images/user.png">
+                </label>
+                <!--用户名-->
+                <input type="text" name="username" class="l_inp" placeholder="用户名" focus>
+                <br>
+                <!--图标-->
+                <label>
+                    <img src="images/psd.png">
+                </label>
+                <!--密码-->
+                <input type="password" name="password" class="l_inp" placeholder="密　码">
+                <br>
+                <button type="button" class="ripple l_btn" onclick="LoginF()">登 录</button>
+            </form>
+        </div>
     </div>
-    <div class="i_box">
-        <p class="l_dl">登 录</p>
-        <form class="form" enctype="multipart/form-data" action="/dologin">
-            <!--图标-->
-            <label>
-                <img src="images/user.png">
-            </label>
-            <!--用户名-->
-            <input type="text" name="username" class="l_inp" placeholder="用户名">
-            <br>
-            <!--图标-->
-            <label>
-                <img src="images/psd.png">
-            </label>
-            <!--密码-->
-            <input type="password" name="password" class="l_inp" placeholder="密　码">
-            <br>
-            <input type="radio" class="r_radio" name="remeberme" value="true"/>
-            <span class="r_radio_spn">记住密码</span>
-            <br>
-            <button type="button" class="ripple l_btn">登 录</button>
-        </form>
-    </div>
-</div>
 </body>
 <script>
-    $(function () {
-        $('.l_btn').click(function () {
-            const username=$('input[type="text"]').val();
-            const password=$('input[type="password"]').val();
-            if (username && password){
-                $.ajax({
-                    url:'/dologin',
-                    type:'post',
-                    data:{
-                        username:username,
-                        password:password
-                    },
-                    success:function (data) {
-                        if(data == 0){
-                            window.location = '/';
-                        }else if(data == 1){
-                            window.location = '/hobbies';
-                        }else{
-                            alert('账户或密码不正确!');
-                            window.location='/login';
-                        }
+    function LoginF() {
+        const username = $('input[type="text"]').val();
+        const password = $('input[type="password"]').val();
+        if (username && password) {
+            $.ajax({
+                url: '/dologin',
+                type: 'post',
+                data: {
+                    username: username,
+                    password: password
+                },
+                success: function (data) {
+                    if (data == 0) {
+                        window.location = '/';
+                    } else if (data == 1) {
+                        window.location = '/hobbies';
+                    } else {
+                        alert('账户或密码不正确!');
+                        window.location = '/login';
                     }
-                })
-            }else{
-                alert("请先输入用户名或密码!!");
-            }
-        })
-    })
+                }
+            })
+        } else {
+            alert("请先输入用户名或密码!!");
+        }
+    }
+    document.onkeydown = function (event) {
+        e = event ? event : (window.event ? window.event : null);
+        if (e.keyCode == 13) {  //监听回车按键
+            LoginF();     //触发登录按钮
+            return false;  //阻止刷新整个页面
+        }
+    }
 
 </script>
 </html>
