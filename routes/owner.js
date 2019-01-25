@@ -125,28 +125,28 @@ router.post('/delAllinfo', function (req, res) {
 });
 
 //取消点赞
-router.post('/cancelGood', function (req, res) {
-    var _id = req.body._id;
-    superagent
-        .get('http://wlgzs.org:9090/mock/42/blog/savelike')
-        .query({ 'id': _id })
-        .end(function (err, result) {
-            var data = JSON.parse(result.text);
-            res.send(data);
-        })
-})
+// router.post('/cancelGood', function (req, res) {
+//     var _id = req.body._id;
+//     superagent
+//         .get('http://wlgzs.org:9090/mock/42/blog/savelike')
+//         .query({ 'id': _id })
+//         .end(function (err, result) {
+//             var data = JSON.parse(result.text);
+//             res.send(data);
+//         })
+// })
 
 // 取消收藏
-router.post('/cancelcoll', function (req, res) {
-    var id = req.body._id;
-    superagent
-        .get('http://10.1.32.20:18080/blog/savecollect')
-        .query({'id': id}) 
-        .end(function (err, result) {
-            var data = JSON.parse(result.text);
-            res.send(data);
-        })
-})
+// router.post('/cancelcoll', function (req, res) {
+//     var id = req.body._id;
+//     superagent
+//         .get('http://10.1.32.20:18080/blog/savecollect')
+//         .query({'id': id}) 
+//         .end(function (err, result) {
+//             var data = JSON.parse(result.text);
+//             res.send(data);
+//         })
+// })
 
 //删除评论
 router.post('/decomment', function (req, res) {

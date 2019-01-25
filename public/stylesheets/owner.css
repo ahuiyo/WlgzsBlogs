@@ -294,6 +294,25 @@
     word-break: break-all;
     overflow: hidden;
 }
+.wid-box{
+    width: 85%;
+    float: left;
+}
+.s-boxc{
+    overflow: hidden;
+}
+.cancel-fans{
+    color: #e76262;
+    border: 1px solid;
+    border-color: #f37c7c;
+    padding: 3px 10px;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.cancel-fans:hover{
+    box-shadow: 2px 2px 3px #ccc;
+}
 .s-title{
     overflow: hidden;
     text-overflow: ellipsis;

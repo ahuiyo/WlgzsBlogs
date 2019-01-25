@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息管理</title>
+    <link rel="stylesheet" href="stylesheets/admin/everycss/type7.css">
+    <link rel="stylesheet" href="stylesheets/admin/everycss/common.css">
+</head>
+<body>
+    <p>消息管理</p>
+    <div class="info_wrap">
+        <%for(var i=0;i <list.length;i++){%>
+            <div>
+                <span><%=list[i].title%></span>
+                <span><%=list[i]name%></span>
+                <span><%=list[i].content%></span>
+                <span><%=list[i].createTime%></span>
+            </div>
+        <%}%>
+    </div>
+</body>
+
+</html>

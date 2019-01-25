@@ -107,7 +107,7 @@ body{
     top: 60px;
     background-color: #373d41;
     width: 230px;
-    height: 340px;
+    padding-bottom: 5px;
     color: #d8d8d8;
     display: none;
 }
@@ -165,7 +165,7 @@ body{
     height: 30px;
     line-height: 30px;
     text-align: left;
-    padding:0 15px;
+    padding:0 20px;
     color: #d8d8d8;
     font-size: 13px;
     cursor: pointer;
@@ -178,7 +178,7 @@ body{
 /*右边的数量*/
 .font{
     display: inline-block;
-    float: right;
+    /* float: right; */
     font-size: 12px;
 }
 .on:hover .p_box{display: block}

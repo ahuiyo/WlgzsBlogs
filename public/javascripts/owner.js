@@ -141,22 +141,20 @@ function fans(that){
             }
         }
     })
-
 }
 
-//取消点赞/收藏
-function cancelG(that,_url){
-    var _id = $('#idg').attr('data-id');
-    var data = {
-        _id
-    };
+//取消点赞
+function cancelG(that){
+    var id = $('#idg').attr('data-id');
     $.ajax({
-        url:_url,
-        type:'post',
-        data:data,
+        url:'/details/savelike',
+        type:'get',
+        data:{id:id},
         success:function(result){
             if(result.code == 0){
-                $('.g_list').css({'display':'none'});
+                $(_this).parents('.g_list').css({'display':'none'})
+            }else if(result.code == -1){
+                alert('操作失败！') 
             }else{
                 alert('操作失败！')
             }
@@ -164,20 +162,25 @@ function cancelG(that,_url){
     })
 }
 
-// function cancelColl(that){
-//     var _id = $('#id').attr('data-id');
-//     var data ={
-//         _id
-//     };
-//     $.ajax({
-//         url:'/owner/cancelGood',
-//         type:'post',
-//         data:data,
-//         success:function(result){
-//             console.log(result);
-//         }
-//     })
-// }
+//我的收藏
+function cancelColl(that){
+    var _this = that;
+    var _id = $('#idb').attr('data-id');
+    $.ajax({
+        url:'/details/savecollect',
+        type:'get',
+        data:{
+            id:_id
+        },
+        success:function(result){
+            if(result.code==0){
+                $(_this).parents('.g_list').css({'display':'none'})
+            }else{
+                alert('操作失败！')
+            }
+        }
+    })
+}
 
 
 //测试分页

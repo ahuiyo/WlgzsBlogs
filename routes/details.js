@@ -54,7 +54,6 @@ router.get('/',function(req,res){
 
 //  ------------------取消与点赞  地址 例  /details/savelike?id=3
 router.get('/savelike',function (req,res) {
-
     let url='http://10.1.32.20:18080/blog/savelike';
     let userid = req.session.user.userID;
     superagent
@@ -64,8 +63,6 @@ router.get('/savelike',function (req,res) {
         .end(function (err,data) {
             if(!err){
                 const savelike=JSON.parse(data.text);
-                console.log(savelike);
-
                 if(savelike.code == 0){
                     res.json({
                         code:0,
@@ -82,16 +79,12 @@ router.get('/savelike',function (req,res) {
                         data:'失败！',
                     })
                 }
-
-
             }
         });
-
 });
 
 // ----------------取消收藏与收藏    地址 例  /details/savecollect?id=3
 router.get('/savecollect',function (req,res) {
-
     let url='http://10.1.32.20:18080/blog/savecollect';
     let userid = req.session.user.userID;
     superagent
@@ -101,7 +94,6 @@ router.get('/savecollect',function (req,res) {
         .end(function (err,data) {
             if(!err){
                 const savecollect=JSON.parse(data.text);
-                console.log(savecollect);
                 if(savecollect.code == 0){
                     res.json({
                         code:0,
@@ -118,11 +110,8 @@ router.get('/savecollect',function (req,res) {
                         data:'失败！',
                     })
                 }
-
-
             }
         });
-
 });
 
 //  -------------对博客进行评论

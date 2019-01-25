@@ -40,7 +40,6 @@ function AskP(_href,name,res){
         })
 }
 
-
 //侧边栏点击不同内容时 请求不同的地址
 router.post('/:pathname',function (req,res) {
     let _name=req.params.pathname;
@@ -52,6 +51,8 @@ router.post('/:pathname',function (req,res) {
 
     }else if(_name=='type4'){
         AskG('http://wlgzs.org:9090/mock/42/backstage/check?id=3',_name,res);
+    }else if(_name=='type7'){
+        AskG('http://wlgzs.org:9090/mock/42/backstage/check?id=5',_name,res);
     }
 });
  

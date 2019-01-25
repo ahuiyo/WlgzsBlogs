@@ -88,7 +88,6 @@
                                     id : dataid,
                                 },
                                 success:function (data) {
-                                    console.log(data);
                                     if(data.code == 1){
                                         noclick.addClass('Operclick');
                                         let num=noclick.children("span").children("i").html();
@@ -100,7 +99,7 @@
                                         num--;
                                         noclick.children("span").children("i").html(num);
                                     }else{
-                                        alert("网络错误，请重试！");
+                                        alert("操作失败，请重试！");
                                     }
                                 }
                             })
