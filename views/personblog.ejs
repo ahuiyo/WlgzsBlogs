@@ -5,6 +5,7 @@
     <title>未来工作室-个人主页</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
     <link rel="stylesheet" href="stylesheets/public/header.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
@@ -59,8 +60,8 @@
                     </script>
                 </h3>
                 <p>
-                    <span>关注&nbsp;<i></i></span>
-                    <span>粉丝&nbsp;<i>1</i></span>
+                    <span>关注&nbsp;<i><%=database.attention%></i></span>
+                    <span>粉丝&nbsp;<i><%=database.fan%></i></span>
                 </p>
             </div>
         </div>
@@ -144,6 +145,10 @@
         <!--</div>-->
         <!--</a>-->
         <!--</li>-->
+
+        <div class="fenye" style="text-align:center;">
+            <ul data-pagecount="<%=page.total%>" data-pagesize="<%=page.size%>" data-current="<%=page.current%>" class="pagination" id="pagination"></ul>
+        </div>
     </ul>
     <div class="table-side">
         <div class="side-above">
@@ -327,4 +332,5 @@
     })
 
 </script>
+<script rel="script" src="javascripts/fenye.js"></script>
 </html>

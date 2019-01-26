@@ -35,8 +35,8 @@ router.get('/', function (req, res) {
                         const user = JSON.parse(data.text).user.user;
                         const code = JSON.parse(data.text).code;
                         const past = JSON.parse(data.text).past;
-
-                        // const database=JSON.parse(data.text).database;
+                        const page=JSON.parse(data.text).page;
+                        const database=JSON.parse(data.text).database;
                         // const personInformation=JSON.parse(data.text).datacomments.personInformation;
                         // const dataother=JSON.parse(data.text).dataother;
 
@@ -49,10 +49,11 @@ router.get('/', function (req, res) {
                             datas,
                             result,
                             cotegory,
-
+                            database,
                             user,
                             code,
                             past,
+                            page,
                             ID:userids,
                         })
                     }

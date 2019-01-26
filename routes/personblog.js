@@ -22,9 +22,9 @@ router.get('/',function (req,res) {
                         const user=JSON.parse(data.text).user.user;
                         const code=JSON.parse(data.text).code;
                         const past=JSON.parse(data.text).past;
-                        // const database=JSON.parse(data.text).database;
+                        const page=JSON.parse(data.text).page;
                         // const personInformation=JSON.parse(data.text).datacomments.personInformation;
-                        console.log(database);
+                        console.log(datas);
 
                         for (var i in datas){
                             let labels=datas[i].label.split(',');
@@ -35,11 +35,12 @@ router.get('/',function (req,res) {
                             datas,
                             result,
                             cotegory,
-                            // data3,
+                            database,
                             user,
                             code,
                             past,
                             ID:userid,
+                            page:page,
                         })
                     }
                 // })

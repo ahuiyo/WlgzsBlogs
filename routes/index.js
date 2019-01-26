@@ -17,7 +17,7 @@ const hobbies = require('./hobbies')
 const bloglist = require('./bloglist');
 const allhobbs = require('./allhobbs');
 const listmy = require('./listmy');
-
+const course = require('./course');
 //主页
 router.get('/', function (req, res) {
     var userid = req.session.user.userID;
@@ -151,6 +151,9 @@ router.use('/bloglist', bloglist);
 
 //博主分类页面
 router.use('/listmy', listmy);
+
+//博主分页
+router.use('/course', course);
 
 //登录
 router.get('/login', function (req, res) {
