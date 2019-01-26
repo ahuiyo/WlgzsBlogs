@@ -16,7 +16,7 @@ const personblog = require('./personblog');
 const hobbies = require('./hobbies')
 const bloglist = require('./bloglist');
 const allhobbs = require('./allhobbs');
-
+const listmy = require('./listmy');
 
 //主页
 router.get('/', function (req, res) {
@@ -148,6 +148,9 @@ router.use('/allhobbs', allhobbs);
 
 //博主分类页面
 router.use('/bloglist', bloglist);
+
+//博主分类页面
+router.use('/listmy', listmy);
 
 //登录
 router.get('/login', function (req, res) {

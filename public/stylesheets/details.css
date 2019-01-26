@@ -955,31 +955,32 @@ input {
     color: #33b2ef;
 }
 
-.headers .returntop {
+.returntop {
     width: 50px;
     height: 50px;
     position: fixed;
     bottom: 50px;
     right: 10px;
-    background-color: #e8eaea;
+    background-color: #cccece;
     text-align: center;
     border-radius: 10px;
     transition: all 0.5s;
     cursor: pointer;
+    z-index: 999;
 }
 
-.headers .returntop i {
+.returntop i {
     line-height: 50px;
     color: #6d6d6d;
 }
 
-.headers .returntop:hover i {
+.returntop:hover i {
     -webkit-animation: aa 1s infinite;
     -o-animation: aa 1s infinite;
     animation: aa 1s infinite;
 }
 
-.headers .returntop:hover {
+.returntop:hover {
     box-shadow: 0 0 4px #6f5353a8;
 }
 

@@ -151,13 +151,13 @@ $(window).scroll(function () {
     }else {
         $('.fixedtext').css('top','-80px');
     }
-    var line=$(window).height();
-    line+=50;
-    if($(document).scrollTop()>line){
-        $('.returntop').show();
-    }else {
-        $('.returntop').hide();
-    }
+    // var line=$(window).height();
+    // line+=50;
+    // if($(document).scrollTop()>line){
+    //     $('.returntop').show();
+    // }else {
+    //     $('.returntop').hide();
+    // }
 })
 $('.returntop').on('click',function () {
     $('html,body').animate({
@@ -185,30 +185,35 @@ $('.detalecomm').on('click',function () {
 
 
 $('.atten').click(function () {
-    $.ajax({
-        url: '/personblog/attention',
-        type:'get',
-        data:{
-            id:$('.userId').val(),
-        },
-        success:function (data) {
-            if(data.code==0){
-                $('.atten').removeClass('yes');
-                $('.atten').text("+ 关注");
-                var num=$('.fannum').text();
-                num--;
-                $('.fannum').text(num);
-            }else if(data.code==1){
-                $('.atten').addClass('yes');
-                $('.atten').text("已关注");
-                var num=$('.fannum').text();
-                num++;
-                $('.fannum').text(num);
-            }else{
-                alert(data.msg);
+    if($(this).data('id') == $(this).data('login') ){
+        alert("请勿关注自己");
+    }else{
+        $.ajax({
+            url: '/personblog/attention',
+            type:'get',
+            data:{
+                id:$('.userId').val(),
+            },
+            success:function (data) {
+                if(data.code==0){
+                    $('.atten').removeClass('yes');
+                    $('.atten').text("+ 关注");
+                    var num=$('.fannum').text();
+                    num--;
+                    $('.fannum').text(num);
+                }else if(data.code==1){
+                    $('.atten').addClass('yes');
+                    $('.atten').text("已关注");
+                    var num=$('.fannum').text();
+                    num++;
+                    $('.fannum').text(num);
+                }else{
+                    alert(data.msg);
+                }
             }
-        }
-    })
+        })
+    }
+
 });
 
 //删除博客

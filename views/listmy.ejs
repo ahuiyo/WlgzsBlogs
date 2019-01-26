@@ -21,11 +21,13 @@
             <div class="con-infor">
                 <h3>
                     <span><%=user.username%></span>
+                    <%if(user.id !=past.loginUserId ){%>
                     <%if(code==0){%>
                         <a href="javascrippt:;" class="attention">+&nbsp;关注</a>
                     <%}%>
                     <%if(code != 0){%>
                         <a href="javascrippt:;" class="attention">已关注</a>
+                    <%}%>
                     <%}%>
                     <input type="hidden" class="attentionid" value="<%=user.id%>">
                     <script>
@@ -61,8 +63,10 @@
 </section>
 <section class="headers">
     <ul>
-        <li class="liactive"><a href="">首页</a> </li>
-        <li><a href="">草稿</a> </li>
+        <li ><a href="/personblog?id=<%=past.loginUserId%>">首页</a> </li>
+        <%if(past.loginUserId == user.id){%>
+        <li class="liactive"><a  href="/listmy?id=<%=past.loginUserId%>">草稿</a> </li>
+        <%}%>
     </ul>
 </section>
 <section class="table">
@@ -71,10 +75,10 @@
         <!--此li为有图片的li-->
         <li class="queer-time">
             <%if(user.id==past.loginUserId){%>
-                <div class="delorwrite">
-                    <a href="">编辑</a>
-                    <a href="">删除</a>
-                </div>
+            <div class="delorwrite">
+                <a href="http://10.1.32.20:18080/update?id=<%=datas[i].id%>&userid=<%=datas[i].userId%>">编辑</a>
+                <a data-id="<%=datas[i].id%>" class="deteleblog" href="javascript:;">删除</a>
+            </div>
             <%}%>
             <a href="/details?id=<%=datas[i].id%>">
                 <div class="time-icon"></div>
@@ -88,7 +92,7 @@
                     </div>
                     <div class="other-info">
                         <p class="infonum">
-                            <span>浏览&nbsp;<i><%=datas[i].blLikes%></i></span>
+                            <span>浏览&nbsp;<i><%=datas[i].pageviews%></i></span>
                             <span>回帖&nbsp;<i><%=datas[i].comments%></i></span>
                         </p>
                         <p class="infocon">
@@ -144,7 +148,7 @@
             </div>
             <div class="above-pro">
                 <%for(var i=0;i<cotegory.length;i++){%>
-                <a href="/bloglist?name=<%=cotegory[i].name%>&id=<%=user.id%>" data-id="<%=user.id%>" name="<%=cotegory[i].name%>"  class="pro">
+                <a href="/bloglist?name=<%=cotegory[i].name%>&id=<%=user.id%>&userid=<%=user.id%>&pid=1" data-id="<%=user.id%>" name="<%=cotegory[i].name%>"  class="pro">
                     <span><%=cotegory[i].name%></span>
                     <div class="teal">
                         <%=cotegory[i].number%>
@@ -168,7 +172,7 @@
             </div>
             <div class="above-pro">
                 <%for(var i=0;i<result.length;i++){%>
-                <a href="/bloglist?name=<%=result[i].name%>&id=<%=user.id%>" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
+                <a href="/bloglist?name=<%=result[i].name%>&id=<%=user.id%>&userid=<%=user.id%>&pid=2" data-id="<%=user.id%>" name="<%=result[i].name%>" class="pro">
                     <span><%=result[i].name%></span>
                     <div class="teal">
                         <%=result[i].number%>
@@ -296,6 +300,26 @@
             }
         })
     }
+
+    $('.deteleblog').on('click',function () {
+        var id=$(this).data('id');
+        if(confirm("你确定要删除此博客吗？")){
+            $.ajax({
+                url: '/personblog/deleteblog',
+                type:'get',
+                data:{
+                    id:id,
+                },
+                success:function (data) {
+                    if(data.code==0){
+                        location.reload();
+                    }else{
+                        alert('删除失败');
+                    }
+                }
+            })
+        }
+    })
 
 </script>
 </html>

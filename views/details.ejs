@@ -316,15 +316,16 @@
                         <br/>
                         <span>关注</span><span class="fannum"><%= result.fanNum %></span>
                     </p>
+                    <%if( result.loginUserId != users.id){%>
                     <p class="add">
                         <%if(code==0){%>
-                        <a class="atten" href="javascript:;" >+ 关注</a>
+                            <a data-id="<%=users.id%>" data-login="<%=result.loginUserId%>" class="atten" href="javascript:;" >+ 关注</a>
                         <%}%>
                         <%if(code!=0){%>
-                            <a class="atten yes" href="javascript:;" >已关注</a>
+                            <a data-id="<%=users.id%>" data-login="<%=result.loginUserId%>" class="atten yes" href="javascript:;" >已关注</a>
                         <%}%>
                     </p>
-
+                    <%}%>
                 </div>
             </div>
             <div class="its-blogg">
@@ -347,12 +348,12 @@
                 </ul>
             </div>
         </div>
-        <div class="returntop" title="返回顶部">
-            <i class="fa fa-chevron-up"></i>
-        </div>
+
     </div>
 </section>
-
+<div class="returntop" title="返回顶部">
+    <i class="fa fa-chevron-up"></i>
+</div>
 <!--搜索遮罩-->
 <%-include ./public/mask.ejs%>
 
