@@ -12,8 +12,11 @@
                     <span>发布时间：<%=list[i].createTime%></span>
                     <span>浏览：<%=list[i].pageviews%></span>
                     <span>评论 ：<%=list[i].comments%></span>
+                    <span id="all" data-id="<%=list[i].id%>" style="display:none"></span>
+                    <a href="http://10.1.32.20:18080/update?id=<%=list[i].id%>&userid=<%=list[i].userId%>" class="declear" onclick="editBlog(this)">编辑</a>
+                    <span class="declear" onclick="delBlog(this)">删除</span>
                 </p>
-                <p class="s-desc"><%=list[i].blSummary%></p>
+                <p class="s-desc s-color"><%=list[i].blSummary%></p>
                 <!--标签-->
                 <p class="tags">
                     <%for (var j=0;j<list[i].label.length;j++){ %>

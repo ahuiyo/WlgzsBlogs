@@ -6,6 +6,7 @@
     <title>未来工作室-博客首页</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/header.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/mask.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
@@ -134,6 +135,11 @@
     <!--foot-->
     <%-include ./public/footer.ejs%>
 
+    <!-- 回到顶部 -->
+    <div class="returntop" title="返回顶部">
+        <i class="fa fa-chevron-up"></i>
+    </div>
+
 </body>
 <script type="text/javascript" src="javascripts/blog-First.js"></script>
 <!-- <script type="text/javascript" src="javascripts/lunbo.js"></script> -->
@@ -141,7 +147,6 @@
 <script type="text/javascript" src="javascripts/zzsc.js"></script>
 <script>
     $(function () {
-
         //左边分类标签
         //标签中各个li
         $('.lis').click(function () {
@@ -155,7 +160,12 @@
                 }
             })
         })
-
+        //为搜索框监听enter按键
+        $('#m_search').keypress(function(event){
+            if (event.keyCode == 13) {
+                OnChange();
+            }
+        })
         // 最新博客
         $('.newset').click(function () {
             var _href = $(this).attr('data-url');

@@ -284,7 +284,35 @@ body{ width: 100vw;}
     border-bottom: 1px solid #dddddd;
     box-shadow: 0 2px 4px rgba(0,0,0,.4);
 }
-
-
-
-
+.returntop {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    background-color: #cccece;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.returntop i {
+    line-height: 50px;
+    color: #6d6d6d;
+}
+.returntop:hover i {
+    -webkit-animation: aa 1s infinite;
+    -o-animation: aa 1s infinite;
+    animation: aa 1s infinite;
+}
+.returntop:hover {
+    box-shadow: 0 0 4px #6f5353a8;
+}
+@keyframes aa {
+    from {
+        line-height: 60px;
+    }
+    to {
+        line-height: 40px;
+    }
+}

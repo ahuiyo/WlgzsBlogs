@@ -53,8 +53,7 @@ function Asktags(_href, name, res,sessionid) {
             });
         })
 }
-
-//相应li点击
+//侧边栏相应li点击
 router.get('/:pathname', function (req, res) {
     //查询的时候带上参数
     let _name = req.params.pathname;
@@ -80,7 +79,7 @@ router.get('/:pathname', function (req, res) {
     else if (_name == 'tab7') {   //我的消息
         AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid="+SID, _name, res,SID);
     }
-    else {      
+    else if (_name == 'tab8'){      
         //个人信息
         superagent
             .get('http://10.1.32.20:18080/personal/getinfo')
@@ -98,6 +97,8 @@ router.get('/:pathname', function (req, res) {
                 });
                 // console.log(data);
             })
+    }else{
+        Asktags('http://wlgzs.org:9090/mock/42/personal/listmy?id=18&status=draft',_name,res,SID)
     }
 });
 
@@ -145,20 +146,20 @@ router.post('/delAllinfo', function (req, res) {
 //         .end(function (err, result) {
 //             var data = JSON.parse(result.text);
 //             res.send(data);
-//         })
+//         }) 
 // })
 
 //删除评论
-router.post('/decomment', function (req, res) {
-    var id = req.body._id;
-    superagent
-        .del('http://10.1.32.20:18080/blog/delete')    //DELETE请求 
-        .query({ 'id': id })
-        .end(function (err, data) {
-            var list = JSON.parse(data.text);
-            res.json(list);
-        })
-})
+// router.post('/decomment', function (req, res) {
+//     var id = req.body._id;
+//     superagent
+//         .del('http://10.1.32.20:18080/blog/delete')    //DELETE请求 
+//         .query({ 'id': id })
+//         .end(function (err, data) {
+//             var list = JSON.parse(data.text);
+//             res.json(list);
+//         })
+// })
 
 //我的粉丝  
 // router.post('/fans',function(req,res){

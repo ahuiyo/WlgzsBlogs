@@ -48,12 +48,12 @@ router.post('/:pathname',function (req,res) {
     }else if (_name=='type2'){
         AskG("http://wlgzs.org:9090/mock/42/backstage/allblogs",_name,res);
     }else if(_name=='type3'){
-
+        
     }else if(_name=='type4'){
         AskG('http://wlgzs.org:9090/mock/42/backstage/check?id=3',_name,res);
     }else if(_name=='type7'){
         AskG('http://wlgzs.org:9090/mock/42/backstage/check?id=5',_name,res);
-    }
+    } 
 });
  
 module.exports = router;

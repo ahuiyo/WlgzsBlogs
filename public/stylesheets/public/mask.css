@@ -91,6 +91,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    margin-right: 0px !important;
 }
 .type{
     padding:2px 11px;

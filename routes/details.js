@@ -131,10 +131,8 @@ router.post('/save',function (req,res) {
         .end(function (err,data) {
             if(!err){
                 const save=JSON.parse(data.text);
-                console.log(save);
                 if(save.code==0){
                     res.json(save)
-
                 }else{
                     res.json({
                         code:-1,
@@ -160,17 +158,14 @@ router.get('/detele',function (req,res) {
         .end(function (err,data) {
             if(!err){
                 const save=JSON.parse(data.text);
-
                 if(save.code==0){
                     res.json(save)
-
                 }else{
                     res.json({
                         code:-1,
                         msg:'删除失败！',
                     })
                 }
-
             }
         });
 

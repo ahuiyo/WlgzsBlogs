@@ -21,6 +21,31 @@ $(function () {
 
 });
  
+//删除我的博客
+function delBlog(that){
+    var _this = that;
+    if(confirm('确定要删除次博客？')){
+        var id = $('#all').attr('data-id')
+        $.ajax({
+            url:'/personblog/deleteblog',
+            type:'get',
+            data:{
+                id:id,
+            },
+            success:function(data){
+                if(data.code==0){
+                    $(_this).parents('.g_list').css({'display':'none'})
+                }else{
+                    alert('操作失败！')
+                }
+            }
+        })
+    }else{
+        return false;
+    }
+    
+}
+
 //个人资料---兴趣模块
 function add(e) {
     const target = e.target;
@@ -74,21 +99,22 @@ function delAll(that){
 
 // 删除我的评论
 function del_comont(that){
-    var _id = $('#idc').attr('data-id');
-    var data = {
-        _id,
-    }
+    var _this = that;
+    var id = $('#idc').attr('data-id');
     $.ajax({
-        url:'/owner/decomment',
-        type:'post',
-        data:data,
-        success:function(result){
-            if(result.code==0){
-                $('.subject-item').css({'display':'none'});
+        url:'/details/detele',
+        type:'get',
+        data:{
+            id:id
+        },
+        success:function(data){
+            if(data.code==0){
+                $(_this).parents('.subject-item').css({'display':'none'});
+            }else{
+                alert('操作失败！')
             }
         }
     })
-
 }
 
 //个人资料模块  保存修改按钮

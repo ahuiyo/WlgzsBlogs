@@ -2,22 +2,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>消息管理</title>
-    <link rel="stylesheet" href="stylesheets/admin/everycss/type7.css">
+    <title>类型管理</title>
+    <link rel="stylesheet" href="stylesheets/admin/everycss/type1.css">
     <link rel="stylesheet" href="stylesheets/admin/everycss/common.css">
 </head>
 <body>
-    <p>消息管理</p>
-    <div class="info_wrap">
-        <%for(var i=0;i <list.length;i++){%>
-            <div>
-                <span><%=list[i].title%></span>
-                <span><%=list[i]name%></span>
-                <span><%=list[i].content%></span>
-                <span><%=list[i].createTime%></span>
-            </div>
-        <%}%>
+<!--增加按钮-->
+    <div class="add">
+        <div class="a-left">
+            <input class="S_blogs" type="text" placeholder="搜索相关内容">
+            <input class="s_btn" type="button" value="search">
+        </div>
+        <div class="btn_b">
+            <button class="A-btn" onclick="show()">Add</button>
+        </div>
+    </div>
+<!--表格-->
+    <table class="tab tab1" cellpadding="0" cellspacing="0" id="tab">
+        <tr>
+            <th>ID</th>
+            <th>博客标签</th>
+            <th style="width: 240px;">管理操作</th>
+        </tr>
+        <%for(let i = 0;i < list.length;i++){
+        if (i % 2!=0) {%>
+        <tr>
+            <td><%=list[i].id%></td>
+            <td><%=list[i].caName%></td>
+            <td>
+                <a href="#" class="one hov-btn" onclick="Change(this)">修改</a>
+                <a href="#" class="two hov-btn" onclick="Del(this)">删除</a>
+            </td>
+        </tr>
+        <%}else{%>
+        <tr class="ag">
+            <td><%=list[i].id%></td>
+            <td><%=list[i].caName%></td>
+            <td>
+                <a href="#" class="one hov-btn" onclick="Change(this)">修改</a>
+                <a href="#" class="two hov-btn" onclick="Del(this)">删除</a>
+            </td>
+        </tr>
+        <%}}%>
+    </table>
+
+<!--分页-->
+    <div class="split_page">
+        <span><</span>
+        <span class="a_active">1</span>
+        <span>2</span>
+        <span>></span>
+    </div>
+
+<!--遮罩-->
+    <div id="form">
+        <div class="c-box">
+            <i class="tip" id="tip">相关信息请填写完整！</i>
+            <span id="close" onclick="hide()">×</span>
+        </div>
+        <form>
+            <input id="ID" type="text" placeholder="请输入博客ID">
+            <input id="TYPE" type="text" placeholder="请输入博客标签">
+            <br/>
+            <button type="button" id="ADD" onclick="Addtr()">添加</button>
+        </form>
     </div>
 </body>
+<script>
+    //修改
+        function Change(obj) {
+            let tr = obj.parentElement.parentElement;
+            let td = tr.cells[1];   //获得<td>编程</td>
+            let inp = document.createElement('input');  //创建输入框
+            let btn = document.createElement('button');
+            btn.type = 'button';
+            btn.id = "Nbtn";
+            btn.innerHTML = "Save";
 
+            inp.type = 'text';
+            inp.id = "inp";
+            let originVal = td.innerHTML;
+            inp.value = originVal;
+            td.innerHTML="";
+
+            btn.onclick = function (){
+                let val = document.getElementById('inp').value;
+                //判断修改的值是否为空
+                if (!val){
+                    td.innerHTML = originVal;
+                } else{
+                    td.innerHTML = val;
+                }
+            }
+            td.appendChild(inp);
+            td.appendChild(btn);
+        }
+
+    //点击出现对话框
+        function show() {
+            document.getElementById('form').style.top="20%";
+            document.getElementById('ID').focus();
+        }
+    //点击关闭
+       function hide() {
+            document.getElementById('form').style.top="-100%";
+            document.getElementById('ID').value='';
+            document.getElementById('TYPE').value='';
+        }
+    //添加一行
+        function Addtr(){
+            let ID = document.getElementById('ID');
+            let TYPE = document.getElementById('TYPE');
+            let TAB = document.getElementById('tab');
+            let trobj = document.createElement('tr');
+            //输入内容保存到数组中
+            let arr=[];
+            arr[0]=ID.value;
+            arr[1]=TYPE.value;
+
+            if (!ID.value || !TYPE.value){
+                document.getElementById('tip').style.opacity=1;
+                if (!ID.value){
+                    ID.focus();
+                }
+                else {
+                    TYPE.focus();
+                }
+            }else{
+                //创建td行
+                for (let i =0;i<2;i++){
+                    let tdobj = document.createElement('td');
+                    tdobj.innerHTML=arr[i];
+                    trobj.appendChild(tdobj);
+                }
+                //    自动操作行
+                let tdobj = document.createElement('td');
+                tdobj.innerHTML="<a href='#' class='hov-btn one'>Modify</a><a href='#' class='hov-btn two'>Del</a>";
+                trobj.appendChild(tdobj);
+                TAB.appendChild(trobj);
+            }
+        }
+    //删除一行
+    //结合后台操作https://www.cnblogs.com/smallerpig/p/3646118.html
+        function Del(obj) {
+            let tr = obj.parentNode.parentNode;
+            console.log(tr);
+            tr.parentNode.removeChild(tr);
+        }
+</script>
 </html>

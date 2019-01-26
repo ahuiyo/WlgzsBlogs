@@ -1,27 +1,26 @@
-
 <div class="header p_header">
     <img class="pic" src="images/top1.png">
     <span class="name">未来工作室</span>
     <input class="search" id="M_search" name="search" type="text">
-    <button class="btn" onclick="changev()">搜索</button>
+    <button id="btn0" class="btn" onclick="changev()">搜索</button>
     <div class="pic-right">
         <ul class="ul1">
-            <li><a href="/"><img class="icon" title="主页" src="images/home.png"/></a></li>
+            <li><a href="/"><img class="icon" title="主页" src="images/home.png" /></a></li>
             <li>
                 <a href="http://10.1.32.20:18080/edit?userid=<%=ID%>">
-                    <img class="icon" title="编辑博客" src="images/pencil.png"/>
+                    <img class="icon" title="编辑博客" src="images/pencil.png" />
                 </a>
             </li>
-            <li><a href="/"><img class="icon" title="我的主页" src="images/page.png"/></a></li>
+            <li><a href="/admin"><img class="icon" title="我的主页" src="images/page.png" /></a></li>
             <li style="z-index: 21">
                 <!--show box-->
                 <div class="on">
-                    <a href="/owner?id=<%=ID%>"></a><img class="icon" title="个人博客中心" src="images/person.png"/>
+                    <a href="/owner?id=<%=ID%>"></a><img class="icon" title="个人博客中心" src="images/person.png" />
                     <div class="p_box">
                         <div class="user">
                             <span class="p_use">账户</span>
                             <span>
-                                <a href="javascript:;" style="float:right;color:#d8d8d8" onclick="send()" >退出</a>
+                                <a href="javascript:;" style="float:right;color:#d8d8d8" onclick="send()">退出</a>
                             </span>
                         </div>
                         <ul class="pub">
@@ -34,35 +33,35 @@
                                 <i><img class="icon1" src="images/heart.png"></i>
                                 <span data-id="tab2" data-url="/owner/" class="p_font">我的点赞</span>
                             </li>
-                                <li>
-                                    <i><img class="icon1" src="images/good.png"></i>
-                                    <span data-id="tab3" data-url="/owner/" class="p_font">我的收藏</span>
-                                </li>
-                                <li>
-                                    <i><img class="icon1" src="images/info.png"></i>
-                                    <span data-id="tab4" data-url="/owner/" class="p_font">我的评论</span>
-                                </li>
-                                <li>
-                                    <i><img class="icon1" src="images/fans.png"></i>
-                                    <span data-id="tab5" data-url="/owner/" class="p_font">我的关注</span>
-                                </li>
-                                <li>
-                                    <i><img class="icon1" src="images/concern.png"></i>
-                                    <span data-id="tab6" data-url="/owner/" class="p_font">我的粉丝</span>
-                                </li>
-                                <li>
-                                    <i><img class="icon1" src="images/article.png"></i>
-                                    <span data-id="tab7" data-url="/owner/" class="p_font">我的消息</span>
-                                </li>
-                                <li>
-                                    <i><img class="icon1" src="images/article.png"></i>
-                                    <span data-id="tab8" data-url="/owner/" class="p_font">个人资料</span>
-                                </li>
-                                <li>
-                                    <i><img class="icon1" src="images/article.png"></i>
-                                    <span data-id="tab8" data-url="/owner/" class="p_font">个人主页</span>
-                                </li>
-                            </ul>
+                            <li>
+                                <i><img class="icon1" src="images/good.png"></i>
+                                <span data-id="tab3" data-url="/owner/" class="p_font">我的收藏</span>
+                            </li>
+                            <li>
+                                <i><img class="icon1" src="images/info.png"></i>
+                                <span data-id="tab4" data-url="/owner/" class="p_font">我的评论</span>
+                            </li>
+                            <li>
+                                <i><img class="icon1" src="images/fans.png"></i>
+                                <span data-id="tab5" data-url="/owner/" class="p_font">我的关注</span>
+                            </li>
+                            <li>
+                                <i><img class="icon1" src="images/concern.png"></i>
+                                <span data-id="tab6" data-url="/owner/" class="p_font">我的粉丝</span>
+                            </li>
+                            <li>
+                                <i><img class="icon1" src="images/article.png"></i>
+                                <span data-id="tab7" data-url="/owner/" class="p_font">我的消息</span>
+                            </li>
+                            <li>
+                                <i><img class="icon1" src="images/article.png"></i>
+                                <span data-id="tab8" data-url="/owner/" class="p_font">个人资料</span>
+                            </li>
+                            <li>
+                                <i><img class="icon1" src="images/article.png"></i>
+                                <span data-id="tab8" data-url="/owner/" class="p_font">个人主页</span>
+                            </li>
+                        </ul>
                         <!-- <div class="p_count">
                             <p></p>
                             <div class="look">
@@ -70,7 +69,7 @@
                             </div>
                         </div> -->
                         <!-- <ul class="pub"> -->
-                            <!-- <li>
+                        <!-- <li>
                                 <i><img class="icon1" src="images/fans.png"></i>
                                 <span data-id="tab5" data-url="/owner/" class="p_font">我的关注</span>
                             </li>
@@ -98,73 +97,78 @@
     </div>
 </div>
 <script type="text/javascript">
-$(function () {
-    // 获取当前的页面，并设置搜索栏中的placeholder
-    const L_name = window.location.pathname;
-    switch (L_name) {
-        case '/':
-            $('#M_search').attr({"placeholder":"请输入要搜索的博客名称"});
-            break;
-        case '/user':
-            $("#M_search").attr({"placeholder":"搜索博主的其他文章"});
-            break;
-        case '/details':
-            $("#M_search").attr({"placeholder":"搜索相关的文章"});
-            break;
-        default:
-            $("#M_search").attr({"placeholder":"搜索相关的文章"});
-            break;
-    }
-
-})
-
-//退出
-function send() {
-    const exit=confirm('Are you sure you want to quit?');
-    if (exit) {
-        $.get('/logout',function (url) {
-            console.log(url);
-            location.href=url;
-        })
-    }
-}
-
-
-
-//点击搜索时 发送请求（主页中）
-function changev(){
-    const val=$('.search').val();  //得到输入的内容
-    if(val==''){
-        alert('数据不能为空！')
-    }else{
-        const data={
-            key:val
+    $(function () {
+        // 获取当前的页面，并设置搜索栏中的placeholder
+        const L_name = window.location.pathname;
+        switch (L_name) {
+            case '/':
+                $('#M_search').attr({ "placeholder": "请输入要搜索的博客名称" });
+                break;
+            case '/user':
+                $("#M_search").attr({ "placeholder": "搜索博主的其他文章" });
+                break;
+            case '/details':
+                $("#M_search").attr({ "placeholder": "搜索相关的文章" });
+                break;
+            default:
+                $("#M_search").attr({ "placeholder": "搜索相关的文章" });
+                break;
         }
-        $.ajax({
-            url:'/search',
-            type:'post',
-            data: data,      //data对象是输入的内容 作为查询数据
-            success:function (data) {
-                //遮罩显示
-                $('#mask').css({"display":"block"});
-                let str="";
-                if (data.length<=0){
-                    str="<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
-                }else{
-                    for (let i=0;i<data.length;i++){
-                        str+="<div class='c_list'><div class='main-info'><h3><a href='/blogdetails/details?id="+data[i].id+"'>"
-                            +data[i].blTitle +"</a></h3><p class='desc'>"+data[i].blSummary+"</p></div>" +
-                            "<div class='less-info'><p class='source'><span class='author'>作者"+data[i].penName+"</span>" +
-                            "<span class='type'>"+data[i].articleType+"</span><span>"+data[i].createTime+"</span>" +
-                            "<span>"+data[i].pageviews+" 人浏览</span></p></div></div>"
-                    }
-                }
-                $('#wrap').append(str);
-                $('#m_search').val(val);   //设置mask中输入框的值等于主页输入的内容
-            }
-        })
+
+        //为搜索框监听Enter键
+        $("#M_search").keydown(function(event){
+    　　　　if(event.keyCode == 13){
+        　　　　changev()
+    　　　　}
+    　　});
+    })
+
+    //退出
+    function send() {
+        const exit = confirm('Are you sure you want to quit?');
+        if (exit) {
+            $.get('/logout', function (url) {
+                console.log(url);
+                location.href = url;
+            })
+        }
     }
-}
+
+
+    //点击搜索时 发送请求（主页中）
+    function changev() {
+        const val = $('.search').val();  //得到输入的内容
+        if (val == '') {
+            alert('数据不能为空！')
+        } else {
+            const data = {
+                key: val
+            }
+            $.ajax({
+                url: '/search',
+                type: 'post',
+                data: data,      //data对象是输入的内容 作为查询数据
+                success: function (data) {
+                    //遮罩显示
+                    $('#mask').css({ "display": "block" });
+                    let str = "";
+                    if (data.length <= 0) {
+                        str = "<div class='tipe1'><img src='images/404.png' width='100%' height='100%'></div>"
+                    } else {
+                        for (let i = 0; i < data.length; i++) {
+                            str += "<div class='c_list'><div class='main-info'><h3><a href='/blogdetails/details?id=" + data[i].id + "'>"
+                                + data[i].blTitle + "</a></h3><p class='desc'>" + data[i].blSummary + "</p></div>" +
+                                "<div class='less-info'><p class='source'><span class='author'>作者" + data[i].penName + "</span>" +
+                                "<span class='type'>" + data[i].articleType + "</span><span>" + data[i].createTime + "</span>" +
+                                "<span>" + data[i].pageviews + " 人浏览</span></p></div></div>"
+                        }
+                    }
+                    $('#wrap').append(str);
+                    $('#m_search').val(val);   //设置mask中输入框的值等于主页输入的内容
+                }
+            })
+        }
+    }
 
 
 </script>

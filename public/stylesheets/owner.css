@@ -321,6 +321,20 @@
     color: #000;
     padding-bottom: 10px;
 }
+.s-color{
+    color: #747371;
+    font-size: 14px;
+    line-height: 0px;
+    padding-top: 20px;
+}
+.declear{
+    font-size: 14px !important;
+    float: right !important;
+    cursor: pointer;
+}
+.declear:hover{
+    color: #dd5b5b !important;
+}
 .p_l{padding-left: 22px;}
 .s-title:hover{color: #36f !important;}
 .s-info {overflow: hidden}
