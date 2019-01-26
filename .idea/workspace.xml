@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45b2280d-0fe6-4ba8-b5c5-2a2d00ad1f12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/javascripts/fenye.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/personblog.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/personblog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/bloglist.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bloglist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/listmy.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/listmy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/personblog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/personblog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/personblog.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/personblog.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="45b2280d-0fe6-4ba8-b5c5-2a2d00ad1f12" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -422,12 +412,12 @@
       <workItem from="1548414112693" duration="8506000" />
       <workItem from="1548461239306" duration="9973000" />
       <workItem from="1548483766557" duration="311000" />
-      <workItem from="1548484105438" duration="9564000" />
+      <workItem from="1548484105438" duration="10137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="637144000" />
+    <option name="totallyTimeSpent" value="637717000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -458,7 +448,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.39765102" />
       <window_info anchor="bottom" id="调试" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.49702382" visible="true" weight="0.2181208" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.49702382" weight="0.2181208" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
