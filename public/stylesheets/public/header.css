@@ -178,11 +178,12 @@ body{
 /*右边的数量*/
 .font{
     display: inline-block;
-    /* float: right; */
     font-size: 12px;
 }
 .on:hover .p_box{display: block}
-
+.p_font{
+    color: #fff;
+}
 /* header1样式 */
 .h_right{
     width: auto;

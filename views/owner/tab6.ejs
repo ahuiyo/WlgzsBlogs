@@ -20,8 +20,7 @@
                     <div class='fans_font'>
                         <h4><%=list[i].name%></h4>
                     </div>
-                    <span id="spid" data-bid="<%=list[i].userId%>" style="display: none"></span>
-                    <button class='F_btn cel_btn' onclick="fans(this)">关注</button>
+                    <button data-bid="<%=list[i].userId%>" class='F_btn cel_btn' onclick="fans(this)">关注</button>
                 </div>
             <%}%>
         </div>

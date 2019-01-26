@@ -134,7 +134,7 @@ router.post('/delAllinfo', function (req, res) {
 //         .end(function (err, result) {
 //             var data = JSON.parse(result.text);
 //             res.send(data);
-//         })
+//         }) 
 // })
 
 // 取消收藏

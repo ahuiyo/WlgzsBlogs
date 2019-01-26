@@ -17,8 +17,8 @@
                         <div class='s-desc wid-box'>
                             <%=list[i].blSummary%>
                         </div>
-                        <span id="idg" data-id="<%=list[i].id%>" style="display: none"></span>
-                        <span class="cancel-fans" onclick="cancelG()">取消</span>
+                        <!-- <span id="idg" style="display: none"></span> -->
+                        <span data-id="<%=list[i].id%>" class="cancel-fans" onclick="cancelG(this)">取消</span>
                     </div>
                 </div>
             </div>

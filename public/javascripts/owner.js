@@ -25,7 +25,8 @@ $(function () {
 function delBlog(that){
     var _this = that;
     if(confirm('确定要删除次博客？')){
-        var id = $('#all').attr('data-id')
+        var id = $(_this).attr('data-id')
+        console.log(id)
         $.ajax({
             url:'/personblog/deleteblog',
             type:'get',
@@ -100,7 +101,7 @@ function delAll(that){
 // 删除我的评论
 function del_comont(that){
     var _this = that;
-    var id = $('#idc').attr('data-id');
+    var id = $(_this).attr('data-id');
     $.ajax({
         url:'/details/detele',
         type:'get',
@@ -150,7 +151,7 @@ function btnUpdate(that){
 //我的粉丝
 function fans(that){
     var _this = that;
-    var id = $('#spid').attr('data-bid');  //关注这篇博客主人的id 
+    var id = $(_this).attr('data-bid');  //关注这篇博客主人的id 
     $.ajax({
         url:'/personblog/attention',
         type:'get',
@@ -158,10 +159,10 @@ function fans(that){
             id:id,
         },
         success:function(data){
-            if(data.code==0){
-                $(_this).html('关注')
-            }else if(data.code==1){
+            if(data.code==1){
                 $(_this).html('取消关注')
+            }else if(data.code==0){
+                $(_this).html('关注')
             }else{
                 alert('操作失败！')
             }
@@ -171,16 +172,15 @@ function fans(that){
 
 //取消点赞
 function cancelG(that){
-    var id = $('#idg').attr('data-id');
+    var _this = that;
+    var id = $(_this).attr('data-id');
     $.ajax({
-        url:'/details/savelike',
+        url:'/details/savelike', 
         type:'get',
         data:{id:id},
         success:function(result){
             if(result.code == 0){
                 $(_this).parents('.g_list').css({'display':'none'})
-            }else if(result.code == -1){
-                alert('操作失败！') 
             }else{
                 alert('操作失败！')
             }
