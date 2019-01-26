@@ -78,23 +78,24 @@ router.get('/deleteblog',function (req,res) {
         })
 });
 
-//从新编辑博客
-// router.get('/editblog',function (req,res) {
-//     let aid=req.query;
-//     console.log(aid);
-//     const url='http://10.1.32.20:18080/update';
-//     // const url='http://wlgzs.org:9090/mock/42/blog/deleteblog?id=51';
-//     superagent
-//         .get(url)
-//         .query(aid)
-//         .end(function (err,data) {
-//             console.log(JSON.parse(data.text));
-//             if(!err){
-//                 res.json( JSON.parse(data.text));
-//             }
-//
-//         })
-// });
+// 草稿
+router.get('/listmy',function (req,res) {
+    let aid=req.query;
+    console.log(aid);
+    const url='http://wlgzs.org:9090/mock/42/personal/listmy';
+    // const url='http://wlgzs.org:9090/mock/42/blog/deleteblog?id=51';
+    superagent
+        .get(url)
+        .query(aid)
+        .query({'status':'draft'})
+        .end(function (err,data) {
+            console.log(JSON.parse(data.text));
+            if(!err){
+                res.json( JSON.parse(data.text));
+            }
+
+        })
+});
 
 
 module.exports = router;   /*暴露这个 router模块*/

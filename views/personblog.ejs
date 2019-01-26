@@ -62,7 +62,9 @@
 <section class="headers">
     <ul>
         <li class="liactive"><a href="">首页</a> </li>
-        <li><a href="">草稿</a> </li>
+        <%if(past.loginUserId == user.id){%>
+        <li><a href="/personblog/listmy?id=<%past.loginUserId%>">草稿</a> </li>
+        <%}%>
     </ul>
 </section>
 <section class="table">
