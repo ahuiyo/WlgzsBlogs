@@ -23,40 +23,44 @@ router.get('/', function (req, res) {
                 .query({id:aid.id})
                 .query({userid:userids})
                 .end(function (err, data) {
+                    superagent
+                        .get('http://10.1.32.20:18080/home/index')
+                        .query({userid : userids})
+                        .end(function (err,ress) {
+                            if (!err) {
+                                const datas = JSON.parse(dataname.text).data;
+                                console.log(datas);
+                                const result = JSON.parse(data.text).result;
+                                const cotegory = JSON.parse(data.text).cotegory;
+                                const number = JSON.parse(ress.text).dataother['information'];  //顶部各个部分的数量
+                                const user = JSON.parse(data.text).user.user;
+                                const code = JSON.parse(data.text).code;
+                                const past = JSON.parse(data.text).past;
+                                const page=JSON.parse(data.text).page;
+                                const database=JSON.parse(data.text).database;
+                                // const personInformation=JSON.parse(data.text).datacomments.personInformation;
+                                // const dataother=JSON.parse(data.text).dataother;
 
+                                for (var i in datas) {
+                                    let labels = datas[i].label.split(',');
+                                    datas[i].label = labels;
+                                }
 
-
-                    if (!err) {
-                        const datas = JSON.parse(dataname.text).data;
-                        console.log(datas);
-                        const result = JSON.parse(data.text).result;
-                        const cotegory = JSON.parse(data.text).cotegory;
-
-                        const user = JSON.parse(data.text).user.user;
-                        const code = JSON.parse(data.text).code;
-                        const past = JSON.parse(data.text).past;
-                        const page=JSON.parse(data.text).page;
-                        const database=JSON.parse(data.text).database;
-                        // const personInformation=JSON.parse(data.text).datacomments.personInformation;
-                        // const dataother=JSON.parse(data.text).dataother;
-
-                        for (var i in datas) {
-                            let labels = datas[i].label.split(',');
-                            datas[i].label = labels;
-                        }
-
-                        res.render('personblog', {
-                            datas,
-                            result,
-                            cotegory,
-                            database,
-                            user,
-                            code,
-                            past,
-                            page,
-                            ID:userids,
+                                res.render('personblog', {
+                                    datas,
+                                    result,
+                                    cotegory,
+                                    database,
+                                    user,
+                                    code,
+                                    past,
+                                    page,
+                                    ID:userids,
+                                    number,
+                                })
+                            }
                         })
-                    }
+
 
                 })
 

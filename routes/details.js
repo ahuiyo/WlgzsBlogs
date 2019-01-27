@@ -12,9 +12,10 @@ router.get('/',function(req,res){
         .query(aid)
         .query({userid : userid})
         .end(function (err, data) {
-            // superagent
-                // .get('http://10.1.32.20:18080/personal/statistical')
-                // .end(function (err,ress) {
+            superagent
+                .get('http://10.1.32.20:18080/home/index')
+                .query({userid : userid})
+                .end(function (err,ress) {
                     if(!err){
                         /*result  用户登录信息以及登录用户是否关注博主
                         * datas   本文章的相关数据   label  文章标签
@@ -30,7 +31,7 @@ router.get('/',function(req,res){
                         const before=JSON.parse(data.text).database.before;
                         const after=JSON.parse(data.text).database.next;
                         const comment=JSON.parse(data.text).datacomments;
-
+                        const number = JSON.parse(ress.text).dataother['information'];  //顶部各个部分的数量
                         const users=JSON.parse(data.text).user.user;
                         const dataother=JSON.parse(data.text).dataother;
                         res.render('details',{
@@ -46,9 +47,10 @@ router.get('/',function(req,res){
                             after:after,
                             comment:comment,
                             ID:userid,
+                            number,
                         })
                     }
-                // });
+                });
         })
 });
 

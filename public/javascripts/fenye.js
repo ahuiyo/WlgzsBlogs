@@ -21,7 +21,7 @@ $(document).ready(function() {
             for(var i=0;i<counts;i++){
                 if(i>=(currentpage-3) && i<(currentpage+3)){
                     if(i==currentpage-1){
-                        pagehtml+= `<li class="active"><a href="/course?id=${id}&page=${i+1}">${i+1}</a></li>`;
+                        pagehtml+= `<li class="active"><a href="/course?=${id}&page=${i+1}">${i+1}</a></li>`;
                     }else{
                         pagehtml+= `<li><a href="/course?id=${id}&page=${i+1}">${i+1}</a></li>`;
                     }

@@ -11,9 +11,10 @@ router.get('/',function (req,res) {
         .query(aid)
         .query({userid:userid})
         .end(function (err, data) {
-            // superagent
-                // .get('http://10.1.32.20:18080/personal/statistical')
-                // .end(function (err, ress) {
+            superagent
+                .get('http://10.1.32.20:18080/home/index')
+                .query({userid : userid})
+                .end(function (err,ress) {
                     if (!err) {
                         const datas = JSON.parse(data.text).data;
                         const result= JSON.parse(data.text).result;
@@ -23,8 +24,7 @@ router.get('/',function (req,res) {
                         const code=JSON.parse(data.text).code;
                         const past=JSON.parse(data.text).past;
                         const page=JSON.parse(data.text).page;
-                        // const personInformation=JSON.parse(data.text).datacomments.personInformation;
-                        console.log(datas);
+                        const number = JSON.parse(ress.text).dataother['information'];  //顶部各个部分的数量
                         // console.log(database);
 
                         for (var i in datas){
@@ -42,9 +42,10 @@ router.get('/',function (req,res) {
                             past,
                             ID:userid,
                             page:page,
+                            number,
                         })
                     }
-                // })
+                })
         })
 });
 router.get('/attention',function (req,res) {

@@ -20,35 +20,42 @@ router.get('/',function (req,res) {
             .query({userid:userids})
             .query({pageNumber: aid.page})
             .end(function (err, data) {
-                if (!err) {
-                    const datas = JSON.parse(data.text).data;
-                    const result= JSON.parse(data.text).result;
-                    const cotegory= JSON.parse(data.text).cotegory;
-                    const database = JSON.parse(data.text).database;
-                    const user=JSON.parse(data.text).user.user;
-                    const code=JSON.parse(data.text).code;
-                    const past=JSON.parse(data.text).past;
-                    const page=JSON.parse(data.text).page;
-                    // const personInformation=JSON.parse(data.text).datacomments.personInformation;
-                    // console.log(datas);
+                superagent
+                    .get('http://10.1.32.20:18080/home/index')
+                    .query({userid : userids})
+                    .end(function (err,ress) {
+                        if (!err) {
+                            const datas = JSON.parse(data.text).data;
+                            const result= JSON.parse(data.text).result;
+                            const cotegory= JSON.parse(data.text).cotegory;
+                            const database = JSON.parse(data.text).database;
+                            const user=JSON.parse(data.text).user.user;
+                            const code=JSON.parse(data.text).code;
+                            const past=JSON.parse(data.text).past;
+                            const page=JSON.parse(data.text).page;
+                            const number = JSON.parse(ress.text).dataother['information'];  //顶部各个部分的数量
+                            // console.log(datas);
 
-                    for (var i in datas){
-                        let labels=datas[i].label.split(',');
-                        datas[i].label=labels;
-                    }
+                            for (var i in datas){
+                                let labels=datas[i].label.split(',');
+                                datas[i].label=labels;
+                            }
 
-                    res.render('personblog', {
-                        datas,
-                        result,
-                        cotegory,
-                        database,
-                        user,
-                        code,
-                        past,
-                        ID:userids,
-                        page:page,
+                            res.render('personblog', {
+                                datas,
+                                result,
+                                cotegory,
+                                database,
+                                user,
+                                code,
+                                past,
+                                ID:userids,
+                                page:page,
+                                number,
+                            })
+                        }
                     })
-                }
+
 
             })
 
