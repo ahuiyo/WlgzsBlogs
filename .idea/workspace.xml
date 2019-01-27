@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45b2280d-0fe6-4ba8-b5c5-2a2d00ad1f12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/views/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/details.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="45b2280d-0fe6-4ba8-b5c5-2a2d00ad1f12" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -30,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/details.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="150" column="98" selection-start-line="150" selection-start-column="98" selection-end-line="150" selection-end-column="98" />
+            <state relative-caret-position="263">
+              <caret line="148" column="45" selection-start-line="148" selection-start-column="45" selection-end-line="148" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -187,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-510" />
     <option name="y" value="-9" />
     <option name="width" value="1386" />
@@ -395,12 +393,12 @@
       <workItem from="1548483766557" duration="311000" />
       <workItem from="1548484105438" duration="10137000" />
       <workItem from="1548547115643" duration="2300000" />
-      <workItem from="1548550624613" duration="3420000" />
+      <workItem from="1548550624613" duration="4610000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="643437000" />
+    <option name="totallyTimeSpent" value="644627000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -782,8 +780,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/details.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="150" column="98" selection-start-line="150" selection-start-column="98" selection-end-line="150" selection-end-column="98" />
+        <state relative-caret-position="263">
+          <caret line="148" column="45" selection-start-line="148" selection-start-column="45" selection-end-line="148" selection-end-column="45" />
         </state>
       </provider>
     </entry>
