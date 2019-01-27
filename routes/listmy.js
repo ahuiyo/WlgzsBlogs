@@ -13,7 +13,7 @@ router.use(bodyParser.json());
 router.get('/',function (req,res) {
     let aid=req.query;
     var userids = req.session.user.userID;
-    const url='http://wlgzs.org:9090/mock/42/personal/listmy';
+    const url='http://10.1.32.20:18080/personal/listmy';
     // const url='http://wlgzs.org:9090/mock/42/blog/deleteblog?id=51';
     superagent
         .get(url)
