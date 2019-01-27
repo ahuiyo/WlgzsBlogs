@@ -33,7 +33,6 @@ router.get('/', function (req, res) {
             const userinfo = JSON.parse(data.text).user['user'];
             const ID = userinfo.id;   //登录用户的ID
             const imgarr = [];
-
             for (var i = 0; i < list.length; i++) {
                 imgarr.push(list[i].indexImages);
             }
