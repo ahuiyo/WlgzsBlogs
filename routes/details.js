@@ -28,9 +28,9 @@ router.get('/',function(req,res){
                         const label=datas.label.split(',');
                         const other=JSON.parse(data.text).database.other;
                         const before=JSON.parse(data.text).database.before;
-                        const after=JSON.parse(data.text).database.after;
+                        const after=JSON.parse(data.text).database.next;
                         const comment=JSON.parse(data.text).datacomments;
-                        // const data3=JSON.parse(ress.text).data;
+
                         const users=JSON.parse(data.text).user.user;
                         const dataother=JSON.parse(data.text).dataother;
                         res.render('details',{
@@ -143,7 +143,7 @@ router.post('/save',function (req,res) {
             }
         });
 
-})
+});
 
 
 //删除评论
