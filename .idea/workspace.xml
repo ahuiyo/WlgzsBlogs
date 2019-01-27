@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45b2280d-0fe6-4ba8-b5c5-2a2d00ad1f12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/javascripts/fenye.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/fenye.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/bloglist.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bloglist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/course.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/details.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/listmy.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/listmy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/personblog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/personblog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/details.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,6 +27,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/details.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="150" column="98" selection-start-line="150" selection-start-column="98" selection-end-line="150" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/listmy.ejs">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/personblog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+            <state relative-caret-position="57">
+              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -62,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/fenye.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
+            <state relative-caret-position="225">
+              <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -173,13 +177,13 @@
         <option value="$PROJECT_DIR$/public/stylesheets/personblog.css" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/personblog.ejs" />
-        <option value="$PROJECT_DIR$/views/details.ejs" />
         <option value="$PROJECT_DIR$/routes/details.js" />
         <option value="$PROJECT_DIR$/routes/bloglist.js" />
         <option value="$PROJECT_DIR$/routes/course.js" />
         <option value="$PROJECT_DIR$/routes/listmy.js" />
         <option value="$PROJECT_DIR$/public/javascripts/fenye.js" />
         <option value="$PROJECT_DIR$/routes/personblog.js" />
+        <option value="$PROJECT_DIR$/views/details.ejs" />
       </list>
     </option>
   </component>
@@ -391,12 +395,12 @@
       <workItem from="1548483766557" duration="311000" />
       <workItem from="1548484105438" duration="10137000" />
       <workItem from="1548547115643" duration="2300000" />
-      <workItem from="1548550624613" duration="1736000" />
+      <workItem from="1548550624613" duration="3420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="641753000" />
+    <option name="totallyTimeSpent" value="643437000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -411,7 +415,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16666667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16666667" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -427,7 +431,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.39765102" />
       <window_info anchor="bottom" id="调试" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.49702382" visible="true" weight="0.22818792" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.49702382" visible="true" weight="0.22818792" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -713,13 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/details.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/details.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -748,24 +745,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/listmy.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/listmy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="35" column="107" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/fenye.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -776,10 +759,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/fenye.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/listmy.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/personblog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="57">
+          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/details.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="150" column="98" selection-start-line="150" selection-start-column="98" selection-end-line="150" selection-end-column="98" />
         </state>
       </provider>
     </entry>

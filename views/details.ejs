@@ -90,16 +90,16 @@
                                 success:function (data) {
                                     if(data.code == 1){
                                         noclick.addClass('Operclick');
-                                        let num=noclick.children("span").children("i").html();
-                                        num++;
-                                        noclick.children("span").children("i").html(num);
+                                        let num1=noclick.children("span").children("i").html();
+                                        num1++;
+                                        noclick.children("span").children("i").html(num1);
                                     }else if(data.code == 0){
                                         noclick.removeClass('Operclick');
-                                        let num=noclick.children("span").children("i").html();
-                                        if(num !=0){
-                                            num--;
+                                        let num2=noclick.children("span").children("i").html();
+                                        if(num2 >0){
+                                            num2--;
                                         }
-                                        noclick.children("span").children("i").html(num);
+                                        noclick.children("span").children("i").html(num2);
                                     }else{
                                         alert("操作失败，请重试！");
                                     }
@@ -139,16 +139,16 @@
                                     success:function (data) {
                                         if(data.code==1){
                                                 nocollect.addClass('Operclick');
-                                                let num=nocollect.children("span").children("i").html();
-                                                num++;
-                                                nocollect.children("span").children("i").html(num);
+                                                let num3=nocollect.children("span").children("i").html();
+                                                num3++;
+                                                nocollect.children("span").children("i").html(num3);
                                         }else if(data.code==0){
                                                 nocollect.removeClass('Operclick');
-                                                let num=nocollect.children("span").children("i").html();
-                                                if(num!=0){
-                                                    num--;
+                                                let num4=nocollect.children("span").children("i").html();
+                                                if(num4>0){
+                                                    num4--;
                                                 }
-                                                nocollect.children("span").children("i").html(num);
+                                                nocollect.children("span").children("i").html(num4);
 
                                         }else{
                                             alert("网络错误，请重试！");
