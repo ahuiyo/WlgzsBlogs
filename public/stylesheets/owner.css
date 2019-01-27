@@ -523,7 +523,7 @@
 .eve_concern{
     height: 60px;
     float: right;
-    line-height: 60px;
+    /* line-height: 60px; */
 }
 .eve_btn{
     padding:8px 15px;
@@ -619,7 +619,7 @@
     box-shadow: 2px 2px 3px rgba(0,0,0,.2);
     cursor: pointer;
 }
-.active{border:1px solid #36f !important;color: #36f !important;}
+
 
 /* 欢迎界面 */
 .we_lcome_page{

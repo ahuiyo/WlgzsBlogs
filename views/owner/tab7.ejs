@@ -32,13 +32,11 @@
             </div>
         <%}%>
     </div>
-    <%if(list.length>0){%>
-        <div class="split_page">
-            <span><</span>
-            <span class="active">1</span>
-            <span onclick="spiltPage()">2</span>
-            <span>></span>
-        </div>
-    <%}%>
+    <!-- 分页 --> 
+    <div class="fenye" style="text-align:center;">
+        <ul data-userid="<%=sessionid%>" data-name="7" data-pagecount="<%=page.total%>" data-pagesize="<%=page.size%>" data-current="<%=page.current%>" class="pagination" id="pagination"></ul>
+    </div>
 </div>
+
+<script type="text/javascript" src="javascripts/fenye1.js"></script>
 <%}%>

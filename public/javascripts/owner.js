@@ -12,12 +12,37 @@ $(function () {
         $('.tabm').hide();
         $('#'+tab).show();
 
+
+        //请求地址获取
         let Eid = $(this).attr("tab");
-        let _url="/owner/"+Eid;
+        let _url="/owner/"+Eid;      //  /owner/tab1
+
+        //用户id
+        // var id = $(this).attr('data-id');
+        // //name
+        // var name = $(this).attr('data-name');
+        // //page
+        // var page = $(this).attr('data-page');
+
+        // var _url = '/owner?id='+id+'&name='+name+'&page='+page;
 
         $.get(_url,function (result) {
+            console.log(result)
             $(".i_contain").html(result);
+            
         })
+        // $.ajax({
+        //     url:_url,
+        //     type:'post',
+        //     data:{
+        //         id,
+        //         name,
+        //         page
+        //     },
+        //     success:function(result){
+        //         $(".i_contain").html(result);
+        //     }
+        // })
     });
 
 });

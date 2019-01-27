@@ -1,10 +1,11 @@
+
 <div id="tab1" class="tabm">
     <div class="g_font" style="position: relative;">
         <p>我的博客</p>
-        <a href="http://10.1.32.20:18080/edit?userid=<%=sessionid%>" class="b_btn">发表文章</a>
+        <a href="http://10.1.32.20:18080/edit?userid=<%=SID%>" class="b_btn">发表文章</a>
     </div> 
     <div class="g_wrap" id="w1">
-        <%for(let i=0;i<list.length;i++){%>
+        <%for(let i=0;i< list.length;i++){%>
         <div class="g_list"> 
             <div class="s-content">
                 <a href="/details?id=<%=list[i].id%>" class="s-title"><%=list[i].blTitle%></a>
@@ -18,7 +19,7 @@
                 <p class="s-desc s-color"><%=list[i].blSummary%></p>
                 <!--标签-->
                 <p class="tags">
-                    <%for (var j=0;j<list[i].label.length;j++){ %>
+                    <%for (var j=0;j< list[i].label.length;j++){ %>
                         <a href="#" class="label-item"><%=list[i].label[j]%></a>
                     <%}%>
                 </p>
@@ -26,7 +27,16 @@
         </div>
         <%}%>
     </div>
+      <!-- 分页 --> 
+      <div class="fenye" style="text-align:center;">
+        <ul data-userid="<%=SID%>" data-name="1" data-pagecount="<%=pages.total%>" data-pagesize="<%=pages.size%>" data-current="<%=pages.current%>" class="pagination" id="pagination"></ul>
+    </div>
+
 </div>
+
+<script type="text/javascript" src="javascripts/fenye1.js"></script> 
+
+
 
 
 

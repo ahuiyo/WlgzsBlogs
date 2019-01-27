@@ -25,5 +25,11 @@
         </div>
         <%}%>
     </div>
+     <!-- 分页 --> 
+     <div class="fenye" style="text-align:center;">
+        <ul data-userid="<%=sessionid%>" data-name="2" data-pagecount="<%=page.total%>" data-pagesize="<%=page.size%>" data-current="<%=page.current%>" class="pagination" id="pagination"></ul>
+    </div> 
 </div>
+
+<script type="text/javascript" src="javascripts/fenye1.js"></script>
 <%}%>

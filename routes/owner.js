@@ -7,56 +7,68 @@ const superagent = require('superagent');
 router.get('/', function (req, res) {
     let aid = req.query;
     req.session.userID = aid.id;   //得到登录用户id
-    var name = aid.name;
+
+    req.session.page = aid.page; 
+
+    var name = aid.name;         //代表点击的第几个li
     res.render('owner', {
         sID: req.session.userID,
         userName: req.session.user.username,
         name
-
     })
    
 });
 
 //直接返回data里的内容
-function Ask(_href, name, res, sessionid) {
+function Ask(_href, name, res, req,pages) {
+    var sessionid = req.session.userID
     superagent
         .get(_href)    //每个li请求的地址不同
-        .query({})
+        .query({pageNumber:pages})
         .end(function (err, data) {
             var list = JSON.parse(data.text).data;
+            var page = JSON.parse(data.text).result;
             res.render('owner/' + name, {
                 list,
-                sessionid
+                sessionid,
+                page
             });
         })
 }
 //返回records里面的内容
-function AskR(_href, name, res, sessionid) {
+function AskR(_href, name, res, req,page) {
+    var sessionid = req.session.userID
     superagent
         .get(_href)
+        .query({pageNumber:page})
         .end(function (err, rest) {
             var list = JSON.parse(rest.text).result.records;
-            // var page = JSON.parse(rest.text).result;
+            var page = JSON.parse(rest.text).result;
+            console.log(name)
             res.render('owner/' + name, {
                 list,
                 sessionid,
-                // page
+                page,
             });
         })
 }
 //需要分割label标签
-function Asktags(_href, name, res, sessionid) {
+function Asktags(_href, name, res, req,pages) {
+    var sessionid = req.session.userID
     superagent
         .get(_href)
+        .query({pageNumber:pages})
         .end(function (err, data) {
             var list = JSON.parse(data.text).data;
+            var page = JSON.parse(data.text).result;
             for (var i in list) {
                 var labels = list[i].label.split(',');
                 list[i].label = labels;
             }
             res.render('owner/' + name, {
                 list,
-                sessionid
+                sessionid,
+                page,
             });
         })
 }
@@ -65,26 +77,47 @@ router.get('/:pathname', function (req, res) {
     //查询的时候带上参数
     let _name = req.params.pathname;
     var SID = req.session.userID;
+    var page = req.session.page;
     if (_name == 'tab1') {         //我的博客
-        Asktags("http://10.1.32.20:18080/personal/listmy?id=" + SID, _name, res, SID);
+        superagent
+        .get('http://10.1.32.20:18080/personal/listmy')
+        .query({id:SID})
+        .query({pageNumber:page})
+        .end(function (err, data) {
+            var list = JSON.parse(data.text).data;
+            var pages = JSON.parse(data.text).page;
+
+            console.log(pages);
+
+            for (var i in list) {
+                var labels = list[i].label.split(',');
+                list[i].label = labels;
+            }
+            res.render('owner/tab1', {
+                list,
+                SID,
+                pages,
+                
+            });
+        })
     }
     else if (_name == 'tab2') {  //我的点赞
-        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2&userid=" + SID, _name, res, SID);
+        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2&userid=" + SID, _name, res,req,page);
     }
     else if (_name == 'tab3') {  //我的收藏
-        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7&userid=" + SID, _name, res, SID);
+        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab4') {  //我的评论
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3&userid=" + SID, _name, res, SID);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3&userid=" + SID, _name, res,req,page);
     }
     else if (_name == 'tab5') {  //我的关注
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1&userid=" + SID, _name, res, SID);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab6') {  //我的粉丝
-        AskR("http://10.1.32.20:18080/personal/myfan?id=9&userid=" + SID, _name, res, SID);
+        AskR("http://10.1.32.20:18080/personal/myfan?id=9&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab7') {   //我的消息
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid=" + SID, _name, res, SID);
+        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab8') {
         //个人信息
@@ -105,7 +138,7 @@ router.get('/:pathname', function (req, res) {
                 // console.log(data);
             })
     } else {
-        Asktags('http://wlgzs.org:9090/mock/42/personal/listmy?id=18&status=draft', _name, res, SID)
+        Asktags('http://wlgzs.org:9090/mock/42/personal/listmy?id=18&status=draft', _name, res, req,page)
     }
 });
 

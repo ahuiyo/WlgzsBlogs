@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>个人资料</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/header.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/public/footer.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/owner.css">
@@ -28,7 +29,7 @@
                     我的博客
                     <i></i>
                 </li>
-                <li tab="tab2" class="pubc tab2" data-url="/owner/">
+                <li tab="tab2" class="pubc tab2"  data-id="<%=sID%>" data-page="1" data-name="1">
                     <img src="images/05.png">
                     我的点赞
                     <i></i>
@@ -38,7 +39,7 @@
                     我的收藏
                     <i></i>
                 </li>
-                <li tab="tab4" class="pubc tab4" data-url="/owner/">
+                <li tab="tab4" class="pubc tab4" data-id="<%=sID%>" data-page="1" data-name="4">
                     <img src="images/07.png">
                     我的评论
                     <i></i>
@@ -63,25 +64,9 @@
                     个人资料
                     <i></i>
                 </li>
-                <!-- <li tab="tab9" class="pubc tab9" data-url="/owner/">
-                    <img src="images/pencil.png">
-                    我的草稿
-                    <i></i>
-                </li> -->
             </ul>
-        </div>
-        <!-- <div class="we_lcome_page">
-                <p>
-                    欢迎进入
-                </p>
-                <p>
-                    个人博客管理中心
-                </p>
-            </div> -->
-        <!--right-->
+        </div> 
         <div class="i_contain" id="contain">
-
-       
             <div class="we_lcome_page">
                 <p>
                     欢迎进入
@@ -89,25 +74,23 @@
                 <p>
                     个人博客管理中心
                 </p>
-               <p id="name"> <%=name%></p>
+                <p id="name"><%=name%></p> 
             </div>
-    
-
         </div>
         <!--footer-->
         <%-include ./public/footer.ejs%>
 </body>
 
 <script type="text/javascript" src="javascripts/owner.js"></script>
-<script type="text/javascript" src="javascripts/commont.js"></script>
+
 <script>
 
     // 控制顶部右上角的点击跳转到owner页面
-$(function(){
-    var num=$('#name').html();
-    num=parseInt(num);
-    num--;
-    $($('.pubc')[num]).click();
-})
+    $(function(){
+        var num=$('#name').html();
+        num=parseInt(num);
+        num--;
+        $($('.pubc')[num]).click();
+    })
 </script>
 </html>
