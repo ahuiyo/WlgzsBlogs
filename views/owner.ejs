@@ -12,7 +12,7 @@
 
 <body>
     <!--header-->
-    <%-include ./public/header1.ejs%> 
+    <%-include ./public/header1.ejs%>
     <!--info-->
     <div class="info">
         <!--left-->
@@ -24,9 +24,9 @@
             </div>
             <ul class="chose">
                 <li tab="tab1" class="pubc tab1" data-url="/owner/">
-                    <img src="images/02.png"> 
+                    <img src="images/02.png">
                     我的博客
-                    <i></i> 
+                    <i></i>
                 </li>
                 <li tab="tab2" class="pubc tab2" data-url="/owner/">
                     <img src="images/05.png">
@@ -70,8 +70,18 @@
                 </li> -->
             </ul>
         </div>
+        <!-- <div class="we_lcome_page">
+                <p>
+                    欢迎进入
+                </p>
+                <p>
+                    个人博客管理中心
+                </p>
+            </div> -->
         <!--right-->
-        <div class="i_contain">
+        <div class="i_contain" id="contain">
+
+       
             <div class="we_lcome_page">
                 <p>
                     欢迎进入
@@ -79,13 +89,25 @@
                 <p>
                     个人博客管理中心
                 </p>
+               <p id="name"> <%=name%></p>
             </div>
-        </div> 
-    </div>
-    <!--footer-->
-    <%-include ./public/footer.ejs%>
-</body> 
+    
+
+        </div>
+        <!--footer-->
+        <%-include ./public/footer.ejs%>
+</body>
 
 <script type="text/javascript" src="javascripts/owner.js"></script>
+<script type="text/javascript" src="javascripts/commont.js"></script>
+<script>
 
+    // 控制顶部右上角的点击跳转到owner页面
+$(function(){
+    var num=$('#name').html();
+    num=parseInt(num);
+    num--;
+    $($('.pubc')[num]).click();
+})
+</script>
 </html>

@@ -11,7 +11,7 @@
                     <img class="icon" title="编辑博客" src="images/pencil.png" />
                 </a>
             </li>
-            <li><a href="/admin"><img class="icon" title="我的主页" src="images/page.png" /></a></li>
+            <li><a href="/owner?id=<%=ID%>&name=7"><img class="icon" title="我的消息" src="images/page.png" /></a></li>
             <li style="z-index: 21">
                 <!--show box-->
                 <div class="on">
@@ -26,8 +26,8 @@
                         <ul class="pub">
                             <li>
                                 <i><img class="icon1" src="images/blogicon.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">我的博客</a>
-                                <!-- <span data-id="tab1" data-url="/owner/" class="p_font">我的博客</span> -->
+                                <a href="/owner?id=<%=ID%>&name=1" class="p_font">我的博客</a>
+                                <span class="Number"><%=number.blogNum%></span>
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/blogicon.png"></i>
@@ -35,38 +35,37 @@
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/heart.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">我的点赞</a>
-                                <!-- <span data-id="tab2" data-url="/owner?id=<%=ID%>" class="p_font">我的点赞</span> -->
+                                <a href="/owner?id=<%=ID%>&name=2" class="p_font">我的点赞</a>
+                                <span class="Number"><%=number.likeNum%></span>
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/good.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">我的收藏</a>
-                                <!-- <span data-id="tab3" data-url="/owner/" class="p_font">我的收藏</span> -->
+                                <a href="/owner?id=<%=ID%>&name=3" class="p_font">我的收藏</a>
+                                <span class="Number"><%=number.collectionNum%></span>
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/info.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">我的评论</a>
-                                <!-- <span data-id="tab4" data-url="/owner/" class="p_font">我的评论</span> -->
+                                <a href="/owner?id=<%=ID%>&name=4" class="p_font">我的评论</a>
+                                <span class="Number"><%=number.commentNum%></span>
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/fans.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">我的关注</a>
-                                <!-- <span data-id="tab5" data-url="/owner/" class="p_font">我的关注</span> -->
+                                <a href="/owner?id=<%=ID%>&name=5" class="p_font">我的关注</a>
+                                <span class="Number"><%=number.myAttentionNum%></span>
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/concern.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">我的粉丝</a>
-                                <!-- <span data-id="tab6" data-url="/owner/" class="p_font">我的粉丝</span> -->
+                                <a href="/owner?id=<%=ID%>&name=6" class="p_font">我的粉丝</a>
+                                <span class="Number"><%=number.fanNum%></span>
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/article.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">我的消息</a>
-                                <!-- <span data-id="tab7" data-url="/owner/" class="p_font">我的消息</span> -->
+                                <a href="/owner?id=<%=ID%>&name=7" class="p_font">我的消息</a>
+                                <span class="Number"><%=number.messageNum%></span>
                             </li>
                             <li>
                                 <i><img class="icon1" src="images/article.png"></i>
-                                <a href="/owner?id=<%=ID%>" class="p_font">个人资料</a>
-                                <!-- <span data-id="tab8" data-url="/owner/" class="p_font">个人资料</span> -->
+                                <a href="/owner?id=<%=ID%>&name=8" class="p_font">个人资料</a>
                             </li>
                             
                         </ul>

@@ -29,10 +29,11 @@ router.get('/', function (req, res) {
             const list = JSON.parse(data.text).data;  //左边分类下面的推荐阅读
             const past = JSON.parse(data.text).past;  //右边推荐博客
             const cotegory = JSON.parse(data.text).cotegory;   //左边顶部分类标签
-            // const number = JSON.parse(data.text).dataother['information'];  //顶部各个部分的数量
+            const number = JSON.parse(data.text).dataother['information'];  //顶部各个部分的数量
             const userinfo = JSON.parse(data.text).user['user'];
             const ID = userinfo.id;   //登录用户的ID
             const imgarr = [];
+
             for (var i = 0; i < list.length; i++) {
                 imgarr.push(list[i].indexImages);
             }
@@ -40,7 +41,7 @@ router.get('/', function (req, res) {
                 data1: list,
                 past,
                 cotegory,
-                // number,
+                number,
                 imgarr,
                 ID
             })

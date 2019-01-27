@@ -184,6 +184,12 @@ body{
 .p_font{
     color: #fff;
 }
+.pub li:hover .p_font{
+    color: #333333
+}
+.Number{
+    float: right;
+}
 /* header1样式 */
 .h_right{
     width: auto;

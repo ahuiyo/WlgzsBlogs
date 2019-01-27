@@ -14,7 +14,6 @@ router.get('/',function (req,res) {
     let aid=req.query;
     var userids = req.session.user.userID;
     // const url='http://wlgzs.org:9090/mock/42/blog/deleteblog?id=51';
-
         superagent
             .get('http://10.1.32.20:18080/blog/list')
             .query({id:aid.id})
@@ -31,7 +30,7 @@ router.get('/',function (req,res) {
                     const past=JSON.parse(data.text).past;
                     const page=JSON.parse(data.text).page;
                     // const personInformation=JSON.parse(data.text).datacomments.personInformation;
-                    console.log(datas);
+                    // console.log(datas);
 
                     for (var i in datas){
                         let labels=datas[i].label.split(',');

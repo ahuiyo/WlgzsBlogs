@@ -14,6 +14,7 @@ $(function () {
 
         let Eid = $(this).attr("tab");
         let _url="/owner/"+Eid;
+
         $.get(_url,function (result) {
             $(".i_contain").html(result);
         })
