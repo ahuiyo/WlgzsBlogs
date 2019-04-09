@@ -33,7 +33,7 @@
     <div class="content">
         <div class="contentLeft">
             <h1 class="contentTitle"><%=datas.blTitle%></h1>
-            <ul class="contentTime"> 
+            <ul class="contentTime">
                 <li><a href="/personblog?id=<%=users.id%>"><%=users.username %></a></li>
                 <li><img src="images/detailtime.png"> <span><%=datas.createTime%></span></li>
                 <li><img src="images/detailsee.png"><span>浏览 <%=datas.pageviews%></span></li>
@@ -137,6 +137,7 @@
                                         id:dataid
                                     },
                                     success:function (data) {
+                                        console.log(data);
                                         if(data.code==1){
                                                 nocollect.addClass('Operclick');
                                                 let num3=nocollect.children("span").children("i").html();

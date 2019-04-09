@@ -364,6 +364,7 @@ input {
     float: left;
     font-size: 12px;
     color: #808282;
+    overflow: hidden;
 }
 
 .headers .content .contentLeft .updown a span {
