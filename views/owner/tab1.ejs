@@ -2,18 +2,18 @@
 <div id="tab1" class="tabm">
     <div class="g_font" style="position: relative;">
         <p>我的博客</p>
-        <a href="http://10.1.32.20:18080/edit?userid=<%=SID%>" class="b_btn">发表文章</a>
-    </div> 
+        <a href="http://fcb55d3a76b1d123.natapp.cc/edit?userid=<%=SID%>" class="b_btn">发表文章</a>
+    </div>
     <div class="g_wrap" id="w1">
         <%for(let i=0;i< list.length;i++){%>
-        <div class="g_list"> 
+        <div class="g_list">
             <div class="s-content">
                 <a href="/details?id=<%=list[i].id%>" class="s-title"><%=list[i].blTitle%></a>
                 <p class="s-info s_top">
                     <span>发布时间：<%=list[i].createTime%></span>
                     <span>浏览：<%=list[i].pageviews%></span>
                     <span>评论 ：<%=list[i].comments%></span>
-                    <a href="http://10.1.32.20:18080/update?id=<%=list[i].id%>&userid=<%=list[i].userId%>" class="declear" onclick="editBlog(this)" style="color: #747371">编辑</a>
+                    <a href="http://fcb55d3a76b1d123.natapp.cc/update?id=<%=list[i].id%>&userid=<%=list[i].userId%>" class="declear" onclick="editBlog(this)" style="color: #747371">编辑</a>
                     <span data-id="<%=list[i].id%>" class="declear" onclick="delBlog(this)">删除</span>
                 </p>
                 <p class="s-desc s-color"><%=list[i].blSummary%></p>
@@ -27,14 +27,14 @@
         </div>
         <%}%>
     </div>
-      <!-- 分页 --> 
+      <!-- 分页 -->
       <div class="fenye" style="text-align:center;">
         <ul data-userid="<%=SID%>" data-name="1" data-pagecount="<%=pages.total%>" data-pagesize="<%=pages.size%>" data-current="<%=pages.current%>" class="pagination" id="pagination"></ul>
     </div>
 
 </div>
 
-<script type="text/javascript" src="javascripts/fenye1.js"></script> 
+<script type="text/javascript" src="javascripts/fenye1.js"></script>
 
 
 

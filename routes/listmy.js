@@ -13,7 +13,7 @@ router.use(bodyParser.json());
 router.get('/',function (req,res) {
     let aid=req.query;
     var userids = req.session.user.userID;
-    const url='http://10.1.32.20:18080/personal/listmy';
+    const url='http://fcb55d3a76b1d123.natapp.cc/personal/listmy';
     // const url='http://wlgzs.org:9090/mock/42/blog/deleteblog?id=51';
     superagent
         .get(url)
@@ -21,12 +21,12 @@ router.get('/',function (req,res) {
         .query({'status':'draft'})
         .end(function (err,dataname) {
             superagent
-                .get('http://10.1.32.20:18080/blog/list')
+                .get('http://fcb55d3a76b1d123.natapp.cc/blog/list')
                 .query({id:aid.id})
                 .query({userid:userids})
                 .end(function (err, data) {
                     superagent
-                        .get('http://10.1.32.20:18080/home/index')
+                        .get('http://fcb55d3a76b1d123.natapp.cc/home/index')
                         .query({userid : userids})
                         .end(function (err,ress) {
                             if (!err) {

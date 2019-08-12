@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
     var userid = req.session.user.userID;
     superagent
         //首页全部
-        .get('http://10.1.32.20:18080/home/index')
+        .get('http://fcb55d3a76b1d123.natapp.cc/home/index')
         .query({ userid: userid })
         .end(function (err, data) {
             const list = JSON.parse(data.text).data;  //左边分类下面的推荐阅读
@@ -94,16 +94,16 @@ router.get('/articel/:name', function (req, res) {
     var userid = req.session.user.userID;
     //最新博客
     if (req.params.name == 'getnew') {
-        path1(res,'http://10.1.32.20:18080/home/getnew',userid);
+        path1(res,'http://fcb55d3a76b1d123.natapp.cc/home/getnew',userid);
     }
     //推荐博客
     else if (req.params.name == 'recommend') {
-        path1(res, 'http://10.1.32.20:18080/home/getnew?userid=' + userid,userid);
+        path1(res, 'http://fcb55d3a76b1d123.natapp.cc/home/getnew?userid=' + userid,userid);
     }
     //剩下的几个标li签
     else {
         const val = req.params.name;
-        path2(res, val, 'http://10.1.32.20:18080/home/getblogby',userid);
+        path2(res, val, 'http://fcb55d3a76b1d123.natapp.cc/home/getblogby',userid);
     }
 });
 
@@ -111,7 +111,7 @@ router.get('/articel/:name', function (req, res) {
 router.post('/search', function (req, res) {
     const key = req.body.key;
     superagent
-        .post('http://10.1.32.20:18080/home/searchfor')
+        .post('http://fcb55d3a76b1d123.natapp.cc/home/searchfor')
         .query({ inquiries: key })
         .end(function (err, data) {
             const list = JSON.parse(data.text).data;
@@ -166,7 +166,7 @@ router.post('/dologin', function (req, res) {
     var password = req.body.password;
 
     superagent
-        .post('http://10.1.32.20:18080/login')
+        .post('http://fcb55d3a76b1d123.natapp.cc/login')
         .type('form')
         .send({ username: username })
         .send({ password: password })
@@ -187,14 +187,14 @@ router.post('/dologin', function (req, res) {
 //登出
 router.get('/logout', function (req, res) {
     superagent
-        .get('http://10.1.32.20:18080/tologinout')
+        .get('http://fcb55d3a76b1d123.natapp.cc/tologinout')
         .end(function (err, data) {
             var list = JSON.parse(data.text);
             if (list.code == 0) {
                 req.session.destroy(function (err) {
                     res.send('/login')
                 })
-            }  
+            }
         })
 });
 

@@ -9,7 +9,7 @@ const superagent=require('superagent');
 
 
 router.get('/',function (req,res) {
-    const url='http://10.1.32.20:18080/home/gettype';
+    const url='http://fcb55d3a76b1d123.natapp.cc/home/gettype';
     superagent
         .get(url)
         .end(function (err, data) {
@@ -25,7 +25,7 @@ router.get('/',function (req,res) {
 
 router.get('/save',function (req,res) {
     var userid = req.session.user.userID;
-    const url='http://10.1.32.20:18080/personal/save';
+    const url='http://fcb55d3a76b1d123.natapp.cc/personal/save';
     console.log(userid);
     superagent
         .get(url)

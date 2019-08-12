@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
     let aid = req.query;
     req.session.userID = aid.id;   //得到登录用户id
 
-    req.session.page = aid.page; 
+    req.session.page = aid.page;
 
     var name = aid.name;         //代表点击的第几个li
     res.render('owner', {
@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
         userName: req.session.user.username,
         name
     })
-   
+
 });
 
 //直接返回data里的内容
@@ -80,7 +80,7 @@ router.get('/:pathname', function (req, res) {
     var page = req.session.page;
     if (_name == 'tab1') {         //我的博客
         superagent
-        .get('http://10.1.32.20:18080/personal/listmy')
+        .get('http://fcb55d3a76b1d123.natapp.cc/personal/listmy')
         .query({id:SID})
         .query({pageNumber:page})
         .end(function (err, data) {
@@ -97,32 +97,32 @@ router.get('/:pathname', function (req, res) {
                 list,
                 SID,
                 pages,
-                
+
             });
         })
     }
     else if (_name == 'tab2') {  //我的点赞
-        Ask("http://10.1.32.20:18080/personal/listtwoparts?id=2&userid=" + SID, _name, res,req,page);
+        Ask("http://fcb55d3a76b1d123.natapp.cc/personal/listtwoparts?id=2&userid=" + SID, _name, res,req,page);
     }
     else if (_name == 'tab3') {  //我的收藏
-        Asktags("http://10.1.32.20:18080/personal/listtwoparts?id=7&userid=" + SID, _name, res, req,page);
+        Asktags("http://fcb55d3a76b1d123.natapp.cc/personal/listtwoparts?id=7&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab4') {  //我的评论
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=3&userid=" + SID, _name, res,req,page);
+        AskR("http://fcb55d3a76b1d123.natapp.cc/personal/listotherparts?id=3&userid=" + SID, _name, res,req,page);
     }
     else if (_name == 'tab5') {  //我的关注
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=1&userid=" + SID, _name, res, req,page);
+        AskR("http://fcb55d3a76b1d123.natapp.cc/personal/listotherparts?id=1&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab6') {  //我的粉丝
-        AskR("http://10.1.32.20:18080/personal/myfan?id=9&userid=" + SID, _name, res, req,page);
+        AskR("http://fcb55d3a76b1d123.natapp.cc/personal/myfan?id=9&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab7') {   //我的消息
-        AskR("http://10.1.32.20:18080/personal/listotherparts?id=5&userid=" + SID, _name, res, req,page);
+        AskR("http://fcb55d3a76b1d123.natapp.cc/personal/listotherparts?id=5&userid=" + SID, _name, res, req,page);
     }
     else if (_name == 'tab8') {
         //个人信息
         superagent
-            .get('http://10.1.32.20:18080/personal/getinfo')
+            .get('http://fcb55d3a76b1d123.natapp.cc/personal/getinfo')
             .query({ userid: req.session.userID }) //传用户的id
             .end(function (err, data) {
                 const list = JSON.parse(data.text).user.user;
@@ -146,7 +146,7 @@ router.get('/:pathname', function (req, res) {
 router.post('/delinfo', function (req, res) {
     var Bid = req.body._id;
     superagent
-        .get('http://10.1.32.20:18080/personal/unsubscribe')
+        .get('http://fcb55d3a76b1d123.natapp.cc/personal/unsubscribe')
         .query({ id: Bid })
         .end(function (err, resu) {
             var list = JSON.parse(resu.text);
@@ -157,7 +157,7 @@ router.post('/delinfo', function (req, res) {
 // 清空全部消息
 router.post('/delAllinfo', function (req, res) {
     superagent
-        .get('http://10.1.32.20:18080/personal/delete')
+        .get('http://fcb55d3a76b1d123.natapp.cc/personal/delete')
         .query({ userid: req.session.userID }) //传用户的id
         .end(function (err, datat) {
             var list = JSON.parse(datat.text);
@@ -174,26 +174,26 @@ router.post('/delAllinfo', function (req, res) {
 //         .end(function (err, result) {
 //             var data = JSON.parse(result.text);
 //             res.send(data);
-//         }) 
+//         })
 // })
 
 // 取消收藏
 // router.post('/cancelcoll', function (req, res) {
 //     var id = req.body._id;
 //     superagent
-//         .get('http://10.1.32.20:18080/blog/savecollect')
-//         .query({'id': id}) 
+//         .get('http://fcb55d3a76b1d123.natapp.cc/blog/savecollect')
+//         .query({'id': id})
 //         .end(function (err, result) {
 //             var data = JSON.parse(result.text);
 //             res.send(data);
-//         }) 
+//         })
 // })
 
 //删除评论
 // router.post('/decomment', function (req, res) {
 //     var id = req.body._id;
 //     superagent
-//         .del('http://10.1.32.20:18080/blog/delete')    //DELETE请求 
+//         .del('http://fcb55d3a76b1d123.natapp.cc/blog/delete')    //DELETE请求
 //         .query({ 'id': id })
 //         .end(function (err, data) {
 //             var list = JSON.parse(data.text);
@@ -201,11 +201,11 @@ router.post('/delAllinfo', function (req, res) {
 //         })
 // })
 
-//我的粉丝  
+//我的粉丝
 // router.post('/fans',function(req,res){
 //     var id = req.session.user.userID;
 //     superagent
-//         .get('http://10.1.32.20:18080/personal/myfan?id=9')
+//         .get('http://fcb55d3a76b1d123.natapp.cc/personal/myfan?id=9')
 //         .query({userid:id})
 //         .end(function(err,data){
 //             var list = JSON.parse(data.text);
@@ -219,7 +219,7 @@ router.post('/update', function (req, res) {
     var str = req.body.str;
     var _id = req.body._id;
     superagent
-        .post('http://10.1.32.20:18080/personal/update')
+        .post('http://fcb55d3a76b1d123.natapp.cc/personal/update')
         .type('form')  //想要以application/x-www-form-urlencoded格式发送数据 调用type()方法传入'form'默认json
         .send({ module: str })  //已经选择的所有标签的id
         .send({ id: _id })      //当前用户的主键

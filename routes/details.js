@@ -6,14 +6,14 @@ const superagent=require('superagent');
 router.get('/',function(req,res){
     let aid = req.query;
     let userid = req.session.user.userID;
-    let url='http://10.1.32.20:18080/blog/getdetails';
+    let url='http://fcb55d3a76b1d123.natapp.cc/blog/getdetails';
     superagent
         .get(url)
         .query(aid)
         .query({userid : userid})
         .end(function (err, data) {
             superagent
-                .get('http://10.1.32.20:18080/home/index')
+                .get('http://fcb55d3a76b1d123.natapp.cc/home/index')
                 .query({userid : userid})
                 .end(function (err,ress) {
                     if(!err){
@@ -56,7 +56,7 @@ router.get('/',function(req,res){
 
 //  ------------------取消与点赞  地址 例  /details/savelike?id=3
 router.get('/savelike',function (req,res) {
-    let url='http://10.1.32.20:18080/blog/savelike';
+    let url='http://fcb55d3a76b1d123.natapp.cc/blog/savelike';
     let userid = req.session.user.userID;
     superagent
         .get(url)
@@ -87,7 +87,7 @@ router.get('/savelike',function (req,res) {
 
 // ----------------取消收藏与收藏    地址 例  /details/savecollect?id=3
 router.get('/savecollect',function (req,res) {
-    let url='http://10.1.32.20:18080/blog/savecollect';
+    let url='http://fcb55d3a76b1d123.natapp.cc/blog/savecollect';
     let userid = req.session.user.userID;
     superagent
         .get(url)
@@ -119,7 +119,7 @@ router.get('/savecollect',function (req,res) {
 //  -------------对博客进行评论
 router.post('/save',function (req,res) {
 
-    let url='http://10.1.32.20:18080/blog/save';
+    let url='http://fcb55d3a76b1d123.natapp.cc/blog/save';
     let userid = req.session.user.userID;
     superagent
         .post(url)
@@ -151,7 +151,7 @@ router.post('/save',function (req,res) {
 //删除评论
 router.get('/detele',function (req,res) {
 
-    let url='http://10.1.32.20:18080/blog/delete';
+    let url='http://fcb55d3a76b1d123.natapp.cc/blog/delete';
     let userid = req.session.user.userID;
     superagent
         .del(url)

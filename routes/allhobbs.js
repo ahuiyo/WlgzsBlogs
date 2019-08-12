@@ -6,7 +6,7 @@ const superagent=require('superagent');
 
 router.get('/',function (req,res) {
     // const url='http://10.0.75.1:8085/personal/personHome?pageNumber=1';
-    const url='http://10.1.32.20:18080/personal/get';
+    const url='http://fcb55d3a76b1d123.natapp.cc/personal/get';
     let userid = req.session.user.userID;
     superagent
         .get(url)

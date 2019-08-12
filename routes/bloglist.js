@@ -12,19 +12,19 @@ router.get('/', function (req, res) {
     let aid = req.query;
     var userids = req.session.user.userID;
     superagent
-        .post('http://10.1.32.20:18080/personal/listblog')
+        .post('http://fcb55d3a76b1d123.natapp.cc/personal/listblog')
         .type('form')
         .send({ 'name': aid.name })
         .send({ 'userid': aid.userid })
         .send({ 'pid': aid.pid })
         .end(function (err, dataname) {
             superagent
-                .get('http://10.1.32.20:18080/blog/list')
+                .get('http://fcb55d3a76b1d123.natapp.cc/blog/list')
                 .query({id:aid.id})
                 .query({userid:userids})
                 .end(function (err, data) {
                     superagent
-                        .get('http://10.1.32.20:18080/home/index')
+                        .get('http://fcb55d3a76b1d123.natapp.cc/home/index')
                         .query({userid : userids})
                         .end(function (err,ress) {
                             if (!err) {
@@ -81,7 +81,7 @@ router.get('/listmy',function (req,res) {
         .query({'status':'draft'})
         .end(function (err,dataname) {
             superagent
-                .get('http://10.1.32.20:18080/blog/list')
+                .get('http://fcb55d3a76b1d123.natapp.cc/blog/list')
                 .query({id:aid.id})
                 .query({userid:userids})
                 .end(function (err, data) {
